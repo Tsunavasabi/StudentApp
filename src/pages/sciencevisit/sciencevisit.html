@@ -1,0 +1,87 @@
+<ion-header>
+
+  <ion-navbar color=ink>
+    <ion-title>SCIENCE VISIT</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="ion-content">
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+     <ion-refresher-content></ion-refresher-content>
+   </ion-refresher>
+  <div *ngFor="let out of outreach; let i = index">
+    <ion-card class="card">
+      <ion-card-header class="cardhead" *ngIf="out.flag == '0'">
+        รายการที่ {{i+1}}
+          <button ion-button (click)="out.btn_press = 'true'" icon-only small color="dark" clear style="margin-left: 150px">
+            <ion-icon style="color: #FFF" name="ios-arrow-down-outline"></ion-icon>
+          </button>
+          <button ion-button (click)="out.btn_press = 'false'" icon-only small color="dark" clear>
+            <ion-icon style="color: #FFF" name="ios-arrow-up-outline"></ion-icon>
+          </button>
+      </ion-card-header>
+      <ion-card-header class="cardhead1" *ngIf="out.flag == '1'">
+        รายการที่ {{i+1}} ส่งแล้ว..
+          <button ion-button (click)="out.btn_press = 'true'" icon-only small color="dark" clear style="margin-left: 90px">
+            <ion-icon style="color: #FFF" name="ios-arrow-down-outline"></ion-icon>
+          </button>
+          <button ion-button (click)="out.btn_press = 'false'" icon-only small color="dark" clear>
+            <ion-icon style="color: #FFF" name="ios-arrow-up-outline"></ion-icon>
+          </button>
+      </ion-card-header>
+      <ion-card-header class="cardhead2" *ngIf="out.flag == '3'">
+        รายการที่ {{i+1}} ตรวจแล้ว <ion-icon name="checkmark-circle"></ion-icon>
+          <button ion-button (click)="out.btn_press = 'true'" icon-only small color="dark" clear style="margin-left: 50px">
+            <ion-icon style="color: #FFF" name="ios-arrow-down-outline"></ion-icon>
+          </button>
+          <button ion-button (click)="out.btn_press = 'false'" icon-only small color="dark" clear>
+            <ion-icon style="color: #FFF" name="ios-arrow-up-outline"></ion-icon>
+          </button>
+      </ion-card-header>
+      <ion-card-header class="cardhead3" *ngIf="out.flag == '4'">
+        รายการที่ {{i+1}} ถูกส่งคืน..
+          <button ion-button (click)="out.btn_press = 'true'" icon-only small color="dark" clear style="margin-left: 80px">
+            <ion-icon style="color: #FFF" name="ios-arrow-down-outline"></ion-icon>
+          </button>
+          <button ion-button (click)="out.btn_press = 'false'" icon-only small color="dark" clear>
+            <ion-icon style="color: #FFF" name="ios-arrow-up-outline"></ion-icon>
+          </button>
+      </ion-card-header>
+      <ion-card-content *ngIf="out.btn_press == 'true'" class="detailcard">
+        <div style="padding-top: 10px">
+          วันที่ไปศึกษาดูงาน : {{out.act_date}}<br>
+          สถานที่ไปศึกษาดูงาน : {{out.act_places}}<br>
+          หัวข้อการศึกษาดูงาน : {{out.act_head}}<br>
+          รายละเอียด : {{out.act_details}}<br>
+          ความรู้สึก : {{out.act_feels}}
+        </div>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <p style="text-align: center">
+                <button ion-button (click)="updatedata(out.act_id)" small outline color=ink *ngIf="out.flag == '0' || out.flag == '4'">
+                  <ion-icon ios="ios-create" md="md-create"></ion-icon>แก้ไข</button>
+                <button ion-button (click)="deleteConfirm(out.act_id)" small outline color=danger *ngIf="out.flag == '0' || out.flag == '4'">
+                  <ion-icon ios="ios-trash" md="md-trash"></ion-icon>ลบ</button>
+                <button ion-button (click)="senddata(out.act_id)" small color=ink *ngIf="out.flag == '0' || out.flag == '4'">
+                  <ion-icon ios="ios-send" md="md-send"></ion-icon>ส่ง</button>
+                <button ion-button small full outline color=ink *ngIf="out.flag == '1'">
+                  <ion-icon ios="ios-send" md="md-send"></ion-icon>ส่งแล้วกำลังรอตรวจ...</button>
+                <button ion-button small full outline color=tora *ngIf="out.flag == '3'">
+                  <ion-icon ios="ios-checkbox" md="md-checkbox"></ion-icon>ตรวจแล้ว</button>
+              </p>
+            </ion-col>
+          </ion-row>
+          <ion-row *ngIf="out.flag == '3'">
+            <b>ความคิดเห็นจากผู้รับรอง</b>  :  {{out.act_advices}}
+          </ion-row>
+          <ion-row *ngIf="out.flag == '3'">
+            <b>รับรองโดย</b>  :  {{out.tch_firstname}} {{out.tch_lastname}}
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

@@ -1,0 +1,40 @@
+<ion-header>
+
+  <ion-navbar color=ink>
+    <ion-title style="text-align: center" class="ion-title">ผลการค้นหา</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="ion-content">
+  <ion-list style="background: transparent">
+    <ion-list-header style="background: transparent; font-size: 18px">
+      ทั้งหมด {{datalength}} รายการ
+    </ion-list-header>
+    <div *ngFor="let sea of searchdata">
+    <button ion-item (click)="presentdetailModal(sea)" class="detailcard" text-wrap>
+      <ion-avatar *ngIf="sea.std_firstname[0] == 'ช'" item-start>
+      <img src="./assets/imgs/ช.png">
+      </ion-avatar>
+      <ion-avatar *ngIf="sea.std_firstname[0] == 'อ'" item-start>
+      <img src="./assets/imgs/อ.png">
+      </ion-avatar>
+      <b style="font-size: 18px">{{sea.std_firstname}} {{sea.std_lastname}} {{sea.std_classroom}} ({{sea.std_number}})</b>
+      <div *ngIf="sea.flag == '0'" style="padding-top: 5px; font-size: 12px">
+        <h2>ยังไม่ส่ง</h2>
+      </div>
+      <div *ngIf="sea.flag == '1'" style="padding-top: 5px; font-size: 12px">
+        <h2>ยังไม่ตรวจ</h2>
+      </div>
+      <div *ngIf="sea.flag == '3'" style="padding-top: 5px; font-size: 12px">
+        <h2>ตรวจแล้ว โดย {{sea.tch_firstname}} {{sea.tch_lastname}}</h2>
+      </div>
+      <div *ngIf="sea.flag == '4'" style="padding-top: 5px; font-size: 12px">
+        <h2>ถูกตีกลับ</h2>
+      </div>
+      <p>ประเภท : {{sea.act_type_name}}</p>
+    </button>
+  </div>
+  </ion-list>
+</ion-content>

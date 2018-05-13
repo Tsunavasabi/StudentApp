@@ -1,0 +1,470 @@
+<ion-header>
+
+  <ion-navbar color=ink>
+    <ion-title style="font-family: 'Prompt', sans-serif">แก้ไข</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="ion-content">
+  <form (ngSubmit)="Form1Confirm()"  *ngIf="editdata[0].act_type == '01'">
+    <ion-card class="cardbg">
+      <ion-card-header class="cardhead">
+        <ion-avatar item-start>
+          <ion-icon name="contacts"></ion-icon>
+        </ion-avatar>
+        <b>แบบบันทึกการบำเพ็ญประโยชน์<br>ต่อชุมชนและสังคม</b>
+      </ion-card-header>
+      <hr>
+      <ion-card-content>
+        <ion-list>
+        <ion-item  class="cardcontent1">
+          <ion-label  style="color: #323339">วัน/เดือน/ปี</ion-label>
+          <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="editdata[0].act_date" name="act_date"></ion-datetime>
+        </ion-item>
+        <ion-item class="cardcontent1">
+          <ion-label  style="color: #323339" stacked>จำนวนชั่วโมง</ion-label>
+          <ion-input type="number" [(ngModel)]="editdata[0].act_hours" name="act_hours" required></ion-input>
+        </ion-item>
+        <ion-item class="cardcontent1">
+          <ion-label stacked  style="color: #323339">สถานที่บำเพ็ญประโยชน์</ion-label>
+          <ion-input type="text" [(ngModel)]="editdata[0].act_places" name="act_places" required></ion-input>
+        </ion-item>
+        <ion-item class="cardcontent1">
+          <ion-label stacked  style="color: #323339">ลักษณะรูปแบบการบำเพ็ญ<br>ประโยชน์ต่อชุมชนและสังคม</ion-label>
+          <ion-textarea type="text" [(ngModel)]="editdata[0].act_details" name="act_details" required></ion-textarea>
+        </ion-item>
+        <ion-item class="cardcontent1">
+          <ion-label stacked  style="color: #323339">ความประทับใจ</ion-label>
+          <ion-textarea type="text" [(ngModel)]="editdata[0].act_feels" name="act_feels" required></ion-textarea>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+    </ion-card>
+    <button ion-button type="submit" color=ink large full>บันทึก</button>
+  </form>
+
+  <form (ngSubmit)="Form2Confirm()" *ngIf="editdata[0].act_type == '02'" >
+    <ion-card class="cardbg">
+      <ion-card-header class="cardhead">
+        <ion-avatar item-start>
+          <ion-icon name="contacts"></ion-icon>
+        </ion-avatar>
+        <b>แบบบันทึกการบำเพ็ญประโยชน์<br>ต่อโรงเรียน</b>
+      </ion-card-header>
+      <hr>
+      <ion-card-content>
+        <ion-list>
+        <ion-item  class="cardcontent1">
+          <ion-label  style="color: #323339">วัน/เดือน/ปี</ion-label>
+          <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="editdata[0].act_date" name="act_date"></ion-datetime>
+        </ion-item>
+        <ion-item class="cardcontent1">
+          <ion-label  style="color: #323339" stacked>จำนวนชั่วโมง</ion-label>
+          <ion-input type="number" [(ngModel)]="editdata[0].act_hours" name="act_hours" required></ion-input>
+        </ion-item>
+        <ion-item class="cardcontent1">
+          <ion-label stacked  style="color: #323339">สถานที่บำเพ็ญประโยชน์</ion-label>
+          <ion-input type="text" [(ngModel)]="editdata[0].act_places" name="act_places" required></ion-input>
+        </ion-item>
+        <ion-item class="cardcontent1">
+          <ion-label stacked  style="color: #323339">ลักษณะรูปแบบการบำเพ็ญ<br>ประโยชน์ต่อโรงเรียน</ion-label>
+          <ion-textarea type="text" [(ngModel)]="editdata[0].act_details" name="act_details" required></ion-textarea>
+        </ion-item>
+        <ion-item class="cardcontent1">
+          <ion-label stacked  style="color: #323339">ความประทับใจ</ion-label>
+          <ion-textarea type="text" [(ngModel)]="editdata[0].act_feels" name="act_feels" required></ion-textarea>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+    </ion-card>
+    <button ion-button type="submit" color=ink large full>บันทึก</button>
+  </form>
+
+  <form (ngSubmit)="Form3Confirm()" *ngIf="editdata[0].act_type == '03'">
+    <ion-card class="cardbg">
+      <ion-card-header class="cardhead">
+        <ion-avatar item-start>
+          <ion-icon ios="ios-book" md="md-book"></ion-icon>
+        </ion-avatar>
+        <b>แบบบันทึกการอ่านหนังสือ</b><hr>
+      </ion-card-header>
+      <hr>
+      <ion-card-content>
+        <ion-list>
+        <ion-item class="cardcontent1">
+          <ion-label stacked style="color: #323339">ชื่อหนังสือ</ion-label>
+          <ion-input type="text" [(ngModel)]="editdata[0].act_head" name="act_head" required></ion-input>
+        </ion-item>
+        <ion-item class="cardcontent1">
+          <ion-label stacked style="color: #323339">ผู้แต่ง/ผู้แปล หรือหน่วยงานที่จัดทำ</ion-label>
+          <ion-input type="text" [(ngModel)]="editdata[0].act_places" name="act_places" required></ion-input>
+        </ion-item>
+        <ion-item class="cardcontent1">
+          <ion-label stacked style="color: #323339">พิมพ์ครั้งที่</ion-label>
+          <ion-input type="number" [(ngModel)]="editdata[0].act_hours" name="act_hours" required></ion-input>
+        </ion-item>
+        <ion-item class="cardcontent1">
+          <ion-label stacked style="color: #323339">สำนักพิมพ์</ion-label>
+          <ion-input type="text" [(ngModel)]="editdata[0].act_print" name="act_print" required></ion-input>
+        </ion-item>
+        <ion-item class="cardcontent1">
+          <ion-label stacked style="color: #323339">ปีที่พิมพ์</ion-label>
+          <ion-datetime displayFormat="YYYY" [(ngModel)]="editdata[0].act_date" name="act_date"></ion-datetime>
+        </ion-item>
+        <ion-item class="cardcontent1">
+          <ion-label stacked style="color: #323339">เรื่องย่อหรือสาระสังเขปของเรื่อง</ion-label>
+          <ion-textarea type="text" [(ngModel)]="editdata[0].act_details" name="act_details" required></ion-textarea>
+        </ion-item>
+        <ion-item class="cardcontent1">
+          <ion-label stacked style="color: #323339">ความประทับใจ</ion-label>
+          <ion-textarea type="text" [(ngModel)]="editdata[0].act_feels" name="act_feels" required></ion-textarea>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+    </ion-card>
+    <button ion-button type="submit" color=ink large full>บันทึก</button>
+  </form>
+
+  <form (ngSubmit)="Form4Confirm()" *ngIf="editdata[0].act_type == '04'">
+    <ion-card class="cardbg">
+      <ion-card-header class="cardhead">
+        <ion-avatar item-start>
+          <ion-icon ios="ios-beaker" md="md-beaker"></ion-icon>
+        </ion-avatar>
+        <b>แบบบันทึกการเข้าค่ายวิชาการ</b></ion-card-header><hr>
+      <ion-card-content>
+        <ion-list>
+        <ion-item class="cardcontent1">
+          <ion-label stacked style="color: #323339">ชื่อค่าย</ion-label>
+          <ion-input type="text" [(ngModel)]="editdata[0].act_head" name="act_head" required></ion-input>
+        </ion-item>
+        <ion-item class="cardcontent1">
+          <ion-label stacked style="color: #323339">สถานที่</ion-label>
+          <ion-input type="text" [(ngModel)]="editdata[0].act_places" name="act_places" required></ion-input>
+        </ion-item>
+        <ion-item class="cardcontent1">
+          <ion-label stacked style="color: #323339">ความรู้ที่ได้รับโดยสังเขป</ion-label>
+          <ion-textarea type="text" [(ngModel)]="editdata[0].act_details" name="act_details" required></ion-textarea>
+        </ion-item>
+        <ion-item class="cardcontent1">
+          <ion-label stacked style="color: #323339">ความประทับใจ</ion-label>
+          <ion-textarea type="text" [(ngModel)]="editdata[0].act_feels" name="feels" required></ion-textarea>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+    </ion-card>
+    <button ion-button type="submit" style="margin-top: 20px" color=ink large full>บันทึก</button>
+  </form>
+
+  <form (ngSubmit)="Form5Confirm()" *ngIf="editdata[0].act_type == '05'">
+    <ion-card class="cardbg">
+      <ion-card-header class="cardhead">
+        <ion-avatar item-start>
+          <ion-icon ios="ios-beaker" md="md-beaker"></ion-icon>
+        </ion-avatar>
+        <b>แบบบันทึกการเข้าค่าย<br>ปฏิบัติธรรม</b></ion-card-header><hr>
+      <ion-card-content>
+        <ion-list>
+        <ion-item class="cardcontent1">
+          <ion-label stacked style="color: #323339">ชื่อค่าย</ion-label>
+          <ion-input type="text" [(ngModel)]="editdata[0].act_head" name="act_head" required></ion-input>
+        </ion-item>
+        <ion-item class="cardcontent1">
+          <ion-label stacked style="color: #323339">สถานที่</ion-label>
+          <ion-input type="text" [(ngModel)]="editdata[0].act_places" name="act_places" required></ion-input>
+        </ion-item>
+        <ion-item class="cardcontent1">
+          <ion-label stacked style="color: #323339">ความรู้ที่ได้รับโดยสังเขป</ion-label>
+          <ion-textarea type="text" [(ngModel)]="editdata[0].act_details" name="act_details" required></ion-textarea>
+        </ion-item>
+        <ion-item class="cardcontent1">
+          <ion-label stacked style="color: #323339">ความประทับใจ</ion-label>
+          <ion-textarea type="text" [(ngModel)]="editdata[0].act_feels" name="feels" required></ion-textarea>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+    </ion-card>
+    <button ion-button type="submit" style="margin-top: 20px" color=ink large full>บันทึก</button>
+  </form>
+
+  <form (ngSubmit)="Form6Confirm()" *ngIf="editdata[0].act_type == '06'">
+      <ion-card class="cardbg">
+        <ion-card-header class="cardhead">
+          <ion-avatar item-start>
+            <ion-icon ios="ios-bus" md="md-bus"></ion-icon>
+          </ion-avatar>
+          <b>แบบบันทึกการศึกษา<br>ดูงานด้านคณิตศาสตร์<br>วิทยาศาสตร์และเทคโนโลยี</b></ion-card-header><hr>
+        <ion-card-content>
+          <ion-list>
+          <ion-item class="cardcontent1">
+            <ion-label stacked style="color: #323339">สถานที่ไปศึกษาดูงาน</ion-label>
+            <ion-input type="text" [(ngModel)]="editdata[0].act_places" name="act_places" required></ion-input>
+          </ion-item>
+          <ion-item class="cardcontent1">
+            <ion-label stacked style="color: #323339">หัวข้อการศึกษาดูงาน</ion-label>
+            <ion-input type="text" [(ngModel)]="editdata[0].act_head" name="act_head" required></ion-input>
+          </ion-item>
+          <ion-item class="cardcontent1">
+            <ion-label stacked style="color: #323339">วันที่ไปศึกษาดูงาน</ion-label>
+            <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="editdata[0].act_date" name="act_date"></ion-datetime>
+          </ion-item>
+          <ion-item class="cardcontent1">
+            <ion-label stacked style="color: #323339">ความรู้ที่ได้รับโดยสังเขป</ion-label>
+            <ion-textarea type="text" [(ngModel)]="editdata[0].act_details" name="act_details" required></ion-textarea>
+          </ion-item>
+          <ion-item class="cardcontent1">
+            <ion-label stacked style="color: #323339">ความประทับใจ</ion-label>
+            <ion-textarea type="text" [(ngModel)]="editdata[0].act_feels" name="act_feels" required></ion-textarea>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+      </ion-card>
+      <button ion-button type="submit" style="margin-top: 20px" color=ink large full>บันทึก</button>
+  </form>
+
+  <form (ngSubmit)="Form7Confirm()" *ngIf="editdata[0].act_type == '07'">
+    <ion-card class="cardbg">
+      <ion-card-header class="cardhead">
+        <ion-avatar item-start>
+          <ion-icon ios="ios-camera" md="md-camera"></ion-icon>
+        </ion-avatar>
+        <b>แบบบันทึกการศึกษาดูงาน<br>ด้านสังคมศึกษา ภาษา ศาสนา<br>ศิลปวัฒนธรรมและโบราณคดี</b></ion-card-header><hr>
+      <ion-card-content>
+        <ion-list>
+          <ion-item class="cardcontent1">
+            <ion-label stacked style="color: #323339">สถานที่ไปศึกษาดูงาน</ion-label>
+            <ion-input type="text" [(ngModel)]="editdata[0].act_places" name="act_places" required></ion-input>
+          </ion-item>
+          <ion-item class="cardcontent1">
+            <ion-label stacked style="color: #323339">หัวข้อการศึกษาดูงาน</ion-label>
+            <ion-input type="text" [(ngModel)]="editdata[0].act_head" name="act_head" required></ion-input>
+          </ion-item>
+          <ion-item class="cardcontent1">
+            <ion-label stacked style="color: #323339">วันที่ไปศึกษาดูงาน</ion-label>
+            <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="editdata[0].act_date" name="act_date"></ion-datetime>
+          </ion-item>
+          <ion-item class="cardcontent1">
+            <ion-label stacked style="color: #323339">ความรู้ที่ได้รับโดยสังเขป</ion-label>
+            <ion-textarea type="text" [(ngModel)]="editdata[0].act_details" name="act_details" required></ion-textarea>
+          </ion-item>
+          <ion-item class="cardcontent1">
+            <ion-label stacked style="color: #323339">ความประทับใจ</ion-label>
+            <ion-textarea type="text" [(ngModel)]="editdata[0].act_feels" name="act_feels" required></ion-textarea>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+    <button ion-button type="submit" style="margin-top: 20px" color=ink large full>บันทึก</button>
+  </form>
+
+  <form (ngSubmit)="Form8Confirm()" *ngIf="editdata[0].act_type == '08'">
+    <ion-card class="cardbg">
+      <ion-card-header class="cardhead">
+        <ion-avatar item-start>
+          <ion-icon name="clipboard"></ion-icon>
+        </ion-avatar>
+        <b>แบบบันทึกการฟังบรรยาย<br>ด้านวิทยาศาสตร์และเทคโนโลยี</b></ion-card-header><hr>
+      <ion-card-content>
+        <ion-list>
+        <ion-item class="cardcontent1">
+          <ion-label stacked style="color: #323339">หัวข้อการฟังบรรยาย</ion-label>
+          <ion-input type="text" [(ngModel)]="editdata[0].act_head" name="act_head" required></ion-input>
+        </ion-item>
+        <ion-item class="cardcontent1">
+          <ion-label stacked style="color: #323339">วันที่ฟังบรรยาย</ion-label>
+          <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="editdata[0].act_date" name="act_date"></ion-datetime>
+        </ion-item>
+        <ion-item class="cardcontent1">
+          <ion-label stacked style="color: #323339">ความรู้ที่ได้รับโดยสังเขป</ion-label>
+          <ion-textarea type="text" [(ngModel)]="editdata[0].act_details" name="act_details" required></ion-textarea>
+        </ion-item>
+        <ion-item class="cardcontent1">
+          <ion-label stacked style="color: #323339">ความประทับใจ</ion-label>
+          <ion-textarea type="text" [(ngModel)]="editdata[0].act_feels" name="act_feels" required></ion-textarea>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+    </ion-card>
+    <button ion-button type="submit" style="margin-top: 20px" color=ink large full>บันทึก</button>
+  </form>
+
+  <form (ngSubmit)="Form9Confirm()"  *ngIf="editdata[0].act_type == '09'">
+    <ion-card class="cardbg">
+      <ion-card-header class="cardhead">
+        <ion-avatar item-start>
+           <ion-icon ios="ios-happy" md="md-happy"></ion-icon>
+        </ion-avatar>
+        <b>แบบบันทึกการฟังบรรยาย<br>
+        ด้านพัฒนาบุคลิกภาพ<br>และความฉลาดทางอารมณ์</b></ion-card-header><hr>
+      <ion-card-content>
+        <ion-list>
+        <ion-item class="cardcontent1">
+          <ion-label stacked style="color: #323339">หัวข้อการฟังบรรยาย</ion-label>
+          <ion-input type="text" [(ngModel)]="editdata[0].act_head" name="act_head" required></ion-input>
+        </ion-item>
+        <ion-item class="cardcontent1">
+          <ion-label stacked style="color: #323339">วันที่ฟังบรรยาย</ion-label>
+          <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="editdata[0].act_date" name="act_date"></ion-datetime>
+        </ion-item>
+        <ion-item class="cardcontent1">
+          <ion-label stacked style="color: #323339">ความรู้ที่ได้รับโดยสังเขป</ion-label>
+          <ion-textarea type="text" [(ngModel)]="editdata[0].act_details" name="act_details" required></ion-textarea>
+        </ion-item>
+        <ion-item class="cardcontent1">
+          <ion-label stacked style="color: #323339">ความประทับใจ</ion-label>
+          <ion-textarea type="text" [(ngModel)]="editdata[0].act_feels" name="act_feels" required></ion-textarea>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+    </ion-card>
+    <button ion-button type="submit" style="margin-top: 20px" color=ink large full>บันทึก</button>
+  </form>
+
+  <form (ngSubmit)="Form10Confirm()" *ngIf="editdata[0].act_type == '10'">
+    <ion-card class="cardbg">
+      <ion-card-header class="cardhead">
+        <ion-avatar item-start>
+          <ion-icon name="color-palette"></ion-icon>
+        </ion-avatar>
+        <b>แบบบันทึกการฟังบรรยาย<br>
+        ด้านสังคมศึกษา ภาษา ศาสนา<br>ศิลปวัฒนธรรมและโบราณคดี</b></ion-card-header><hr>
+      <ion-card-content>
+        <ion-list>
+        <ion-item class="cardcontent1">
+          <ion-label stacked style="color: #323339">หัวข้อการฟังบรรยาย</ion-label>
+          <ion-input type="text" [(ngModel)]="editdata[0].act_head" name="act_head" required></ion-input>
+        </ion-item>
+        <ion-item class="cardcontent1">
+          <ion-label stacked style="color: #323339">วันที่ฟังบรรยาย</ion-label>
+          <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="editdata[0].act_date" name="act_date"></ion-datetime>
+        </ion-item>
+        <ion-item class="cardcontent1">
+          <ion-label stacked style="color: #323339">ความรู้ที่ได้รับโดยสังเขป</ion-label>
+          <ion-textarea type="text" [(ngModel)]="editdata[0].act_details" name="act_details" required></ion-textarea>
+        </ion-item>
+        <ion-item class="cardcontent1">
+          <ion-label stacked style="color: #323339">ความประทับใจ</ion-label>
+          <ion-textarea type="text" [(ngModel)]="editdata[0].act_feels" name="act_feels" required></ion-textarea>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+    </ion-card>
+    <button ion-button type="submit" style="margin-top: 20px" color=ink large full>บันทึก</button>
+  </form>
+
+  <form (ngSubmit)="Form11Confirm()" *ngIf="editdata[0].act_type == '11'">
+    <ion-card class="cardbg">
+      <ion-card-header class="cardhead">
+        <ion-avatar item-start>
+           <ion-icon name="game-controller-b"></ion-icon>
+        </ion-avatar>
+        <b>แบบบันทึกการเข้าร่วม<br>กิจกรรมชุมนุม</b></ion-card-header><hr>
+      <ion-card-content>
+        <ion-list>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <ion-item class="cardcontent1">
+                <ion-label floating style="color: #323339">ภาคเรียนที่</ion-label>
+                <ion-input type="number" [(ngModel)]="editdata[0].act_hours" name="act_hours" required></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col>
+              <ion-item class="cardcontent1">
+                <ion-label floating style="color: #323339">ปีการศึกษา</ion-label>
+                <ion-datetime displayFormat="YYYY" [(ngModel)]="editdata[0].act_date" name="act_date"></ion-datetime>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <ion-item class="cardcontent1">
+          <ion-label stacked style="color: #323339">ชื่อชุมนุม</ion-label>
+          <ion-input type="text" [(ngModel)]="editdata[0].act_head" name="act_head" required></ion-input>
+        </ion-item>
+        <ion-item class="cardcontent1">
+          <ion-label style="color: #323339">ประเภทของชุมนุม</ion-label>
+          <ion-select (ionChange)="typeclub($event)" okText="ตกลง" cancelText="ยกเลิก">
+              <ion-option value="ชุมนุมวิชาการ" >ชุมนุมวิชาการ</ion-option>
+              <ion-option value="ชุมนุมกีฬาและการออกกำลังกาย" >ชุมนุมกีฬาและการออกกำลังกาย</ion-option>
+              <ion-option value="ชุมนุมสังคมศึกษา ภาษา ศาสนา ศิลปวัฒนธรรมและโบราณคดี" >ชุมนุมสังคมศึกษา ภาษา ศาสนา<br>ศิลปวัฒนธรรมและโบราณคดี</ion-option>
+              <ion-option value="ชุมนุมชุมนุมกิจกรรมอื่น ๆ" >ชุมนุมกิจกรรมอื่น ๆ</ion-option>
+          </ion-select>
+        </ion-item>
+        <ion-item class="cardcontent1">
+          <ion-label stacked style="color: #323339">ความรู้ที่ได้รับโดยสังเขป</ion-label>
+          <ion-textarea type="text" [(ngModel)]="editdata[0].act_details" name="act_details" required></ion-textarea>
+        </ion-item>
+        <ion-item class="cardcontent1">
+          <ion-label stacked style="color: #323339">ความประทับใจ</ion-label>
+          <ion-textarea type="text" [(ngModel)]="editdata[0].act_feels" name="act_feels" required></ion-textarea>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+    </ion-card>
+    <button ion-button type="submit" style="margin-top: 20px" color=ink large full>บันทึก</button>
+  </form>
+
+  <form (ngSubmit)="Form12Confirm()"  *ngIf="editdata[0].act_type == '12'">
+    <ion-card class="cardbg">
+      <ion-card-header class="cardhead">
+        <ion-avatar item-start>
+          <ion-icon ios="ios-basketball" md="md-basketball"></ion-icon>
+        </ion-avatar>
+        <b>แบบบันทึกการออกกำลังกาย<br>และเล่นกีฬา</b></ion-card-header><hr>
+      <ion-card-content>
+        <ion-list>
+          <ion-item class="cardcontent1">
+            <ion-label fixed style="color: #323339">วัน/เดือน/ปี</ion-label>
+            <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="editdata[0].act_date" name="act_date"></ion-datetime>
+          </ion-item>
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <ion-item class="cardcontent1">
+                  <ion-label stacked style="color: #323339">เริ่มเวลา</ion-label>
+                  <ion-datetime displayFormat="HH : mm" [(ngModel)]="editdata[0].act_time_starts" name="act_time_starts"></ion-datetime>
+                </ion-item>
+              </ion-col>
+              <ion-col>
+                <ion-item class="cardcontent1">
+                  <ion-label stacked style="color: #323339">สิ้นสุดเวลา</ion-label>
+                  <ion-datetime displayFormat="HH : mm" [(ngModel)]="editdata[0].act_time_ends" name="act_time_ends"></ion-datetime>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        <ion-item class="cardcontent1">
+          <ion-label stacked style="color: #323339">ลักษณะการออกกำลังกาย/เล่นกีฬา</ion-label>
+          <ion-input type="text" [(ngModel)]="editdata[0].act_details" name="act_details" required></ion-input>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+    </ion-card>
+    <button ion-button type="submit" style="margin-top: 20px" color=ink large full>บันทึก</button>
+  </form>
+
+  <form (ngSubmit)="Form13Confirm()" *ngIf="editdata[0].act_type == '13'">
+    <ion-card class="cardbg">
+      <ion-card-header class="cardhead">
+        <ion-avatar item-start>
+          <ion-icon name="chatbubbles"></ion-icon>
+        </ion-avatar>
+        <b>แบบบันทึกการเข้าร่วม<br>กิจกรรมพบพ่อครู/แม่ครู</b></ion-card-header><hr>
+      <ion-card-content>
+        <ion-list>
+          <ion-item class="cardcontent1">
+            <ion-label style="color: #323339">วัน/เดือน/ปี</ion-label>
+            <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="editdata[0].act_date" name="act_date"></ion-datetime>
+          </ion-item>
+          <ion-item class="cardcontent1">
+            <ion-label stacked style="color: #323339">หัวข้ออบรม/กิจกรรม</ion-label>
+            <ion-input type="text" [(ngModel)]="editdata[0].act_head" name="act_head" required></ion-input>
+          </ion-item>
+      </ion-list>
+    </ion-card-content>
+    </ion-card>
+    <button ion-button type="submit" style="margin-top: 20px" color=ink large full>บันทึก</button>
+  </form>
+</ion-content>

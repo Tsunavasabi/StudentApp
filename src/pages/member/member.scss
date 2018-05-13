@@ -1,0 +1,97 @@
+page-member {
+
+
+  .ion-content{
+    font-family: 'Prompt', sans-serif;
+    background-image: url(../assets/imgs/home.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    opacity: 0.9;
+  }
+
+
+  .cardhead {
+    color: #FFF;
+    background-color: #193446;
+    font-size: 18px;
+  }
+
+  .cardcon {
+    padding-left: 20px;
+    padding-right: 0px;
+    margin-top: -30px;
+    padding-bottom: 10px;
+    background: transparent;
+    text-align: center;
+    font-size: 30px;
+  }
+
+  .para {
+    text-align: center;
+  }
+
+  .cardcon1 {
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 0px;
+    padding-bottom: 10px;
+    background: #C4D4E0;
+    text-align: center;
+    font-size: 50px;
+  }
+
+  .cardcon2 {
+    background: transparent;
+    text-align: center;
+    font-size: 50px;
+  }
+
+  .card {
+    margin-top: -10px;
+    margin-left: -10px;
+    margin-right: -10px;
+    margin-bottom: 20px;
+    width: 106%;
+  }
+
+  .card1 {
+    margin-top: 20px;
+    margin-left: -10px;
+    margin-right: -10px;
+    margin-bottom: 20px;
+    width: 106%;
+  }
+
+  .pic {
+    width: 50%;
+    height: 50%;
+    border-radius: 10px;
+  }
+
+  .pic1 {
+    width: 110%;
+    height: 110%;
+  }
+
+  .para1 {
+    text-align: center;
+  }
+
+  .h2 {
+    margin-left: -20px;
+    font-size: 30px;
+    color:  #193446;
+    background: transparent;
+    text-align: center;
+    padding-left: 40px;
+  }
+
+  .all {
+    width: 100px;
+    height: 100px;
+  }
+
+
+
+}

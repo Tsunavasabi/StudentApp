@@ -1,1 +1,56 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<ion-menu [content]="content" side="left">
+  <ion-header transparent>
+      <p style="text-align: center"><img src="./assets/imgs/logo2.png" class="pic"></p>
+  </ion-header>
+
+  <ion-content style="background: linear-gradient(#E9C77B, #C4D4E0);">
+    <ion-list class="para">
+      <ion-item style="background: transparent" (click)="Outreach()" menuClose>
+        การบำเพ็ญประโยชน์ต่อชุมชน<br>และสังคม
+      </ion-item>
+      <ion-item style="background: transparent" (click)="School()" menuClose>
+        การบำเพ็ญประโยชน์ต่อโรงเรียน
+      </ion-item>
+      <ion-item style="background: transparent" (click)="Book()" menuClose>
+        การอ่านหนังสือ
+      </ion-item>
+      <ion-item style="background: transparent" (click)="Academic()" menuClose>
+        การเข้าค่ายวิชาการ
+      </ion-item>
+      <ion-item style="background: transparent" (click)="Buddha()" menuClose>
+        การเข้าค่ายปฏิบัติธรรม
+      </ion-item>
+      <ion-item style="background: transparent" (click)="Sciencevisit()" menuClose>
+        การศึกษาดูงานด้านวิทยาศาสตร์<br>และเทคโนโลยี
+      </ion-item>
+      <ion-item style="background: transparent" (click)="Socialvisit()" menuClose>
+        การศึกษาดูงานด้านสังคมศึกษา
+      </ion-item>
+      <ion-item style="background: transparent" (click)="Scilecture()" menuClose>
+        การฟังบรรยายด้านวิทยาศาสตร์
+      </ion-item>
+      <ion-item style="background: transparent" (click)="Personlecture()" menuClose>
+        การฟังบรรยายด้านพัฒนา<br>บุคลิกภาพ
+      </ion-item>
+      <ion-item style="background: transparent" (click)="Sociallecture()" menuClose>
+        การฟังบรรยายด้านสังคมศึกษา
+      </ion-item>
+      <ion-item style="background: transparent" (click)="Club()" menuClose>
+        การเข้าร่วมกิจกรรมชุมนุม
+      </ion-item>
+      <ion-item style="background: transparent" (click)="Exercise()" menuClose>
+        การออกกำลังกายและการเล่นกีฬา
+         <ion-badge item-end></ion-badge>
+      </ion-item>
+      <ion-item style="background: transparent" (click)="Meetteacher()" menuClose>
+        การเข้าร่วมกิจกรรมพบพ่อครู/แม่ครู
+      </ion-item>
+      <ion-item style="background: transparent" (click)="Logout()" menuClose>
+        LOGOUT
+      </ion-item>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<ion-nav id="nav" [root]="rootPage" #content></ion-nav>

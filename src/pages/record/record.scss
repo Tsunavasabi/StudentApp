@@ -1,0 +1,58 @@
+page-record {
+    .contianer {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      padding-left: 10px;
+      padding-right: 10px;
+      background-color:rgba(0, 0, 0, 0.3);
+      color: #FFF
+    }
+
+    .cardcontent {
+      font-size: 10px;
+      color: #FFF;
+      text-align: center;
+    }
+
+    .buttoncard {
+      float: right;
+      border-style: none;
+    }
+
+    .cardbg {
+      background: #9AABB9;
+      margin-top: -10px;
+      margin-left: -10px;
+      margin-right: -10px;
+      margin-bottom: -10px;
+      width: 106%;
+
+    }
+
+    .cardcontent1 {
+      margin-top: 10px;
+      padding-left: 20px;
+      padding-right: 20px;
+      padding-bottom: 20px;
+      background: #E9B49C;
+    }
+
+    .ion-content {
+      background: linear-gradient(#E9C77B, #C4D4E0);
+      font-family: 'Prompt', sans-serif;
+    }
+
+    .cardhead {
+       text-align: center;
+       font-size: 20px;
+       color: #FFF;
+    }
+
+    .selector {
+      background: #C4D4E0;
+      font-family: 'Prompt', sans-serif;
+      border-radius: 10px;
+    }
+
+
+}

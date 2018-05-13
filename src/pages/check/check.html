@@ -1,0 +1,698 @@
+<ion-header>
+
+  <ion-navbar color=ink>
+    <ion-title>CHECK</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="ion-content">
+  <div>
+    <form *ngIf="check.act_type == '01'">
+      <ion-card class="cardbg">
+        <ion-card-header class="cardhead">
+          <ion-avatar item-start>
+            <ion-icon name="contacts"></ion-icon>
+          </ion-avatar>
+          <b>แบบตรวจการบำเพ็ญประโยชน์<br>ต่อชุมชนและสังคม</b>
+        </ion-card-header>
+        <hr>
+        <ion-card-content>
+          <ion-list>
+          <ion-item  class="cardcontent1">
+            วันที่บำเพ็ญประโยชน์
+            <p style="color: #4F4F4F">{{check.act_date}}</p>
+          </ion-item>
+          <ion-item class="cardcontent1">
+            จำนวนชั่วโมง
+            <p style="color: #4F4F4F">{{check.act_hours}} ชั่วโมง</p>
+          </ion-item>
+          <ion-item class="cardcontent1" text-wrap>
+            สถานที่บำเพ็ญประโยชน์
+            <p style="color: #4F4F4F">{{check.act_places}}</p>
+          </ion-item>
+          <ion-item class="cardcontent1" text-wrap>
+            ลักษณะรูปแบบการบำเพ็ญ<br>ประโยชน์ต่อชุมชนและสังคม
+            <p style="color: #4F4F4F">{{check.act_details}}</p>
+          </ion-item>
+          <ion-item class="cardcontent1" text-wrap>
+            ความประทับใจ
+            <p style="color: #4F4F4F">{{check.act_feels}}</p>
+          </ion-item>
+          <ion-label style="text-align: center">สำหรับครู</ion-label>
+          <ion-item  class="cardcontent1">
+            <ion-label  style="color: #323339">วัน/เดือน/ปี</ion-label>
+            <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="date" name="date"></ion-datetime>
+          </ion-item>
+          <ion-item class="cardcontent1" text-wrap>
+            <ion-label stacked  style="color: #323339">ความเห็นของผู้รับรอง</ion-label>
+            <ion-textarea type="text" [(ngModel)]="check.act_advices" name="act_advices" required></ion-textarea>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+      </ion-card>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <button ion-button color=danger full (click)="UnCheckTo()">ส่งคืน</button>
+          </ion-col>
+          <ion-col>
+            <button ion-button color=ink full (click)="CheckTo()">ตรวจ</button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+
+    <form *ngIf="check.act_type == '02'">
+      <ion-card class="cardbg">
+        <ion-card-header class="cardhead">
+          <ion-avatar item-start>
+             <ion-icon name="school"></ion-icon>
+          </ion-avatar>
+          <b>แบบบันทึกการบำเพ็ญประโยชน์<br>ต่อโรงเรียน</b>
+        </ion-card-header>
+        <hr>
+        <ion-card-content>
+          <ion-list>
+          <ion-item  class="cardcontent1">
+            วันที่บำเพ็ญประโยชน์
+            <p style="color: 4F4F4F">{{check.act_date}}</p>
+          </ion-item>
+          <ion-item class="cardcontent1">
+            จำนวนชั่วโมง
+            <p style="color: 4F4F4F">{{check.act_hours}} ชั่วโมง</p>
+          </ion-item>
+          <ion-item class="cardcontent1" text-wrap>
+            สถานที่บำเพ็ญประโยชน์
+            <p style="color: 4F4F4F">{{check.act_places}}</p>
+          </ion-item>
+          <ion-item class="cardcontent1" text-wrap>
+            ลักษณะรูปแบบการบำเพ็ญ<br>ประโยชน์ต่อโรงเรียน
+            <p style="color: 4F4F4F">{{check.act_details}}</p>
+          </ion-item>
+          <ion-item class="cardcontent1" text-wrap>
+            ความประทับใจ
+            <p style="color: 4F4F4F">{{check.act_feels}}</p>
+          </ion-item>
+          <ion-label style="text-align: center">สำหรับครู</ion-label>
+          <ion-item  class="cardcontent1">
+            <ion-label  style="color: #323339">วัน/เดือน/ปี</ion-label>
+            <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="date" name="date"></ion-datetime>
+          </ion-item>
+          <ion-item class="cardcontent1" text-wrap>
+            <ion-label stacked  style="color: #323339">ความเห็นของผู้รับรอง</ion-label>
+            <ion-textarea type="text" [(ngModel)]="check.act_advices" name="act_advices" required></ion-textarea>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+      </ion-card>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <button ion-button color=danger full (click)="UnCheckTo()">ส่งคืน</button>
+          </ion-col>
+          <ion-col>
+            <button ion-button color=ink full (click)="CheckTo()">ตรวจ</button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+
+    <form *ngIf="check.act_type == '03'">
+      <ion-card class="cardbg">
+        <ion-card-header class="cardhead">
+          <ion-avatar item-start>
+            <ion-icon ios="ios-book" md="md-book"></ion-icon>
+          </ion-avatar>
+          <b>แบบบันทึกการอ่านหนังสือ</b>
+        </ion-card-header>
+        <hr>
+        <ion-card-content>
+          <ion-list>
+          <ion-item  class="cardcontent1" text-wrap>
+            ชื่อหนังสือ
+            <p style="color: #4F4F4F">{{check.act_head}}</p>
+          </ion-item>
+          <ion-item class="cardcontent1" text-wrap>
+            ผู้แต่ง/ผู้แปล หรือหน่วยงาน<br>ที่จัดทำ
+            <p style="color: #4F4F4F">{{check.act_places}}</p>
+          </ion-item>
+          <ion-item class="cardcontent1">
+            พิมพ์ครั้งที่ <p style="color: #4F4F4F">{{check.act_hours}}</p>
+          </ion-item>
+          <ion-item class="cardcontent1">
+            ปีที่พิมพ์ <p style="color: #4F4F4F">{{check.act_date}}</p>
+          </ion-item>
+          <ion-item class="cardcontent1" text-wrap>
+            สำนักพิมพ์
+            <p style="color: #4F4F4F">{{check.act_print}}</p>
+          </ion-item>
+          <ion-item class="cardcontent1" text-wrap>
+            เรื่องย่อหรือสาระสังเขปของเรื่อง
+            <p style="color: #4F4F4F">{{check.act_details}}</p>
+          </ion-item>
+          <ion-item class="cardcontent1" text-wrap>
+            ความประทับใจ
+            <p style="color: #4F4F4F">{{check.act_feels}}</p>
+          </ion-item>
+          <ion-label style="text-align: center">สำหรับครู</ion-label>
+          <ion-item  class="cardcontent1">
+            <ion-label  style="color: #323339">วัน/เดือน/ปี</ion-label>
+            <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="date" name="date"></ion-datetime>
+          </ion-item>
+          <ion-item class="cardcontent1" text-wrap>
+            <ion-label stacked  style="color: #323339">ความเห็นของผู้รับรอง</ion-label>
+            <ion-textarea type="text" [(ngModel)]="check.act_advices" name="act_advices" required></ion-textarea>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+      </ion-card>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <button ion-button color=danger full (click)="UnCheckTo()">ส่งคืน</button>
+          </ion-col>
+          <ion-col>
+            <button ion-button color=ink full (click)="CheckTo()">ตรวจ</button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+
+    <form *ngIf="check.act_type == '04'">
+      <ion-card class="cardbg">
+        <ion-card-header class="cardhead">
+          <ion-avatar item-start>
+            <ion-icon ios="ios-beaker" md="md-beaker"></ion-icon>
+          </ion-avatar>
+          <b>แบบบันทึกการเข้าค่ายวิชาการ</b>
+        </ion-card-header>
+        <hr>
+        <ion-card-content>
+          <ion-list>
+          <ion-item  class="cardcontent1" text-wrap>
+            ชื่อค่าย
+            <p style="color: #4F4F4F">{{check.act_head}}</p>
+          </ion-item>
+          <ion-item class="cardcontent1" text-wrap>
+            สถานที่
+            <p style="color: #4F4F4F">{{check.act_places}}</p>
+          </ion-item>
+          <ion-item class="cardcontent1" text-wrap>
+            ความรู้ที่ได้รับโดยสังเขป
+            <p style="color: #4F4F4F">{{check.act_details}}</p>
+          </ion-item>
+          <ion-item class="cardcontent1" text-wrap>
+            ความประทับใจ
+            <p style="color: #4F4F4F">{{check.act_feels}}</p>
+          </ion-item>
+          <ion-label style="text-align: center">สำหรับครู</ion-label>
+          <ion-item  class="cardcontent1">
+            <ion-label  style="color: #323339">วัน/เดือน/ปี</ion-label>
+            <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="date" name="date"></ion-datetime>
+          </ion-item>
+          <ion-item class="cardcontent1" text-wrap>
+            <ion-label stacked  style="color: #323339">ความเห็นของผู้รับรอง</ion-label>
+            <ion-textarea type="text" [(ngModel)]="check.act_advices" name="act_advices" required></ion-textarea>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+      </ion-card>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <button ion-button color=danger full (click)="UnCheckTo()">ส่งคืน</button>
+          </ion-col>
+          <ion-col>
+            <button ion-button color=ink full (click)="CheckTo()">ตรวจ</button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+
+    <form *ngIf="check.act_type == '05'">
+      <ion-card class="cardbg">
+        <ion-card-header class="cardhead">
+          <ion-avatar item-start>
+            <ion-icon ios="ios-bulb" md="md-bulb"></ion-icon>
+          </ion-avatar>
+          <b>แบบบันทึกการเข้าค่าย<br>ปฏิบัติธรรม</b>
+        </ion-card-header>
+        <hr>
+        <ion-card-content>
+          <ion-list>
+            <ion-item  class="cardcontent1" text-wrap>
+              ชื่อค่าย
+              <p style="color: #4F4F4F">{{check.act_head}}</p>
+            </ion-item>
+            <ion-item class="cardcontent1" text-wrap>
+              สถานที่
+              <p style="color: #4F4F4F">{{check.act_places}}</p>
+            </ion-item>
+            <ion-item class="cardcontent1" text-wrap>
+              ความรู้ที่ได้รับโดยสังเขป
+              <p style="color: #4F4F4F">{{check.act_details}}</p>
+            </ion-item>
+            <ion-item class="cardcontent1" text-wrap>
+              ความประทับใจ
+              <p style="color: #4F4F4F">{{check.act_feels}}</p>
+            </ion-item>
+          <ion-label style="text-align: center">สำหรับครู</ion-label>
+          <ion-item  class="cardcontent1">
+            <ion-label  style="color: #323339">วัน/เดือน/ปี</ion-label>
+            <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="date" name="date"></ion-datetime>
+          </ion-item>
+          <ion-item class="cardcontent1" text-wrap>
+            <ion-label stacked  style="color: #323339">ความเห็นของผู้รับรอง</ion-label>
+            <ion-textarea type="text" [(ngModel)]="check.act_advices" name="act_advices" required></ion-textarea>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+      </ion-card>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <button ion-button color=danger full (click)="UnCheckTo()">ส่งคืน</button>
+          </ion-col>
+          <ion-col>
+            <button ion-button color=ink full (click)="CheckTo()">ตรวจ</button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+
+    <form *ngIf="check.act_type == '06'">
+      <ion-card class="cardbg">
+        <ion-card-header class="cardhead">
+          <ion-avatar item-start>
+            <ion-icon ios="ios-bus" md="md-bus"></ion-icon>
+          </ion-avatar>
+          <b>แบบบันทึกการศึกษา<br>ดูงานด้านคณิตศาสตร์<br>วิทยาศาสตร์และเทคโนโลยี</b>
+        </ion-card-header>
+        <hr>
+        <ion-card-content>
+          <ion-list>
+          <ion-item  class="cardcontent1">
+            วันทีไปศึกษาดูงาน
+            <p style="color: #4F4F4F">{{check.act_date}}</p>
+          </ion-item>
+          <ion-item class="cardcontent1" text-wrap>
+            สถานที่ไปศึกษาดูงาน
+            <p style="color: #4F4F4F">{{check.act_places}}</p>
+          </ion-item>
+          <ion-item class="cardcontent1" text-wrap>
+            หัวข้อการศึกษาดูงาน
+            <p style="color: #4F4F4F">{{check.act_head}}</p>
+          </ion-item>
+          <ion-item class="cardcontent1" text-wrap>
+            ความรู้ที่ได้รับโดยสังเขป
+            <p style="color: #4F4F4F">{{check.act_details}}</p>
+          </ion-item>
+          <ion-item class="cardcontent1" text-wrap>
+            ความประทับใจ
+            <p style="color: #4F4F4F">{{check.act_feels}}</p>
+          </ion-item>
+          <ion-label style="text-align: center">สำหรับครู</ion-label>
+          <ion-item  class="cardcontent1">
+            <ion-label  style="color: #323339">วัน/เดือน/ปี</ion-label>
+            <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="date" name="date"></ion-datetime>
+          </ion-item>
+          <ion-item class="cardcontent1" text-wrap>
+            <ion-label stacked  style="color: #323339">ความเห็นของผู้รับรอง</ion-label>
+            <ion-textarea type="text" [(ngModel)]="check.act_advices" name="act_advices" required></ion-textarea>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+      </ion-card>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <button ion-button color=danger full (click)="UnCheckTo()">ส่งคืน</button>
+          </ion-col>
+          <ion-col>
+            <button ion-button color=ink full (click)="CheckTo()">ตรวจ</button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+
+    <form *ngIf="check.act_type == '07'">
+      <ion-card class="cardbg">
+        <ion-card-header class="cardhead">
+          <ion-avatar item-start>
+            <ion-icon ios="ios-camera" md="md-camera"></ion-icon>
+          </ion-avatar>
+          <b>แบบบันทึกการศึกษาดูงาน<br>ด้านสังคมศึกษา ภาษา ศาสนา<br>ศิลปวัฒนธรรมและโบราณคดี</b>
+        </ion-card-header>
+        <hr>
+        <ion-card-content>
+          <ion-list>
+            <ion-item  class="cardcontent1">
+              วันทีไปศึกษาดูงาน
+              <p style="color: #4F4F4F">{{check.act_date}}</p>
+            </ion-item>
+            <ion-item class="cardcontent1" text-wrap>
+              สถานที่ไปศึกษาดูงาน
+              <p style="color: #4F4F4F">{{check.act_places}}</p>
+            </ion-item>
+            <ion-item class="cardcontent1" text-wrap>
+              หัวข้อการศึกษาดูงาน
+              <p style="color: #4F4F4F">{{check.act_head}}</p>
+            </ion-item>
+            <ion-item class="cardcontent1" text-wrap>
+              ความรู้ที่ได้รับโดยสังเขป
+              <p style="color: #4F4F4F">{{check.act_details}}</p>
+            </ion-item>
+            <ion-item class="cardcontent1" text-wrap>
+              ความประทับใจ
+              <p style="color: #4F4F4F">{{check.act_feels}}</p>
+            </ion-item>
+          <ion-label style="text-align: center">สำหรับครู</ion-label>
+          <ion-item  class="cardcontent1">
+            <ion-label  style="color: #323339">วัน/เดือน/ปี</ion-label>
+            <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="date" name="date"></ion-datetime>
+          </ion-item>
+          <ion-item class="cardcontent1" text-wrap>
+            <ion-label stacked  style="color: #323339">ความเห็นของผู้รับรอง</ion-label>
+            <ion-textarea type="text" [(ngModel)]="check.act_advices" name="act_advices" required></ion-textarea>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+      </ion-card>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <button ion-button color=danger full (click)="UnCheckTo()">ส่งคืน</button>
+          </ion-col>
+          <ion-col>
+            <button ion-button color=ink full (click)="CheckTo()">ตรวจ</button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+
+    <form *ngIf="check.act_type == '08'">
+      <ion-card class="cardbg">
+        <ion-card-header class="cardhead">
+          <ion-avatar item-start>
+            <ion-icon name="clipboard"></ion-icon>
+          </ion-avatar>
+          <b>แบบบันทึกการฟังบรรยาย<br>ด้านวิทยาศาสตร์และเทคโนโลยี</b>
+        </ion-card-header>
+        <hr>
+        <ion-card-content>
+          <ion-list>
+          <ion-item  class="cardcontent1">
+            วันที่ฟังบรรยาย
+            <p style="color: #4F4F4F">{{check.act_date}}</p>
+          </ion-item>
+          <ion-item class="cardcontent1" text-wrap>
+            หัวข้อการฟังบรรยาย
+            <p style="color: #4F4F4F">{{check.act_head}}</p>
+          </ion-item>
+          <ion-item class="cardcontent1" text-wrap>
+            ความรู้ที่ได้รับโดยสังเขป
+            <p style="color: #4F4F4F">{{check.act_details}}</p>
+          </ion-item>
+          <ion-item class="cardcontent1" text-wrap>
+            ความประทับใจ
+            <p style="color: #4F4F4F">{{check.act_feels}}</p>
+          </ion-item>
+          <ion-label style="text-align: center">สำหรับครู</ion-label>
+          <ion-item  class="cardcontent1">
+            <ion-label  style="color: #323339">วัน/เดือน/ปี</ion-label>
+            <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="date" name="date"></ion-datetime>
+          </ion-item>
+          <ion-item class="cardcontent1">
+            <ion-label stacked  style="color: #323339">ความเห็นของผู้รับรอง</ion-label>
+            <ion-textarea type="text" [(ngModel)]="check.act_advices" name="act_advices" required></ion-textarea>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+      </ion-card>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <button ion-button color=danger full (click)="UnCheckTo()">ส่งคืน</button>
+          </ion-col>
+          <ion-col>
+            <button ion-button color=ink full (click)="CheckTo()">ตรวจ</button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+
+    <form *ngIf="check.act_type == '09'">
+      <ion-card class="cardbg">
+        <ion-card-header class="cardhead">
+          <ion-avatar item-start>
+             <ion-icon ios="ios-happy" md="md-happy"></ion-icon>
+          </ion-avatar>
+          <b>แบบบันทึกการฟังบรรยาย<br>
+          ด้านพัฒนาบุคลิกภาพ<br>และความฉลาดทางอารมณ์</b>
+        </ion-card-header>
+        <hr>
+        <ion-card-content>
+          <ion-list>
+            <ion-item  class="cardcontent1">
+              วันที่ฟังบรรยาย
+              <p style="color: #4F4F4F">{{check.act_date}}</p>
+            </ion-item>
+            <ion-item class="cardcontent1" text-wrap>
+              หัวข้อการฟังบรรยาย
+              <p style="color: #4F4F4F">{{check.act_head}}</p>
+            </ion-item>
+            <ion-item class="cardcontent1" text-wrap>
+              ความรู้ที่ได้รับโดยสังเขป
+              <p style="color: #4F4F4F">{{check.act_details}}</p>
+            </ion-item>
+            <ion-item class="cardcontent1" text-wrap>
+              ความประทับใจ
+              <p style="color: #4F4F4F">{{check.act_feels}}</p>
+            </ion-item>
+          <ion-label style="text-align: center">สำหรับครู</ion-label>
+          <ion-item  class="cardcontent1">
+            <ion-label  style="color: #323339">วัน/เดือน/ปี</ion-label>
+            <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="date" name="date"></ion-datetime>
+          </ion-item>
+          <ion-item class="cardcontent1" text-wrap>
+            <ion-label stacked  style="color: #323339">ความเห็นของผู้รับรอง</ion-label>
+            <ion-textarea type="text" [(ngModel)]="check.act_advices" name="act_advices" required></ion-textarea>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+      </ion-card>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <button ion-button color=danger full (click)="UnCheckTo()">ส่งคืน</button>
+          </ion-col>
+          <ion-col>
+            <button ion-button color=ink full (click)="CheckTo()">ตรวจ</button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+
+    <form *ngIf="check.act_type == '10'">
+      <ion-card class="cardbg">
+        <ion-card-header class="cardhead">
+          <ion-avatar item-start>
+            <ion-icon name="color-palette"></ion-icon>
+          </ion-avatar>
+          <b>แบบบันทึกการฟังบรรยาย<br>
+          ด้านสังคมศึกษา ภาษา ศาสนา<br>ศิลปวัฒนธรรมและโบราณคดี</b>
+        </ion-card-header>
+        <hr>
+        <ion-card-content>
+          <ion-list>
+            <ion-item  class="cardcontent1">
+              วันที่ฟังบรรยาย
+              <p style="color: #4F4F4F">{{check.act_date}}</p>
+            </ion-item>
+            <ion-item class="cardcontent1" text-wrap>
+              หัวข้อการฟังบรรยาย
+              <p style="color: #4F4F4F">{{check.act_head}}</p>
+            </ion-item>
+            <ion-item class="cardcontent1" text-wrap>
+              ความรู้ที่ได้รับโดยสังเขป
+              <p style="color: #4F4F4F">{{check.act_details}}</p>
+            </ion-item>
+            <ion-item class="cardcontent1" text-wrap>
+              ความประทับใจ
+              <p style="color: #4F4F4F">{{check.act_feels}}</p>
+            </ion-item>
+          <ion-label style="text-align: center">สำหรับครู</ion-label>
+          <ion-item  class="cardcontent1">
+            <ion-label  style="color: #323339">วัน/เดือน/ปี</ion-label>
+            <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="date" name="date"></ion-datetime>
+          </ion-item>
+          <ion-item class="cardcontent1" text-wrap>
+            <ion-label stacked  style="color: #323339">ความเห็นของผู้รับรอง</ion-label>
+            <ion-textarea type="text" [(ngModel)]="check.act_advices" name="act_advices" required></ion-textarea>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+      </ion-card>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <button ion-button color=danger full (click)="UnCheckTo()">ส่งคืน</button>
+          </ion-col>
+          <ion-col>
+            <button ion-button color=ink full (click)="CheckTo()">ตรวจ</button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+
+    <form *ngIf="check.act_type == '11'">
+      <ion-card class="cardbg">
+        <ion-card-header class="cardhead">
+          <ion-avatar item-start>
+             <ion-icon name="game-controller-b"></ion-icon>
+          </ion-avatar>
+          <b>แบบบันทึกการเข้าร่วม<br>กิจกรรมชุมนุม</b>
+        </ion-card-header>
+        <hr>
+        <ion-card-content>
+          <ion-list>
+            <ion-item  class="cardcontent1">
+              ภาคเรียนที่
+              <p style="color: #4F4F4F">{{check.act_hours}}</p>
+            </ion-item>
+            <ion-item class="cardcontent1">
+              ปีการศึกษา
+              <p style="color: #4F4F4F">{{check.act_date}}</p>
+            </ion-item>
+          <ion-item class="cardcontent1" text-wrap>
+            ประเภทของชุมนุม
+            <p style="color: #4F4F4F">{{check.act_places}}</p>
+          </ion-item>
+          <ion-item class="cardcontent1" text-wrap>
+            ความรู้ที่ได้รับโดยสังเขป
+            <p style="color: #4F4F4F">{{check.act_details}}</p>
+          </ion-item>
+          <ion-item class="cardcontent1" text-wrap>
+            ความประทับใจ
+            <p style="color: #4F4F4F">{{check.act_feels}}</p>
+          </ion-item>
+          <ion-label style="text-align: center">สำหรับครู</ion-label>
+          <ion-item  class="cardcontent1">
+            <ion-label  style="color: #323339">วัน/เดือน/ปี</ion-label>
+            <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="date" name="date"></ion-datetime>
+          </ion-item>
+          <ion-item class="cardcontent1" text-wrap>
+            <ion-label stacked  style="color: #323339">ความเห็นของผู้รับรอง</ion-label>
+            <ion-textarea type="text" [(ngModel)]="check.act_advices" name="act_advices" required></ion-textarea>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+      </ion-card>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <button ion-button color=danger full (click)="UnCheckTo()">ส่งคืน</button>
+          </ion-col>
+          <ion-col>
+            <button ion-button color=ink full (click)="CheckTo()">ตรวจ</button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+
+    <form *ngIf="check.act_type == '12'">
+      <ion-card class="cardbg">
+        <ion-card-header class="cardhead">
+          <ion-avatar item-start>
+            <ion-icon ios="ios-basketball" md="md-basketball"></ion-icon>
+          </ion-avatar>
+          <b>แบบบันทึกการออกกำลังกาย<br>และเล่นกีฬา</b>
+        </ion-card-header>
+        <hr>
+        <ion-card-content>
+          <ion-list>
+          <ion-item  class="cardcontent1">
+            วันที
+            <p style="color: #4F4F4F">{{check.act_date}}</p>
+          </ion-item>
+          <ion-item class="cardcontent1" text-wrap>
+            ช่วงเวลา <p style="color: #000">{{check.act_time_starts}}-{{check.act_time_ends}}</p>
+          </ion-item>
+          <ion-item class="cardcontent1" text-wrap>
+            เวลา
+            <p style="color: #4F4F4F">{{check.act_hours}} ชั่วโมง</p>
+          </ion-item>
+          <ion-item class="cardcontent1" text-wrap>
+            ลักษณะการออกกำลังกาย/เล่นกีฬา
+            <p style="color: #4F4F4F">{{check.act_details}}</p>
+          </ion-item>
+          <ion-label style="text-align: center">สำหรับครู</ion-label>
+          <ion-item  class="cardcontent1">
+            <ion-label  style="color: #323339">วัน/เดือน/ปี</ion-label>
+            <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="date" name="date"></ion-datetime>
+          </ion-item>
+          <ion-item class="cardcontent1" text-wrap>
+            <ion-label stacked  style="color: #323339">ความเห็นของผู้รับรอง</ion-label>
+            <ion-textarea type="text" [(ngModel)]="check.act_advices" name="act_advices" required></ion-textarea>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+      </ion-card>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <button ion-button color=danger full (click)="UnCheckTo()">ส่งคืน</button>
+          </ion-col>
+          <ion-col>
+            <button ion-button color=ink full (click)="CheckTo()">ตรวจ</button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+
+    <form *ngIf="check.act_type == '13'">
+      <ion-card class="cardbg">
+        <ion-card-header class="cardhead">
+          <ion-avatar item-start>
+            <ion-icon name="chatbubbles"></ion-icon>
+          </ion-avatar>
+          <b>แบบบันทึกการเข้าร่วม<br>กิจกรรมพบพ่อครู/แม่ครู</b>
+        </ion-card-header>
+        <hr>
+        <ion-card-content>
+          <ion-list>
+          <ion-item  class="cardcontent1">
+            วันที่
+            <p style="color: #4F4F4F">{{check.act_date}}</p>
+          </ion-item>
+          <ion-item class="cardcontent1" text-wrap>
+            หัวข้ออบรม/กิจกรรม
+            <p style="color: #4F4F4F">{{check.act_head}}</p>
+          </ion-item>
+          <ion-label style="text-align: center">สำหรับครู</ion-label>
+          <ion-item  class="cardcontent1">
+            <ion-label  style="color: #323339">วัน/เดือน/ปี</ion-label>
+            <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="date" name="date"></ion-datetime>
+          </ion-item>
+          <ion-item class="cardcontent1" text-wrap>
+            <ion-label stacked  style="color: #323339">ความเห็นของผู้รับรอง</ion-label>
+            <ion-textarea type="text" [(ngModel)]="check.act_advices" name="act_advices" required></ion-textarea>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+      </ion-card>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <button ion-button color=danger full (click)="UnCheckTo()">ส่งคืน</button>
+          </ion-col>
+          <ion-col>
+            <button ion-button color=ink full (click)="CheckTo()">ตรวจ</button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+  </div>
+</ion-content>

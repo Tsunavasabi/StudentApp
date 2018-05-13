@@ -1,0 +1,28 @@
+<ion-header>
+
+  <ion-navbar color=ink>
+    <ion-title>LOGIN</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding style="background: linear-gradient(#E9C77B, #C4D4E0);">
+
+    <ion-list>
+      <ion-item style="background: transparent">
+        <ion-label style="color: black" floating>Username</ion-label>
+        <ion-input type="text"></ion-input>
+      </ion-item>
+      <ion-item style="background: transparent">
+        <ion-label style="color: black" floating>Password</ion-label>
+        <ion-input type="password"></ion-input>
+      </ion-item>
+    </ion-list>
+    <div padding>
+      <button ion-button full large color=ink
+              style="margin-top: 20px; border-radius: 10px"
+              (click)="onGoToMember()"
+              type="submit">LOGIN</button>
+    </div>
+</ion-content>

@@ -1,0 +1,17 @@
+page-welcome {
+  .ion-content{
+    font-family: 'Prompt', sans-serif;
+    background-image: url(../assets/imgs/homefirst.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    opacity: 0.9;
+  }
+
+  .btn {
+    margin-top: 480px;
+    font-size: 20px;
+    background: rgba(171, 171, 171, 0.43);
+    color: #FFF;
+  }
+}

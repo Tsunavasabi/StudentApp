@@ -1,0 +1,20 @@
+<ion-header>
+
+  <ion-navbar color=bl>
+    <ion-title>CONFIRM</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content style="background: #FEE6D4" padding>
+  <div>
+    <p style="text-align: center">Username : {{reuser}}</p>
+    <p style="text-align: center">Password : {{repassword}}</p>
+  </div>
+  <h6 style="text-align: center; margin-top: 200px">Are you sure for your data?</h6>
+  <p style="text-align: center;">
+    <button ion-button color="dark" outline (click)="onGoToSignupPage1()">EDIT</button>
+    <button ion-button color="bl" (click)="onGoToLogin1()">CONFIRM</button>
+  </p>
+</ion-content>

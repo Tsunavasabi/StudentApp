@@ -1,0 +1,23 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>CHOOSE STUDENT</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="ion-content">
+  <ion-list radio-group [(ngModel)]="select">
+    <ion-list-header>
+      เลือกนักเรียน
+    </ion-list-header>
+
+    <ion-item *ngFor="let names of name; let i = index">
+      <ion-label>{{names.std_firstname}} {{names.std_lastname}} {{names.std_classroom}} ({{names.std_number}})</ion-label>
+      <ion-radio value="{{names.std_ID}}" checked="i == 0"
+          (click)="radioClicked(names.std_ID)"></ion-radio>
+    </ion-item>
+  </ion-list>
+  <button ion-button (click)="searchstd()" full color=ink round>ต่อไป</button>
+</ion-content>

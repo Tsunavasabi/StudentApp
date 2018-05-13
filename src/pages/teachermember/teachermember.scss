@@ -1,0 +1,73 @@
+page-teachermember {
+  .ion-content{
+    font-family: 'Prompt', sans-serif;
+    background-image: url(../assets/imgs/tchhome.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    opacity: 0.9;
+  }
+
+  .cardhead {
+    color: #FFF;
+    background-color: #193446;
+  }
+
+  .cardcon {
+    padding-left: 20px;
+    padding-right: 0px;
+    margin-top: -30px;
+    padding-bottom: 10px;
+    background: transparent;
+    text-align: center;
+    font-size: 25px;
+  }
+
+  .pic {
+    width: 50%;
+    height: 50%;
+    border-radius: 10px;
+  }
+
+  .card {
+    margin-top: -5px;
+    margin-left: -10px;
+    margin-right: -10px;
+    margin-bottom: -10px;
+    width: 106%;
+  }
+
+  .pic {
+    width: 50%;
+    height: 50%;
+  }
+
+  .segment {
+    margin-bottom: 10px;
+  }
+
+  .tool {
+    padding-bottom: 15px;
+  }
+
+  .h2 {
+    margin-left: -20px;
+    font-size: 30px;
+    color:  #193446;
+    background: transparent;
+  }
+
+  .button {
+    margin-top: 20px;
+    margin-left: -10px;
+    margin-right: -10px;
+    width: 106%;
+  }
+
+  .notifications-badge {
+      position: absolute;
+      top: 1px;
+      right: 25px;
+      border-radius: 100%;
+  }
+}

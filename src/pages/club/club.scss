@@ -1,0 +1,66 @@
+page-club {
+  .ion-title{
+    font-family: 'Prompt', sans-serif;
+
+  }
+
+  .ion-content {
+    font-family: 'Prompt', sans-serif;
+    background: linear-gradient(#E9C77B, #C4D4E0);
+  }
+
+  .cardhead {
+    padding-left: 15px;
+    padding-right: 20px;
+    padding-bottom: 5px;
+    padding-top: 10px;
+    background-color: #193446;
+    color: #FFF;
+  }
+
+  .cardhead1 {
+    padding-left: 15px;
+    padding-right: 20px;
+    padding-bottom: 5px;
+    padding-top: 10px;
+    background-color: #9AABB9;
+    color: #193446;
+  }
+
+  .cardhead2 {
+    padding-left: 15px;
+    padding-right: 20px;
+    padding-bottom: 5px;
+    padding-top: 10px;
+    background-color: #E2B49A;
+    color: #193446;
+  }
+
+  .cardhead3 {
+    padding-left: 15px;
+    padding-right: 20px;
+    padding-bottom: 5px;
+    padding-top: 10px;
+    background-color: #f53d3d;
+    color: #FFF;
+  }
+
+  .card {
+    margin-top: -10px;
+    margin-left: -10px;
+    margin-right: -10px;
+    margin-bottom: 20px;
+    width: 106%;
+  }
+
+  .detailcard {
+    background-color: #C4D4E0;
+    padding-top: 10px;
+  }
+
+  .detailcard1 {
+    background-color: #EEDBD0;
+    padding-top: 20px;
+    color: #351D0F;
+  }
+}
