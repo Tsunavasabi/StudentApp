@@ -3,7 +3,6 @@ import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angul
 import { RecordPage } from '../record/record';
 import { SelectserviceProvider } from '../../providers/selectservice/selectservice';
 import { Chart } from 'chart.js';
-import { Camera, CameraOptions } from '@ionic-native/camera';
 
 @IonicPage()
 @Component({
@@ -28,12 +27,10 @@ export class MemberPage {
   p11: any;
   p12: any;
   p13: any;
-  base64Image: any;
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public menuCtrl: MenuController,
-    public selectService: SelectserviceProvider,
-    private camera: Camera) {
+    public selectService: SelectserviceProvider) {
       this.Detail = this.navParams.get('detailper');
       this.selectService.humandetail(this.Detail);
   }
@@ -64,20 +61,7 @@ export class MemberPage {
     this.navCtrl.push(RecordPage, {person: this.Detail});
   }
 
-  openCamera() {
-    const options: CameraOptions = {
-      quality: 100,
-      destinationType: this.camera.DestinationType.DATA_URL,
-      encodingType: this.camera.EncodingType.JPEG,
-      mediaType: this.camera.MediaType.PICTURE
-    }
 
-    this.camera.getPicture(options).then((imageData) => {
-      this.base64Image = 'data:image/jpeg;base64,' + imageData;
-    }, (err) => {
-
-    });
-  }
 
   ionViewWillEnter() {
     this.selectallPoint();

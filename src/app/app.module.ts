@@ -6,7 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { Device } from '@ionic-native/device';
-import { Push } from '@ionic-native/push';
+import { FileTransfer } from '@ionic-native/file-transfer';
 import { Camera } from '@ionic-native/camera';
 
 import { MyApp } from './app.component';
@@ -138,7 +138,7 @@ import { PersonPage } from '../pages/person/person';
     StatusBar,
     SplashScreen,
     Device,
-    Push,
+    FileTransfer,
     Camera,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     LoginProvider,

@@ -3,7 +3,6 @@ import { Platform, Nav, LoadingController, App, ToastController, AlertController
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Storage } from '@ionic/storage';
-import { Push, PushObject, PushOptions } from '@ionic-native/push';
 
 import { HomePage } from '../pages/home/home';
 import { WelcomePage } from '../pages/welcome/welcome';
@@ -37,7 +36,7 @@ export class MyApp {
     public loadingCtrl: LoadingController, private storage: Storage,
     public authService: AuthserviceProvider, public app: App,
     public toastCtrl: ToastController,
-    public alertCtrl: AlertController, private push: Push) {
+    public alertCtrl: AlertController) {
       this.platform.ready().then(() => {
         statusBar.styleDefault();
         splashScreen.hide();
@@ -52,12 +51,12 @@ export class MyApp {
          this.platform.exitApp();
        }
      }, 0)
-     this.pushSetup();
+     //this.pushSetup();
     });
 
   }
 
-  pushSetup() {
+  /*pushSetup() {
     const options: PushOptions = {
    android: {
      senderID: '477760960604'
@@ -76,7 +75,7 @@ export class MyApp {
    pushObject.on('registration').subscribe((registration: any) => console.log('Device registered', registration.registrationId));
 
    pushObject.on('error').subscribe(error => console.error('Error with Push plugin', error));
-  }
+ }*/
 
 
   presentToast() {
