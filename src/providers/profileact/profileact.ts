@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class ProfileactProvider {
-  private url: string = "http://192.168.1.40/www/login.php";
+  private url: string = "http://119.46.21.249/www/login.php";
   constructor(public http: HttpClient) {
     console.log('Hello ProfileactProvider Provider');
   }

@@ -135,7 +135,7 @@ export class TeachermemberPage {
     let out = {dorms: this.dorm,
                clas: this.clas}
     return new Promise(resolve => {
-    this.http.post("http://192.168.1.40/www/selectname.php", JSON.stringify(out))
+    this.http.post("http://119.46.21.249/www/selectname.php", JSON.stringify(out))
       .subscribe(data => {
         resolve(data);
         this.names = JSON.parse(data['_body']);
@@ -149,7 +149,7 @@ export class TeachermemberPage {
   selectname1() {
     let out = {clas: this.clas}
     return new Promise(resolve => {
-    this.http.post("http://192.168.1.40/www/selectname1.php", JSON.stringify(out))
+    this.http.post("http://119.46.21.249/www/selectname1.php", JSON.stringify(out))
       .subscribe(data => {
         resolve(data);
         this.names = JSON.parse(data['_body']);
@@ -162,7 +162,7 @@ export class TeachermemberPage {
   selectname2() {
     let out = {dorms: this.dorm}
     return new Promise(resolve => {
-    this.http.post("http://192.168.1.40/www/selectname2.php", JSON.stringify(out))
+    this.http.post("http://119.46.21.249/www/selectname2.php", JSON.stringify(out))
       .subscribe(data => {
         resolve(data);
         this.names = JSON.parse(data['_body']);

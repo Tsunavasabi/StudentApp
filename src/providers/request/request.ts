@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class RequestProvider {
-  private link: string = "http://192.168.1.40/www/request.php";
+  private link: string = "http://119.46.21.249/www/request.php";
   constructor(public http: HttpClient) {
     console.log('Hello RequestProvider Provider');
   }

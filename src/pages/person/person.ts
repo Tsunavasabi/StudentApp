@@ -34,7 +34,7 @@ export class PersonPage {
                  act: this.act,
                  dorm: this.dr}
       return new Promise(resolve => {
-        this.http.post("http://192.168.1.40/www/search/idactdorm.php", JSON.stringify(sea))
+        this.http.post("http://119.46.21.249/www/search/idactdorm.php", JSON.stringify(sea))
           .subscribe(data => {
             resolve(data);
             this.search = JSON.parse(data['_body']);
@@ -48,7 +48,7 @@ export class PersonPage {
                  act: this.act,
                  class: this.clas}
       return new Promise(resolve => {
-        this.http.post("http://192.168.1.40/www/search/idactclass.php", JSON.stringify(sea))
+        this.http.post("http://119.46.21.249/www/search/idactclass.php", JSON.stringify(sea))
             .subscribe(data => {
               resolve(data);
               this.search = JSON.parse(data['_body']);
@@ -64,7 +64,7 @@ export class PersonPage {
                  class: this.clas,
                  dorm: this.dr}
       return new Promise(resolve => {
-        this.http.post("http://192.168.1.40/www/search/allid.php", JSON.stringify(sea))
+        this.http.post("http://119.46.21.249/www/search/allid.php", JSON.stringify(sea))
             .subscribe(data => {
                 resolve(data);
                 this.search = JSON.parse(data['_body']);

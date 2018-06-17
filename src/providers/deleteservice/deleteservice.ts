@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class DeleteserviceProvider {
-  private url: string = "http://192.168.1.40/www/delete/delete.php";
+  private url: string = "http://119.46.21.249/www/delete/delete.php";
   constructor(public http: Http) {
     console.log('Hello DeleteserviceProvider Provider');
   }

@@ -110,7 +110,7 @@ export class RecordPage {
         feel: this.form1detail.feel,
         pn_id: this.phoneid,
       };
-      this.http.post("http://192.168.1.40/www/insert/form1insert.php", JSON.stringify(postParams))
+      this.http.post("http://119.46.21.249/www/insert/form1insert.php", JSON.stringify(postParams))
         .subscribe(data => {
           this.navCtrl.pop();
         }, error => {
@@ -144,7 +144,7 @@ export class RecordPage {
       feel: this.form2detail.feel,
       pn_id: this.phoneid
     };
-    this.http.post("http://192.168.1.40/www/insert/form2insert.php", JSON.stringify(postParams))
+    this.http.post("http://119.46.21.249/www/insert/form2insert.php", JSON.stringify(postParams))
       .subscribe(data => {
         this.navCtrl.pop();
       }, error => {
@@ -178,7 +178,7 @@ export class RecordPage {
       print: this.form3detail.print,
       pn_id: this.phoneid
     };
-    this.http.post("http://192.168.1.40/www/insert/form3insert.php", JSON.stringify(postParams))
+    this.http.post("http://119.46.21.249/www/insert/form3insert.php", JSON.stringify(postParams))
       .subscribe(data => {
         this.navCtrl.pop();
       }, error => {
@@ -210,7 +210,7 @@ export class RecordPage {
       pn_id: this.phoneid
     };
     console.log(postParams);
-    this.http.post("http://192.168.1.40/www/insert/form4insert.php", JSON.stringify(postParams))
+    this.http.post("http://119.46.21.249/www/insert/form4insert.php", JSON.stringify(postParams))
       .subscribe(data => {
         this.navCtrl.pop();
       }, error => {
@@ -241,7 +241,7 @@ export class RecordPage {
       feel: this.form5detail.feel,
       pn_id: this.phoneid
     };
-    this.http.post("http://192.168.1.40/www/insert/form5insert.php", JSON.stringify(postParams))
+    this.http.post("http://119.46.21.249/www/insert/form5insert.php", JSON.stringify(postParams))
       .subscribe(data => {
         this.navCtrl.pop();
       }, error => {
@@ -273,7 +273,7 @@ export class RecordPage {
       feel: this.form6detail.feel,
       pn_id: this.phoneid
     };
-    this.http.post("http://192.168.1.40/www/insert/form6insert.php", JSON.stringify(postParams))
+    this.http.post("http://119.46.21.249/www/insert/form6insert.php", JSON.stringify(postParams))
       .subscribe(data => {
         this.navCtrl.pop();
       }, error => {
@@ -305,7 +305,7 @@ export class RecordPage {
       feel: this.form7detail.feel,
       pn_id: this.phoneid
     };
-    this.http.post("http://192.168.1.40/www/insert/form7insert.php", JSON.stringify(postParams))
+    this.http.post("http://119.46.21.249/www/insert/form7insert.php", JSON.stringify(postParams))
       .subscribe(data => {
         this.navCtrl.pop();
       }, error => {
@@ -336,7 +336,7 @@ export class RecordPage {
       feel: this.form8detail.feel,
       pn_id: this.phoneid
     };
-    this.http.post("http://192.168.1.40/www/insert/form8insert.php", JSON.stringify(postParams))
+    this.http.post("http://119.46.21.249/www/insert/form8insert.php", JSON.stringify(postParams))
       .subscribe(data => {
         this.navCtrl.pop();
       }, error => {
@@ -367,7 +367,7 @@ export class RecordPage {
       feel: this.form9detail.feel,
       pn_id: this.phoneid
     };
-    this.http.post("http://192.168.1.40/www/insert/form9insert.php", JSON.stringify(postParams))
+    this.http.post("http://119.46.21.249/www/insert/form9insert.php", JSON.stringify(postParams))
       .subscribe(data => {
         this.navCtrl.pop();
       }, error => {
@@ -398,7 +398,7 @@ export class RecordPage {
       feel: this.form10detail.feel,
       pn_id: this.phoneid
     };
-    this.http.post("http://192.168.1.40/www/insert/form10insert.php", JSON.stringify(postParams))
+    this.http.post("http://119.46.21.249/www/insert/form10insert.php", JSON.stringify(postParams))
       .subscribe(data => {
         this.navCtrl.pop();
       }, error => {
@@ -431,7 +431,7 @@ export class RecordPage {
       feel: this.form11detail.feel,
       pn_id: this.phoneid
     };
-    this.http.post("http://192.168.1.40/www/insert/form11insert.php", JSON.stringify(postParams))
+    this.http.post("http://119.46.21.249/www/insert/form11insert.php", JSON.stringify(postParams))
       .subscribe(data => {
         this.navCtrl.pop();
       }, error => {
@@ -462,7 +462,7 @@ export class RecordPage {
       make: this.form12detail.make,
       pn_id: this.phoneid
     };
-    this.http.post("http://192.168.1.40/www/insert/form12insert.php", JSON.stringify(postParams))
+    this.http.post("http://119.46.21.249/www/insert/form12insert.php", JSON.stringify(postParams))
       .subscribe(data => {
         this.navCtrl.pop();
       }, error => {
@@ -491,7 +491,7 @@ export class RecordPage {
       head: this.form13detail.head,
       pn_id: this.phoneid
     };
-    this.http.post("http://192.168.1.40/www/insert/form13insert.php", JSON.stringify(postParams))
+    this.http.post("http://119.46.21.249/www/insert/form13insert.php", JSON.stringify(postParams))
       .subscribe(data => {
         this.navCtrl.pop();
       }, error => {

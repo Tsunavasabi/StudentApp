@@ -3,8 +3,8 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class CheckProvider {
-  private link: string = "http://192.168.1.40/www/check.php";
-  private unlink: string = "http://192.168.1.40/www/uncheck.php";
+  private link: string = "http://119.46.21.249/www/check.php";
+  private unlink: string = "http://119.46.21.249/www/uncheck.php";
   constructor(public http: HttpClient) {
     console.log('Hello CheckProvider Provider');
   }

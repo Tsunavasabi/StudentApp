@@ -3,8 +3,8 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class SendserviceProvider {
-  private url: string = "http://192.168.1.40/www/teacher.php";
-  private link: string = "http://192.168.1.40/www/send.php";
+  private url: string = "http://119.46.21.249/www/teacher.php";
+  private link: string = "http://119.46.21.249/www/send.php";
   constructor(public http: HttpClient) {
     console.log('Hello SendserviceProvider Provider');
   }

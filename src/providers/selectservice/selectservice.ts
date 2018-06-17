@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class SelectserviceProvider {
-  private url = "http://192.168.1.40/www/select/";
+  private url = "http://119.46.21.249/www/select/";
   human: any;
   constructor(public http: HttpClient) {
 
@@ -16,7 +16,7 @@ export class SelectserviceProvider {
   selectallPoint(id) {
     let out = {std_id: id}
     return new Promise(resolve => {
-    this.http.post("http://192.168.1.40/www/selectpoint/all.php", JSON.stringify(out))
+    this.http.post("http://119.46.21.249/www/selectpoint/all.php", JSON.stringify(out))
       .subscribe(data => {
         resolve(data);
       }, err => {
@@ -29,7 +29,7 @@ export class SelectserviceProvider {
     let out = {std_id: id,
                act_type: '01'}
     return new Promise(resolve => {
-    this.http.post("http://192.168.1.40/www/selectpoint/p1.php", JSON.stringify(out))
+    this.http.post("http://119.46.21.249/www/selectpoint/p1.php", JSON.stringify(out))
       .subscribe(data => {
         resolve(data);
       }, err => {
@@ -42,7 +42,7 @@ export class SelectserviceProvider {
     let out = {std_id: id,
                act_type: '02'}
     return new Promise(resolve => {
-    this.http.post("http://192.168.1.40/www/selectpoint/p1.php", JSON.stringify(out))
+    this.http.post("http://119.46.21.249/www/selectpoint/p1.php", JSON.stringify(out))
       .subscribe(data => {
         resolve(data);
       }, err => {
@@ -55,7 +55,7 @@ export class SelectserviceProvider {
     let out = {std_id: id,
                act_type: '03'}
     return new Promise(resolve => {
-    this.http.post("http://192.168.1.40/www/selectpoint/p1.php", JSON.stringify(out))
+    this.http.post("http://119.46.21.249/www/selectpoint/p1.php", JSON.stringify(out))
       .subscribe(data => {
         resolve(data);
       }, err => {
@@ -68,7 +68,7 @@ export class SelectserviceProvider {
     let out = {std_id: id,
                act_type: '04'}
     return new Promise(resolve => {
-    this.http.post("http://192.168.1.40/www/selectpoint/p1.php", JSON.stringify(out))
+    this.http.post("http://119.46.21.249/www/selectpoint/p1.php", JSON.stringify(out))
       .subscribe(data => {
         resolve(data);
       }, err => {
@@ -81,7 +81,7 @@ export class SelectserviceProvider {
     let out = {std_id: id,
                act_type: '05'}
     return new Promise(resolve => {
-    this.http.post("http://192.168.1.40/www/selectpoint/p1.php", JSON.stringify(out))
+    this.http.post("http://119.46.21.249/www/selectpoint/p1.php", JSON.stringify(out))
       .subscribe(data => {
         resolve(data);
       }, err => {
@@ -94,7 +94,7 @@ export class SelectserviceProvider {
     let out = {std_id: id,
                act_type: '06'}
     return new Promise(resolve => {
-    this.http.post("http://192.168.1.40/www/selectpoint/p1.php", JSON.stringify(out))
+    this.http.post("http://119.46.21.249/www/selectpoint/p1.php", JSON.stringify(out))
       .subscribe(data => {
         resolve(data);
       }, err => {
@@ -107,7 +107,7 @@ export class SelectserviceProvider {
     let out = {std_id: id,
                act_type: '07'}
     return new Promise(resolve => {
-    this.http.post("http://192.168.1.40/www/selectpoint/p1.php", JSON.stringify(out))
+    this.http.post("http://119.46.21.249/www/selectpoint/p1.php", JSON.stringify(out))
       .subscribe(data => {
         resolve(data);
       }, err => {
@@ -120,7 +120,7 @@ export class SelectserviceProvider {
     let out = {std_id: id,
                act_type: '08'}
     return new Promise(resolve => {
-    this.http.post("http://192.168.1.40/www/selectpoint/p1.php", JSON.stringify(out))
+    this.http.post("http://119.46.21.249/www/selectpoint/p1.php", JSON.stringify(out))
       .subscribe(data => {
         resolve(data);
       }, err => {
@@ -133,7 +133,7 @@ export class SelectserviceProvider {
     let out = {std_id: id,
                act_type: '09'}
     return new Promise(resolve => {
-    this.http.post("http://192.168.1.40/www/selectpoint/p1.php", JSON.stringify(out))
+    this.http.post("http://119.46.21.249/www/selectpoint/p1.php", JSON.stringify(out))
       .subscribe(data => {
         resolve(data);
       }, err => {
@@ -146,7 +146,7 @@ export class SelectserviceProvider {
     let out = {std_id: id,
                act_type: '10'}
     return new Promise(resolve => {
-    this.http.post("http://192.168.1.40/www/selectpoint/p1.php", JSON.stringify(out))
+    this.http.post("http://119.46.21.249/www/selectpoint/p1.php", JSON.stringify(out))
       .subscribe(data => {
         resolve(data);
       }, err => {
@@ -159,7 +159,7 @@ export class SelectserviceProvider {
     let out = {std_id: id,
                act_type: '11'}
     return new Promise(resolve => {
-    this.http.post("http://192.168.1.40/www/selectpoint/p1.php", JSON.stringify(out))
+    this.http.post("http://119.46.21.249/www/selectpoint/p1.php", JSON.stringify(out))
       .subscribe(data => {
         resolve(data);
       }, err => {
@@ -172,7 +172,7 @@ export class SelectserviceProvider {
     let out = {std_id: id,
                act_type: '12'}
     return new Promise(resolve => {
-    this.http.post("http://192.168.1.40/www/selectpoint/p1.php", JSON.stringify(out))
+    this.http.post("http://119.46.21.249/www/selectpoint/p1.php", JSON.stringify(out))
       .subscribe(data => {
         resolve(data);
       }, err => {
@@ -185,7 +185,7 @@ export class SelectserviceProvider {
     let out = {std_id: id,
                act_type: '13'}
     return new Promise(resolve => {
-    this.http.post("http://192.168.1.40/www/selectpoint/p1.php", JSON.stringify(out))
+    this.http.post("http://119.46.21.249/www/selectpoint/p1.php", JSON.stringify(out))
       .subscribe(data => {
         resolve(data);
       }, err => {
