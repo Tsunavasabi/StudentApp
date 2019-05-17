@@ -5,8 +5,7 @@ import { SelectserviceProvider } from '../../providers/selectservice/selectservi
 import { Chart } from 'chart.js';
 import { Http } from '@angular/http';
 import { Camera, CameraOptions } from '@ionic-native/camera';
-import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer/ngx';
-import { File } from '@ionic-native/file';
+import { Observable } from 'rxjs/Observable';
 
 @IonicPage()
 @Component({
@@ -71,25 +70,14 @@ export class MemberPage {
   }
 
   uploadPic() {
-    
-
-    const fileTransfer: FileTransferObject = this.transfer.create();
-
-    let options: FileUploadOptions = {
-      fileKey: "photo",
-      fileName: this.Detail.std_ID,
-      chunkedMode: false,
-      mimeType: "image/jpeg",
-      headers: {}
-    }
-
-    fileTransfer.upload(this.Image, 'http://www.zp11489.tld.122.155.167.85.no-domain.name/uppic.php', options).then(data => {
-      alert(data);
-    }, error => {
-      alert("error");
-      alert("error" + error);
-      
+    let url = 'http://www.zp11489.tld.122.155.167.85.no-domain.name/uppic.php';
+    let postdata = new FormData();
+    postdata.append('file', this.Image)
+    let data:Observable<any> = this.http.post(url, postdata)
+    data.subscribe((result) => {
+      console.log(result)
     });
+
   }
 
   openMenu() {
