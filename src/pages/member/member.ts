@@ -5,6 +5,7 @@ import { SelectserviceProvider } from '../../providers/selectservice/selectservi
 import { Chart } from 'chart.js';
 import { Http } from '@angular/http';
 import { Camera, CameraOptions } from '@ionic-native/camera';
+import { Observable } from 'rxjs/Observable';
 
 @IonicPage()
 @Component({
@@ -27,7 +28,7 @@ export class MemberPage {
     public navParams: NavParams,
     public menuCtrl: MenuController,
     public selectService: SelectserviceProvider,
-    public http: Http, private camera: Camera) {
+    public http: Http, private camera: Camera, private transfer: FileTransfer) {
       this.Detail = this.navParams.get('detailper');
       this.selectService.humandetail(this.Detail);
   }
@@ -69,8 +70,14 @@ export class MemberPage {
   }
 
   uploadPic() {
-    let url = 'http://www.zp11489.tld.122.155.167.85.no-domain.name/uppic.php'
-    
+    let url = 'http://www.zp11489.tld.122.155.167.85.no-domain.name/uppic.php';
+    let postdata = new FormData();
+    postdata.append('file', this.Image)
+    let data:Observable<any> = this.http.post(url, postdata)
+    data.subscribe((result) => {
+      console.log(result)
+    });
+
   }
 
   openMenu() {
