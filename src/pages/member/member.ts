@@ -5,7 +5,6 @@ import { SelectserviceProvider } from '../../providers/selectservice/selectservi
 import { Chart } from 'chart.js';
 import { Http } from '@angular/http';
 import { Camera, CameraOptions } from '@ionic-native/camera';
-import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 
 @IonicPage()
 @Component({
@@ -28,7 +27,7 @@ export class MemberPage {
     public navParams: NavParams,
     public menuCtrl: MenuController,
     public selectService: SelectserviceProvider,
-    public http: Http, private camera: Camera, private transfer: FileTransfer) {
+    public http: Http, private camera: Camera) {
       this.Detail = this.navParams.get('detailper');
       this.selectService.humandetail(this.Detail);
   }
@@ -70,26 +69,8 @@ export class MemberPage {
   }
 
   uploadPic() {
+    let url = 'http://www.zp11489.tld.122.155.167.85.no-domain.name/uppic.php'
     
-
-    const fileTransfer: FileTransferObject = this.transfer.create();
-
-    let options: FileUploadOptions = {
-      fileKey: "photo",
-      fileName: this.Detail.std_ID,
-      chunkedMode: false,
-      mimeType: "image/jpeg",
-      headers: {}
-    }
-
-    fileTransfer.upload(this.Image, 'http://www.zp11489.tld.122.155.167.85.no-domain.name/uppic.php', options).then(data => {
-      alert(JSON.stringify(data));
-      console.log(data)
-    }, error => {
-      alert("error");
-      alert("error" + error);
-      
-    });
   }
 
   openMenu() {
