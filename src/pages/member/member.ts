@@ -28,8 +28,9 @@ export class MemberPage {
     public navParams: NavParams,
     public menuCtrl: MenuController,
     public selectService: SelectserviceProvider,
-    public http: Http, private camera: Camera, private transfer: FileTransfer) {
+    public http: Http, private camera: Camera) {
       this.Detail = this.navParams.get('detailper');
+      console.log(this.Detail)
       this.selectService.humandetail(this.Detail);
   }
 
@@ -70,7 +71,7 @@ export class MemberPage {
   }
 
   uploadPic() {
-    let url = 'http://www.zp11489.tld.122.155.167.85.no-domain.name/uppic.php';
+    let url = 'https://paetong.000webhostapp.com/uppic.php';
     let postdata = new FormData();
     postdata.append('file', this.Image)
     postdata.append('ID', this.Detail.std_ID)

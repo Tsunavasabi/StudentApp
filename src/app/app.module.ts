@@ -8,7 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { Device } from '@ionic-native/device';
 import { SMS } from '@ionic-native/sms';
 import { Camera } from '@ionic-native/camera';
-import { FileTransfer } from '@ionic-native/file-transfer';
+
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -139,7 +139,6 @@ import { PersonPage } from '../pages/person/person';
     Device,
     SMS,
     Camera,
-    FileTransfer,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     LoginProvider,
     ActivityProvider,
