@@ -73,6 +73,7 @@ export class MemberPage {
     let url = 'http://www.zp11489.tld.122.155.167.85.no-domain.name/uppic.php';
     let postdata = new FormData();
     postdata.append('file', this.Image)
+    postdata.append('ID', this.Detail.std_ID)
     let data:Observable<any> = this.http.post(url, postdata)
     data.subscribe((result) => {
       console.log(result)
