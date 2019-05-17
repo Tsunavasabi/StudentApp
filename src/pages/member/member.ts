@@ -6,6 +6,7 @@ import { Chart } from 'chart.js';
 import { Http } from '@angular/http';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { Observable } from 'rxjs/Observable';
+import { ActionSheetController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -28,27 +29,34 @@ export class MemberPage {
     public navParams: NavParams,
     public menuCtrl: MenuController,
     public selectService: SelectserviceProvider,
-    public http: Http, private camera: Camera) {
+    public http: Http, private camera: Camera,
+    public actionSheetCtrl: ActionSheetController) {
       this.Detail = this.navParams.get('detailper');
       console.log(this.Detail)
       this.selectService.humandetail(this.Detail);
   }
 
-  openCamera() {
-    const options: CameraOptions = {
-      quality: 100,
-      destinationType: this.camera.DestinationType.DATA_URL,
-      encodingType: this.camera.EncodingType.JPEG,
-      mediaType: this.camera.MediaType.PICTURE
-    }
-    
-    this.camera.getPicture(options).then((imageData) => {
-     // imageData is either a base64 encoded string or a file URI
-     // If it's base64 (DATA_URL):
-     this.Image = 'data:image/jpeg;base64,' + imageData;
-    }, (err) => {
-     // Handle error
+  ChangeImage() {
+    const actionSheet = this.actionSheetCtrl.create({
+      buttons: [
+        {
+          text: 'Change profile image',
+          role: 'destructive',
+          icon: 'image',
+          handler: () => {
+            this.openGallery()
+          }
+        },{
+          text: 'Cancel',
+          role: 'cancel',
+          icon: 'close',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        }
+      ]
     });
+    actionSheet.present();
   }
 
   openGallery() {

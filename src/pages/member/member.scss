@@ -62,9 +62,11 @@ page-member {
   }
 
   .pic {
-    width: 50%;
-    height: 50%;
+    width: 200px;
+    height: 200px;
     border-radius: 10px;
+    box-shadow: #000 0px 5px 10px 0px;
+    margin-bottom: 20px; 
   }
 
   .pic1 {
