@@ -65,7 +65,7 @@ export class MemberPage {
      this.Image = 'data:image/jpeg;base64,' + imageData;
      console.log(imageData)
     }, (err) => {
-     // Handle error
+     // Handle error 
     });
   }
 
