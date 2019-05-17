@@ -5,8 +5,7 @@ import { SelectserviceProvider } from '../../providers/selectservice/selectservi
 import { Chart } from 'chart.js';
 import { Http } from '@angular/http';
 import { Camera, CameraOptions } from '@ionic-native/camera';
-import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer/ngx';
-import { File } from '@ionic-native/file';
+import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 
 @IonicPage()
 @Component({
@@ -84,7 +83,8 @@ export class MemberPage {
     }
 
     fileTransfer.upload(this.Image, 'http://www.zp11489.tld.122.155.167.85.no-domain.name/uppic.php', options).then(data => {
-      alert(data);
+      alert(JSON.stringify(data));
+      console.log(data)
     }, error => {
       alert("error");
       alert("error" + error);
