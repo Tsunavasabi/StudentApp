@@ -29,9 +29,13 @@ export class SelectserviceProvider {
     let out = {std_id: id,
                act_type: '01'}
     return new Promise(resolve => {
-    this.http.post("http://119.46.21.249/www/selectpoint/p1.php", JSON.stringify(out))
-      .subscribe(data => {
-        resolve(data);
+    this.http.post("http://127.0.0.1/www/selectpoint/p1.php", JSON.stringify(out))
+      .subscribe((data: any) => {
+        let hours = 0
+        for (let i = 0; i < data.length; i++) {
+          hours+=Number(data[i].act_hours)
+        }
+        resolve(hours)
       }, err => {
         console.log(err);// Error getting the data
       });
@@ -42,9 +46,13 @@ export class SelectserviceProvider {
     let out = {std_id: id,
                act_type: '02'}
     return new Promise(resolve => {
-    this.http.post("http://119.46.21.249/www/selectpoint/p1.php", JSON.stringify(out))
-      .subscribe(data => {
-        resolve(data);
+    this.http.post("http://127.0.0.1/www/selectpoint/p1.php", JSON.stringify(out))
+      .subscribe((data: any) => {
+        let hours = 0
+        for (let i = 0; i < data.length; i++) {
+          hours+=Number(data[i].act_hours)
+        }
+        resolve(hours)
       }, err => {
         console.log(err);// Error getting the data
       });

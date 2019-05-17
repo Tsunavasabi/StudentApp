@@ -6,11 +6,12 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { Device } from '@ionic-native/device';
-import { FileTransfer } from '@ionic-native/file-transfer';
+import { SMS } from '@ionic-native/sms';
 import { Camera } from '@ionic-native/camera';
+import { FileTransfer } from '@ionic-native/file-transfer/ngx';
+import { File } from '@ionic-native/file/ngx';
 
 import { MyApp } from './app.component';
-import { ProgressBarComponent } from '../components/progress-bar/progress-bar';
 import { HomePage } from '../pages/home/home';
 import { WelcomePage } from '../pages/welcome/welcome';
 import { LoginPage } from '../pages/login/login';
@@ -89,8 +90,7 @@ import { PersonPage } from '../pages/person/person';
     TeacherlistPage,
     CheckPage,
     ResultPage,
-    PersonPage,
-    ProgressBarComponent
+    PersonPage
   ],
   imports: [
     BrowserModule,
@@ -138,8 +138,9 @@ import { PersonPage } from '../pages/person/person';
     StatusBar,
     SplashScreen,
     Device,
-    FileTransfer,
+    SMS,
     Camera,
+    File,FileTransfer,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     LoginProvider,
     ActivityProvider,

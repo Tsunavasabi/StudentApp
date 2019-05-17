@@ -26,19 +26,19 @@ export class SociallecturePage {
     public alertCtrl: AlertController) {
       this.selectService.Selectsociallecture()
       .then(data => {
-        console.log(data);
         this.outreach = data;
       });
 
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad OutreachPage');
+  ionViewWillEnter() {
+    this.selectService.Selectsociallecture()
+    .then(data => {
+      this.outreach = data;
+    });
   }
 
-
   updatedata(act_id) {
-    console.log(act_id);
     this.updateService.updatesocaillecture(act_id)
     .then(data => {
       this.navCtrl.push(Form1updatePage, {outdata: data});

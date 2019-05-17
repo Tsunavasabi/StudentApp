@@ -10,6 +10,10 @@
 
 
   <ion-content padding class="ion-content">
+    <img src="{{Image}}" alt="image">
+    <button ion-button full (click)="openCamera()">open camera</button>
+    <button ion-button full (click)="openGallery()">open gallery</button>
+    <button ion-button full (click)="uploadPic()">open gallery</button>
     <p class="para1"><img src="assets/imgs/member.png" class="pic"></p>
     <ion-item class="cardcon" no-lines>
       {{Detail.std_firstname}} {{Detail.std_lastname}}<br>
@@ -27,16 +31,254 @@
             <p>คะแนน</p>
         </ion-card-content>
     </ion-card>
-      <!--<ion-card class="card">
-      <ion-card-header class="cardhead">
-        คะแนนการบำเพ็ญประโยชน์ต่อชุมชน
+    <ion-card>
+      <ion-card-header style="background-color: #193446;">
+        <ion-item style="background: transparent;color: #FFF">
+            การบำเพ็ญประโยชน์ต่อสังคม
+            <button ion-button color=powderblue item-end icon-only clear (click)="onGoToRecord1()">
+              <ion-icon name="create"></ion-icon></button>
+        </ion-item>
       </ion-card-header>
-      <ion-card-content class="cardcon1">
-          <progress-bar [progress]="loadProgress"></progress-bar>
-          {{p1}}
-          <p>คะแนน</p>
+      <ion-card-content style="background: #C4D4E0;padding-top: 10px">
+        <ion-item style="background: transparent">
+          <p>คุณทำสำเร็จไป</p>
+            <b><h1>{{p1}}/15 ชั่วโมง</h1></b>
+            <div class="w3-light-grey w3-round-xlarge">
+              <div id="myBar" class="w3-container w3-orange w3-round-large w3-padding w3-center" style="height: 30px;width:0%">
+                <small class="cssProgress-label">{{p1per}}%</small></div>
+            </div>
+        </ion-item>
       </ion-card-content>
-    </ion-card>-->
+    </ion-card>
+    <ion-card>
+      <ion-card-header style="color: #FFF;background-color: #193446;">
+        <ion-item style="background: transparent;color: #FFF">
+          การบำเพ็ญประโยชน์ต่อโรงเรียน
+          <button ion-button color=powderblue item-end icon-only clear (click)="onGoToRecord2()">
+            <ion-icon name="create"></ion-icon></button>
+        </ion-item>
+      </ion-card-header>
+      <ion-card-content style="background: #C4D4E0;padding-top: 10px">
+        <ion-item style="background: transparent">
+            <p>คุณทำสำเร็จไป</p>
+            <b><h1>{{p2}}/10 ชั่วโมง</h1></b>
+            <div class="w3-light-grey w3-round-xlarge">
+              <div id="myBar1" class="w3-container w3-orange w3-round-large w3-padding w3-center" style="height: 30px;width:0%">
+                <span class="cssProgress-label">{{p2per}}%</span></div>
+            </div>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-header style="color: #FFF;background-color: #193446;">
+        <ion-item style="background: transparent;color: #FFF">
+          การอ่านหนังสือ
+          <button ion-button color=powderblue item-end icon-only clear (click)="onGoToRecord3()">
+            <ion-icon name="create"></ion-icon></button>
+        </ion-item>
+      </ion-card-header>
+      <ion-card-content style="background: #C4D4E0;padding-top: 10px">
+        <ion-item style="background: transparent">
+            <p>คุณทำสำเร็จไป</p>
+            <b><h1>{{p3}}/5 เล่ม</h1></b>
+            <div class="w3-light-grey w3-round-xlarge">
+              <div id="myBar2" class="w3-container w3-orange w3-round-large w3-padding w3-center" style="height: 30px;width:0%">
+                <span class="cssProgress-label">{{p3per}}%</span></div>
+            </div>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-header style="color: #FFF;background-color: #193446;">
+        <ion-item style="background: transparent;color: #FFF">
+            การออกกำลังกาย
+            <button ion-button color=powderblue item-end icon-only clear (click)="onGoToRecord12()">
+              <ion-icon name="create"></ion-icon></button>
+        </ion-item>
+      </ion-card-header>
+      <ion-card-content style="background: #C4D4E0;padding-top: 10px">
+        <ion-item style="background: transparent">
+            <p>คุณทำสำเร็จไป</p>
+            <b><h1>{{p4}}/40 ครั้ง</h1></b>
+            <div class="w3-light-grey w3-round-xlarge">
+              <div id="myBar3" class="w3-container w3-orange w3-round-large w3-padding w3-center" style="height: 30px;width:0%">
+                <span class="cssProgress-label">{{p4per}}%</span></div>
+            </div>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-header style="color: #FFF;background-color: #193446;">
+        <ion-item style="background: transparent;color: #FFF">
+            การเข้าร่วมกิจกรรมชุมนุม
+            <button ion-button color=powderblue item-end icon-only clear (click)="onGoToRecord11()">
+              <ion-icon name="create"></ion-icon></button>
+        </ion-item>
+      </ion-card-header>
+      <ion-card-content style="background: #C4D4E0;padding-top: 10px">
+        <ion-item style="background: transparent">
+            <p>คุณทำสำเร็จไป</p>
+            <b><h1>{{p12}}/1 ครั้ง</h1></b>
+            <div class="w3-light-grey w3-round-xlarge">
+              <div id="myBar4" class="w3-container w3-orange w3-round-large w3-padding w3-center" style="height: 30px;width:0%">
+                <span class="cssProgress-label">{{p12per}}%</span></div>
+            </div>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-header style="color: #FFF;background-color: #193446;">
+        <ion-item style="background: transparent;color: #FFF"> 
+            การเข้าร่วมกิจกรรมพบพ่อครู/แม่ครู
+            <button ion-button color=powderblue item-end icon-only clear (click)="onGoToRecord13()">
+              <ion-icon name="create"></ion-icon></button>
+        </ion-item>
+      </ion-card-header>
+      <ion-card-content style="background: #C4D4E0;padding-top: 10px">
+        <ion-item style="background: transparent"> 
+            <p>คุณทำสำเร็จไป</p>
+            <b><h1>{{p13}}/90 ครั้ง</h1></b>
+            <div class="w3-light-grey w3-round-xlarge">
+              <div id="myBar5" class="w3-container w3-orange w3-round-large w3-padding w3-center" style="height: 30px;width:0%">
+                <span class="cssProgress-label">{{p13per}}%</span></div>
+            </div>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-header style="color: #FFF;background-color: #193446;">
+        <ion-item style="background: transparent;color: #FFF">
+            การเข้าค่ายวิชาการ
+            <button ion-button color=powderblue item-end icon-only clear (click)="onGoToRecord4()">
+              <ion-icon name="create"></ion-icon></button>
+        </ion-item>
+      </ion-card-header>
+      <ion-card-content style="background: #C4D4E0;padding-top: 10px">
+        <ion-item style="background: transparent">
+            <p>คุณทำสำเร็จไป</p>
+            <b><h1>{{p5}} ครั้ง</h1></b>
+            <div class="w3-light-grey w3-round-xlarge">
+              <div id="myBar6" class="w3-container w3-orange w3-round-large w3-padding w3-center" style="height: 30px;width:100%">
+                <span class="cssProgress-label">100%</span></div>
+            </div>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-header style="color: #FFF;background-color: #193446;">
+        <ion-item style="background: transparent;color: #FFF"> 
+            การเข้าค่ายปฏิบัติธรรม
+            <button ion-button color=powderblue item-end icon-only clear (click)="onGoToRecord5()">
+              <ion-icon name="create"></ion-icon></button>
+        </ion-item>
+      </ion-card-header>
+      <ion-card-content style="background: #C4D4E0;padding-top: 10px">
+        <ion-item style="background: transparent">
+            <p>คุณทำสำเร็จไป</p>
+            <b><h1>{{p6}} ครั้ง</h1></b>
+            <div class="w3-light-grey w3-round-xlarge">
+              <div id="myBar7" class="w3-container w3-orange w3-round-large w3-padding w3-center" style="height: 30px;width:100%">
+                <span class="cssProgress-label">100%</span></div>
+            </div>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-header style="color: #FFF;background-color: #193446;">
+        <ion-item style="background: transparent;color: #FFF">
+            การศึกษาดูงานด้านคณิตศาสตร์<br>วิทยาศาสตร์และเทคโนโลยี
+            <button ion-button color=powderblue item-end icon-only clear (click)="onGoToRecord6()">
+              <ion-icon name="create"></ion-icon></button>
+        </ion-item>
+      </ion-card-header>
+      <ion-card-content style="background: #C4D4E0;padding-top: 10px">
+        <ion-item style="background: transparent">
+            <p>คุณทำสำเร็จไป</p>
+            <b><h1>{{p7}} ครั้ง</h1></b>
+            <div class="w3-light-grey w3-round-xlarge">
+              <div id="myBar8" class="w3-container w3-orange w3-round-large w3-padding w3-center" style="height: 30px;width:100%">
+                <span class="cssProgress-label">100%</span></div>
+            </div>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-header style="color: #FFF;background-color: #193446;">
+        <ion-item style="background: transparent;color: #FFF">
+            การศึกษาดูงานด้านสังคมศึกษา
+            <button ion-button color=powderblue item-end icon-only clear (click)="onGoToRecord7()">
+              <ion-icon name="create"></ion-icon></button>
+        </ion-item>
+      </ion-card-header>
+      <ion-card-content style="background: #C4D4E0;padding-top: 10px">
+        <ion-item style="background: transparent">
+            <p>คุณทำสำเร็จไป</p>
+            <b><h1>{{p8}} ครั้ง</h1></b>
+            <div class="w3-light-grey w3-round-xlarge">
+              <div id="myBar9" class="w3-container w3-orange w3-round-large w3-padding w3-center" style="height: 30px;width:100%">
+                <span class="cssProgress-label">100%</span></div>
+            </div>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-header style="color: #FFF;background-color: #193446;">
+        <ion-item style="background: transparent;color: #FFF">
+            การฟังบรรยายด้านวิทยาศาสตร์<br>และเทคโนโลยี
+            <button ion-button color=powderblue item-end icon-only clear (click)="onGoToRecord8()">
+              <ion-icon name="create"></ion-icon></button>
+        </ion-item>
+      </ion-card-header>
+      <ion-card-content style="background: #C4D4E0;padding-top: 10px">
+        <ion-item style="background: transparent">
+            <p>คุณทำสำเร็จไป</p>
+            <b><h1>{{p9}} ครั้ง</h1></b>
+            <div class="w3-light-grey w3-round-xlarge">
+              <div id="myBar10" class="w3-container w3-orange w3-round-large w3-padding w3-center" style="height: 30px;width:100%">
+                <span class="cssProgress-label">100%</span></div>
+            </div>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-header style="color: #FFF;background-color: #193446;">
+        <ion-item style="background: transparent;color: #FFF">
+            การฟังบรรยายด้านพัฒนาบุคลิกภาพ
+            <button ion-button color=powderblue item-end icon-only clear (click)="onGoToRecord9()">
+              <ion-icon name="create"></ion-icon></button>
+        </ion-item>
+      </ion-card-header>
+      <ion-card-content style="background: #C4D4E0;padding-top: 10px">
+        <ion-item style="background: transparent">
+            <p>คุณทำสำเร็จไป</p>
+            <b><h1>{{p10}} ครั้ง</h1></b>
+            <div class="w3-light-grey w3-round-xlarge">
+              <div id="myBar11" class="w3-container w3-orange w3-round-large w3-padding w3-center" style="height: 30px;width:100%">
+                <span class="cssProgress-label">100%</span></div>
+            </div>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-header style="color: #FFF;background-color: #193446;">
+        <ion-item style="background: transparent;color: #FFF">
+            การฟังบรรยายด้านสังคมศึกษา
+            <button ion-button color=powderblue item-end icon-only clear (click)="onGoToRecord10()">
+              <ion-icon name="create"></ion-icon></button>
+        </ion-item>
+      </ion-card-header>
+      <ion-card-content style="background: #C4D4E0;padding-top: 10px">
+        <ion-item style="background: transparent">
+            <p>คุณทำสำเร็จไป</p>
+            <b><h1>{{p11}} ครั้ง</h1></b>
+            <div class="w3-light-grey w3-round-xlarge">
+              <div id="myBar12" class="w3-container w3-orange w3-round-large w3-padding w3-center" style="height: 30px;width:100%">
+                <span class="cssProgress-label">100%</span></div>
+            </div>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+
   </ion-list>
 
     <ion-fab bottom right>

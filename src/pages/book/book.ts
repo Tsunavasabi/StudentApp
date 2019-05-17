@@ -26,14 +26,16 @@ export class BookPage {
     public alertCtrl: AlertController) {
       this.selectService.Selectbook()
       .then(data => {
-        console.log(data);
         this.outreach = data;
       });
 
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad OutreachPage');
+  ionViewWillEnter() {
+    this.selectService.Selectbook()
+    .then(data => {
+      this.outreach = data;
+    });
   }
 
 

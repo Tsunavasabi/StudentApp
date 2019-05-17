@@ -8,5 +8,16 @@
 
 
 <ion-content padding>
+  <ion-list radio-group [(ngModel)]="select" style="background: transparent">
+    <ion-list-header style="background: transparent">
+      เลือกนักเรียน
+    </ion-list-header>
 
+    <ion-item *ngFor="let names of name; let i = index" style="background: transparent">
+      <ion-label>{{names.std_firstname}} {{names.std_lastname}} {{names.std_classroom}} ({{names.std_number}})</ion-label>
+      <ion-radio value="{{names.std_ID}}" checked="i == 0" color=ink
+          (click)="radioClicked(names.std_ID)"></ion-radio>
+    </ion-item>
+  </ion-list>
+  <button ion-button (click)="searchstd()" full color=ink round>เรียกดู</button>
 </ion-content>

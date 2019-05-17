@@ -15,7 +15,7 @@
     <ion-card class="card">
       <ion-card-header class="cardhead" *ngIf="out.flag == '0'">
         รายการที่ {{i+1}}
-          <button ion-button (click)="out.btn_press = 'true'" icon-only small color="dark" clear style="margin-left: 150px">
+          <button ion-button (click)="out.btn_press = 'true'" icon-only small color="dark" clear style="float: right">
             <ion-icon style="color: #FFF" name="ios-arrow-down-outline"></ion-icon>
           </button>
           <button ion-button (click)="out.btn_press = 'false'" icon-only small color="dark" clear>
@@ -24,28 +24,28 @@
       </ion-card-header>
       <ion-card-header class="cardhead1" *ngIf="out.flag == '1'">
         รายการที่ {{i+1}} ส่งแล้ว..
-          <button ion-button (click)="out.btn_press = 'true'" icon-only small color="dark" clear style="margin-left: 90px">
+          <button ion-button (click)="out.btn_press = 'true'" icon-only small color="dark" clear style="float: right">
             <ion-icon style="color: #FFF" name="ios-arrow-down-outline"></ion-icon>
           </button>
-          <button ion-button (click)="out.btn_press = 'false'" icon-only small color="dark" clear>
+          <button ion-button (click)="out.btn_press = 'false'" icon-only small color="dark" clear style="float: right">
             <ion-icon style="color: #FFF" name="ios-arrow-up-outline"></ion-icon>
           </button>
       </ion-card-header>
       <ion-card-header class="cardhead2" *ngIf="out.flag == '3'">
         รายการที่ {{i+1}} ตรวจแล้ว <ion-icon name="checkmark-circle"></ion-icon>
-          <button ion-button (click)="out.btn_press = 'true'" icon-only small color="dark" clear style="margin-left: 50px">
+          <button ion-button (click)="out.btn_press = 'true'" icon-only small color="dark" clear style="float: right">
             <ion-icon style="color: #FFF" name="ios-arrow-down-outline"></ion-icon>
           </button>
-          <button ion-button (click)="out.btn_press = 'false'" icon-only small color="dark" clear>
+          <button ion-button (click)="out.btn_press = 'false'" icon-only small color="dark" clear style="float: right">
             <ion-icon style="color: #FFF" name="ios-arrow-up-outline"></ion-icon>
           </button>
       </ion-card-header>
       <ion-card-header class="cardhead3" *ngIf="out.flag == '4'">
         รายการที่ {{i+1}} ถูกส่งคืน..
-          <button ion-button (click)="out.btn_press = 'true'" icon-only small color="dark" clear style="margin-left: 80px">
+          <button ion-button (click)="out.btn_press = 'true'" icon-only small color="dark" clear style="float: right">
             <ion-icon style="color: #FFF" name="ios-arrow-down-outline"></ion-icon>
           </button>
-          <button ion-button (click)="out.btn_press = 'false'" icon-only small color="dark" clear>
+          <button ion-button (click)="out.btn_press = 'false'" icon-only small color="dark" clear style="float: right">
             <ion-icon style="color: #FFF" name="ios-arrow-up-outline"></ion-icon>
           </button>
       </ion-card-header>

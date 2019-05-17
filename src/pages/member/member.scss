@@ -1,13 +1,11 @@
 page-member {
 
-
   .ion-content{
     font-family: 'Prompt', sans-serif;
     background-image: url(../assets/imgs/home.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    opacity: 0.9;
   }
 
 
@@ -92,6 +90,16 @@ page-member {
     height: 100px;
   }
 
+  h1 {
+    font-family: 'Prompt', sans-serif;
+  }
 
+  .cssProgress-label {
+    margin-bottom: 10px;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    text-align: center;
+  }
 
 }

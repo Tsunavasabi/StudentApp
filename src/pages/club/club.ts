@@ -26,19 +26,19 @@ export class ClubPage {
     public alertCtrl: AlertController) {
       this.selectService.Selectclub()
       .then(data => {
-        console.log(data);
         this.outreach = data;
       });
 
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad OutreachPage');
+  ionViewWillEnter() {
+    this.selectService.Selectclub()
+    .then(data => {
+      this.outreach = data;
+    });
   }
 
-
   updatedata(act_id) {
-    console.log(act_id);
     this.updateService.updateclub(act_id)
     .then(data => {
       this.navCtrl.push(Form1updatePage, {outdata: data});

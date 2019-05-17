@@ -26,14 +26,16 @@ export class BuddhacampPage {
     public alertCtrl: AlertController) {
       this.selectService.Selectbuddha()
       .then(data => {
-        console.log(data);
         this.outreach = data;
       });
 
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad OutreachPage');
+  ionViewWillEnter() {
+    this.selectService.Selectbuddha()
+    .then(data => {
+      this.outreach = data;
+    });
   }
 
 

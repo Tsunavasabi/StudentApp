@@ -3,8 +3,22 @@ import { IonicPage, NavController, NavParams, AlertController, Platform } from '
 import { LoginProvider } from '../../providers/login/login';
 import { ActivityProvider } from '../../providers/activity/activity';
 import { Http } from '@angular/http';
-import 'rxjs/add/operator/map';
 import { Device } from '@ionic-native/device';
+
+import { OutreachPage } from '../outreach/outreach';
+import { SchoolPage } from '../school/school';
+import { BookPage } from '../book/book';
+import { AcademiccampPage } from '../academiccamp/academiccamp';
+import { BuddhacampPage } from '../buddhacamp/buddhacamp';
+import { SciencevisitPage } from '../sciencevisit/sciencevisit';
+import { SocialvisitPage } from '../socialvisit/socialvisit';
+import { ScilecturePage } from '../scilecture/scilecture';
+import { PersonlecturePage } from '../personlecture/personlecture';
+import { SociallecturePage } from '../sociallecture/sociallecture';
+import { ClubPage } from '../club/club';
+import { ExercisePage } from '../exercise/exercise';
+import { MeetteacherPage } from '../meetteacher/meetteacher';
+import { SelectserviceProvider } from '../../providers/selectservice/selectservice';
 
 @IonicPage()
 @Component({
@@ -67,14 +81,21 @@ export class RecordPage {
   form13detail:any = {
     date: '2018-01-01'
   };
-  isValid: boolean;
+  isValid: boolean = true;
+  p1: any;
+  p2: any;
+  p3: any;
+  p11: any;
+  p12: any;
+  p13: any;
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public loginservice: LoginProvider,
     public activityService: ActivityProvider,
     public http: Http,
     public alertCtrl: AlertController, public platform: Platform,
-    public device: Device) {
+    public device: Device,
+    public selectService: SelectserviceProvider) {
       if (this.platform.is('ios')) {
         this.phoneid = this.device.uuid;
       } else if (this.platform.is('android')) {
@@ -82,8 +103,166 @@ export class RecordPage {
       }
     this.getacttype();
     this.Person = this.navParams.get('person');
+    if (this.Person.select1 == true) {
+      this.select1 = this.Person["select1"];
+      this.isValid = false
+    } else if (this.Person.select2 == true) {
+      console.log(this.Person.select2)
+      this.select2 = this.Person["select2"];
+      this.isValid = false
+    } else if (this.Person.select3 == true) {
+      this.select3 = this.Person["select3"];
+      this.isValid = false
+    } else if (this.Person.select4 == true) {
+      this.select4 = this.Person["select4"];
+      this.isValid = false
+    } else if (this.Person.select5 == true) {
+      this.select5 = this.Person["select5"];
+      this.isValid = false
+    } else if (this.Person.select6 == true) {
+      this.select6 = this.Person["select6"];
+      this.isValid = false
+    } else if (this.Person.select7 == true) {
+      this.select7 = this.Person["select7"];
+      this.isValid = false
+    } else if (this.Person.select8 == true) {
+      this.select8 = this.Person["select8"];
+      this.isValid = false
+    } else if (this.Person.select9 == true) {
+      this.select9 = this.Person["select9"];
+      this.isValid = false
+    } else if (this.Person.select10 == true) {
+      this.select10 = this.Person["select10"];
+      this.isValid = false
+    } else if (this.Person.select11 == true) {
+      this.select11 = this.Person["select11"];
+      this.isValid = false
+    } else if (this.Person.select12 == true) {
+      this.select12 = this.Person["select12"];
+      this.isValid = false
+    } else if (this.Person.select13 == true) {
+      this.select13 = this.Person["select13"];
+      this.isValid = false
+    }
+
+    this.selectPoint1();
+    this.selectPoint2();
+    this.selectPoint3();
+    this.selectPoint11();
+    this.selectPoint12();
+    this.selectPoint13();
 
   }
+
+  goto1() {
+    this.navCtrl.pop()
+    this.navCtrl.push(OutreachPage)
+  }
+
+  goto2() {
+    this.navCtrl.pop()
+    this.navCtrl.push(SchoolPage)
+  }
+
+  goto3() {
+    this.navCtrl.pop()
+    this.navCtrl.push(BookPage)
+  }
+
+  goto4() {
+    this.navCtrl.pop()
+    this.navCtrl.push(AcademiccampPage)
+  }
+
+  goto5() {
+    this.navCtrl.pop()
+    this.navCtrl.push(BuddhacampPage)
+  }
+
+  goto6() {
+    this.navCtrl.pop()
+    this.navCtrl.push(SciencevisitPage)
+  }
+
+  goto7() {
+    this.navCtrl.pop()
+    this.navCtrl.push(SocialvisitPage)
+  }
+
+  goto8() {
+    this.navCtrl.pop()
+    this.navCtrl.push(ScilecturePage)
+  }
+
+  goto9() {
+    this.navCtrl.pop()
+    this.navCtrl.push(PersonlecturePage)
+  }
+
+  goto10() {
+    this.navCtrl.pop()
+    this.navCtrl.push(SociallecturePage)
+  }
+
+  goto11() {
+    this.navCtrl.pop()
+    this.navCtrl.push(ClubPage)
+  }
+
+  goto12() {
+    this.navCtrl.pop()
+    this.navCtrl.push(ExercisePage)
+  }
+
+  goto13() {
+    this.navCtrl.pop()
+    this.navCtrl.push(MeetteacherPage)
+  }
+
+  selectPoint1() {
+    this.selectService.selectPoint1(this.Person.std_ID)
+    .then(point => {
+      this.p1 = point;
+    });
+  }
+
+  selectPoint2() {
+    this.selectService.selectPoint2(this.Person.std_ID)
+    .then(point => {
+      this.p2 = point;
+    });
+  }
+
+  selectPoint3() {
+    this.selectService.selectPoint3(this.Person.std_ID)
+    .then(point => {
+      this.p3 = point;
+    });
+  }
+
+
+  selectPoint11() {
+    this.selectService.selectPoint11(this.Person.std_ID)
+    .then(point => {
+      this.p11 = point;
+    });
+  }
+
+  selectPoint12() {
+    this.selectService.selectPoint12(this.Person.std_ID)
+    .then(point => {
+      this.p12 = point;
+    });
+  }
+
+  selectPoint13() {
+    this.selectService.selectPoint13(this.Person.std_ID)
+    .then(point => {
+      this.p13 = point;
+    });
+  }
+
+
 
   Form1Confirm() {
     let confirm = this.alertCtrl.create({
@@ -112,11 +291,16 @@ export class RecordPage {
       };
       this.http.post("http://119.46.21.249/www/insert/form1insert.php", JSON.stringify(postParams))
         .subscribe(data => {
-          this.navCtrl.pop();
+          let confirm = this.alertCtrl.create({
+            title: 'แจ้งเตือน',
+            message: 'คุณต้องการส่งเลยหรือไม่ ?',
+            buttons: [{ text: 'ยังไม่ส่ง',
+                handler: () => {this.navCtrl.pop();}},
+                      { text: 'ส่งเลย',
+                handler: () => {this.goto1()}}]});
+          confirm.present();
         }, error => {
           console.log(error);});
-
-
   }
 
   Form2Confirm() {
@@ -146,7 +330,14 @@ export class RecordPage {
     };
     this.http.post("http://119.46.21.249/www/insert/form2insert.php", JSON.stringify(postParams))
       .subscribe(data => {
-        this.navCtrl.pop();
+        let confirm = this.alertCtrl.create({
+          title: 'แจ้งเตือน',
+          message: 'คุณต้องการส่งเลยหรือไม่ ?',
+          buttons: [{ text: 'ยังไม่ส่ง',
+              handler: () => {this.navCtrl.pop();}},
+                    { text: 'ส่งเลย',
+              handler: () => {this.goto2()}}]});
+        confirm.present();
       }, error => {
         console.log(error);});
   }
@@ -180,7 +371,14 @@ export class RecordPage {
     };
     this.http.post("http://119.46.21.249/www/insert/form3insert.php", JSON.stringify(postParams))
       .subscribe(data => {
-        this.navCtrl.pop();
+        let confirm = this.alertCtrl.create({
+          title: 'แจ้งเตือน',
+          message: 'คุณต้องการส่งเลยหรือไม่ ?',
+          buttons: [{ text: 'ยังไม่ส่ง',
+              handler: () => {this.navCtrl.pop();}},
+                    { text: 'ส่งเลย',
+              handler: () => {this.goto3() }}]});
+        confirm.present();
       }, error => {
         console.log(error);});
   }
@@ -212,7 +410,14 @@ export class RecordPage {
     console.log(postParams);
     this.http.post("http://119.46.21.249/www/insert/form4insert.php", JSON.stringify(postParams))
       .subscribe(data => {
-        this.navCtrl.pop();
+        let confirm = this.alertCtrl.create({
+          title: 'แจ้งเตือน',
+          message: 'คุณต้องการส่งเลยหรือไม่ ?',
+          buttons: [{ text: 'ยังไม่ส่ง',
+              handler: () => {this.navCtrl.pop();}},
+                    { text: 'ส่งเลย',
+              handler: () => {this.goto4() }}]});
+        confirm.present();
       }, error => {
         console.log(error);});
   }
@@ -243,7 +448,14 @@ export class RecordPage {
     };
     this.http.post("http://119.46.21.249/www/insert/form5insert.php", JSON.stringify(postParams))
       .subscribe(data => {
-        this.navCtrl.pop();
+        let confirm = this.alertCtrl.create({
+          title: 'แจ้งเตือน',
+          message: 'คุณต้องการส่งเลยหรือไม่ ?',
+          buttons: [{ text: 'ยังไม่ส่ง',
+              handler: () => {this.navCtrl.pop();}},
+                    { text: 'ส่งเลย',
+              handler: () => {this.goto5()}}]});
+        confirm.present();
       }, error => {
         console.log(error);});
   }
@@ -275,7 +487,14 @@ export class RecordPage {
     };
     this.http.post("http://119.46.21.249/www/insert/form6insert.php", JSON.stringify(postParams))
       .subscribe(data => {
-        this.navCtrl.pop();
+        let confirm = this.alertCtrl.create({
+          title: 'แจ้งเตือน',
+          message: 'คุณต้องการส่งเลยหรือไม่ ?',
+          buttons: [{ text: 'ยังไม่ส่ง',
+              handler: () => {this.navCtrl.pop();}},
+                    { text: 'ส่งเลย',
+              handler: () => {this.goto6() }}]});
+        confirm.present();
       }, error => {
         console.log(error);});
   }
@@ -307,7 +526,14 @@ export class RecordPage {
     };
     this.http.post("http://119.46.21.249/www/insert/form7insert.php", JSON.stringify(postParams))
       .subscribe(data => {
-        this.navCtrl.pop();
+        let confirm = this.alertCtrl.create({
+          title: 'แจ้งเตือน',
+          message: 'คุณต้องการส่งเลยหรือไม่ ?',
+          buttons: [{ text: 'ยังไม่ส่ง',
+              handler: () => {this.navCtrl.pop();}},
+                    { text: 'ส่งเลย',
+              handler: () => {this.goto7() }}]});
+        confirm.present();
       }, error => {
         console.log(error);});
   }
@@ -338,7 +564,14 @@ export class RecordPage {
     };
     this.http.post("http://119.46.21.249/www/insert/form8insert.php", JSON.stringify(postParams))
       .subscribe(data => {
-        this.navCtrl.pop();
+        let confirm = this.alertCtrl.create({
+          title: 'แจ้งเตือน',
+          message: 'คุณต้องการส่งเลยหรือไม่ ?',
+          buttons: [{ text: 'ยังไม่ส่ง',
+              handler: () => {this.navCtrl.pop();}},
+                    { text: 'ส่งเลย',
+              handler: () => {this.goto8() }}]});
+        confirm.present();
       }, error => {
         console.log(error);});
   }
@@ -369,7 +602,14 @@ export class RecordPage {
     };
     this.http.post("http://119.46.21.249/www/insert/form9insert.php", JSON.stringify(postParams))
       .subscribe(data => {
-        this.navCtrl.pop();
+        let confirm = this.alertCtrl.create({
+          title: 'แจ้งเตือน',
+          message: 'คุณต้องการส่งเลยหรือไม่ ?',
+          buttons: [{ text: 'ยังไม่ส่ง',
+              handler: () => {this.navCtrl.pop();}},
+                    { text: 'ส่งเลย',
+              handler: () => {this.goto9() }}]});
+        confirm.present();
       }, error => {
         console.log(error);});
   }
@@ -400,7 +640,14 @@ export class RecordPage {
     };
     this.http.post("http://119.46.21.249/www/insert/form10insert.php", JSON.stringify(postParams))
       .subscribe(data => {
-        this.navCtrl.pop();
+        let confirm = this.alertCtrl.create({
+          title: 'แจ้งเตือน',
+          message: 'คุณต้องการส่งเลยหรือไม่ ?',
+          buttons: [{ text: 'ยังไม่ส่ง',
+              handler: () => {this.navCtrl.pop();}},
+                    { text: 'ส่งเลย',
+              handler: () => {this.goto10() }}]});
+        confirm.present();
       }, error => {
         console.log(error);});
   }
@@ -433,7 +680,14 @@ export class RecordPage {
     };
     this.http.post("http://119.46.21.249/www/insert/form11insert.php", JSON.stringify(postParams))
       .subscribe(data => {
-        this.navCtrl.pop();
+        let confirm = this.alertCtrl.create({
+          title: 'แจ้งเตือน',
+          message: 'คุณต้องการส่งเลยหรือไม่ ?',
+          buttons: [{ text: 'ยังไม่ส่ง',
+              handler: () => {this.navCtrl.pop();}},
+                    { text: 'ส่งเลย',
+              handler: () => {this.goto11()}}]});
+        confirm.present();
       }, error => {
         console.log(error);});
   }
@@ -464,7 +718,14 @@ export class RecordPage {
     };
     this.http.post("http://119.46.21.249/www/insert/form12insert.php", JSON.stringify(postParams))
       .subscribe(data => {
-        this.navCtrl.pop();
+        let confirm = this.alertCtrl.create({
+          title: 'แจ้งเตือน',
+          message: 'คุณต้องการส่งเลยหรือไม่ ?',
+          buttons: [{ text: 'ยังไม่ส่ง',
+              handler: () => {this.navCtrl.pop();}},
+                    { text: 'ส่งเลย',
+              handler: () => {this.goto12() }}]});
+        confirm.present();
       }, error => {
         console.log(error);});
   }
@@ -493,7 +754,14 @@ export class RecordPage {
     };
     this.http.post("http://119.46.21.249/www/insert/form13insert.php", JSON.stringify(postParams))
       .subscribe(data => {
-        this.navCtrl.pop();
+        let confirm = this.alertCtrl.create({
+          title: 'แจ้งเตือน',
+          message: 'คุณต้องการส่งเลยหรือไม่ ?',
+          buttons: [{ text: 'ยังไม่ส่ง',
+              handler: () => {this.navCtrl.pop();}},
+                    { text: 'ส่งเลย',
+              handler: () => {this.goto13() }}]});
+        confirm.present();
       }, error => {
         console.log(error);});
   }

@@ -15,14 +15,14 @@
           <ion-select (ionChange)="ontypeChange($event)" okText="ตกลง" cancelText="ยกเลิก" class="selector">
             <div *ngFor="let actty of acttype">
               <ion-option value={{actty.act_type_name}} class="option">
-                <textarea>{{actty.act_type_name}}</textarea>
+                <textarea class="selector">{{actty.act_type_name}}</textarea>
               </ion-option>
             </div>
           </ion-select>
       </ion-item>
     </ion-list>
-    <div *ngIf="!isValid">
-      <ion-card *ngFor="let actty of acttype" class="contianer" >
+    <div *ngIf="isValid">
+      <ion-card *ngFor="let actty of acttype;let i = index" class="contianer" >
         <button ion-button (click)="show = true" icon-only class="buttoncard" small color="dark" clear item-start>
           <ion-icon style="color: #FFF" name="ios-arrow-down-outline"></ion-icon>
         </button>
@@ -37,7 +37,7 @@
       </ion-card>
   </div>
   </form>
-  <form *ngIf="select1" (ngSubmit)="Form1Confirm()">
+  <form *ngIf="select1 && p1 < 15" (ngSubmit)="Form1Confirm()">
     <ion-card class="cardbg">
       <ion-card-header class="cardhead">
         <ion-avatar item-start>
@@ -71,10 +71,16 @@
       </ion-list>
     </ion-card-content>
     </ion-card>
-    <button ion-button type="submit" style="margin-top: 20px" color=ink large full>บันทึก</button>
+    <button ion-button type="submit" *ngIf="form1detail.date!=''&&form1detail.hour!=''&&form1detail.make!=''&&form1detail.feel!=''"
+    style="margin-top: 20px" color=ink large full>บันทึก</button>
   </form>
+  <div *ngIf="p1 >= 15 && select1 == true" style="text-align: center">
+    <img src="./assets/imgs/cry.png" width="35%" height="auto"><br>
+    <h1>Sorry</h1>
+    <p>คุณบันทึกกิจกรรมนี้ครบแล้ว</p>
+  </div>
 
-  <form *ngIf="select2" (ngSubmit)="Form2Confirm()">
+  <form *ngIf="select2 && p2 < 10" (ngSubmit)="Form2Confirm()">
     <ion-card class="cardbg">
       <ion-card-header class="cardhead">
         <ion-avatar item-start>
@@ -106,10 +112,16 @@
       </ion-list>
     </ion-card-content>
     </ion-card>
-    <button ion-button type="submit" style="margin-top: 20px" color=ink large full>บันทึก</button>
+    <button ion-button type="submit" *ngIf="form2detail.hour != '' && form2detail.place != '' && form2detail.make != '' && form2detail.feel != ''"
+    style="margin-top: 20px" color=ink large full>บันทึก</button>
   </form>
+  <div *ngIf="p2 >= 10 && select2 == true" style="text-align: center">
+    <img src="./assets/imgs/cry.png" width="35%" height="auto"><br>
+    <h1>Sorry</h1>
+    <p>คุณบันทึกกิจกรรมนี้ครบแล้ว</p>
+  </div>
 
-  <form *ngIf="select3" (ngSubmit)="Form3Confirm()">
+  <form *ngIf="select3 && p3 < 5" (ngSubmit)="Form3Confirm()">
     <ion-card class="cardbg">
       <ion-card-header class="cardhead">
         <ion-avatar item-start>
@@ -149,8 +161,14 @@
       </ion-list>
     </ion-card-content>
     </ion-card>
-    <button ion-button type="submit" style="margin-top: 20px" color=ink large full>บันทึก</button>
+    <button ion-button type="submit" *ngIf="form3detail.head!=''&&form3detail.hour!=''&&form3detail.place!=''&&form3detail.make!=''&&form3detail.feel!=''&&form3detail.date!=''&&form3detail.print!=''"
+    style="margin-top: 20px" color=ink large full>บันทึก</button>
   </form>
+  <div *ngIf="p3 >= 5 && select3 == true" style="text-align: center">
+    <img src="./assets/imgs/cry.png" width="35%" height="auto"><br>
+    <h1>Sorry</h1>
+    <p>คุณบันทึกกิจกรรมนี้ครบแล้ว</p>
+  </div>
 
   <form *ngIf="select4" (ngSubmit)="Form4Confirm()">
     <ion-card class="cardbg">
@@ -180,7 +198,8 @@
       </ion-list>
     </ion-card-content>
     </ion-card>
-    <button ion-button type="submit" style="margin-top: 20px" color=ink large full>บันทึก</button>
+    <button ion-button type="submit" *ngIf="form4detail.head!=''&&form4detail.place!=''&&form4detail.make!=''&&form4detail.feel!=''"
+    style="margin-top: 20px" color=ink large full>บันทึก</button>
   </form>
 
   <form *ngIf="select5" (ngSubmit)="Form5Confirm()">
@@ -211,7 +230,8 @@
       </ion-list>
     </ion-card-content>
     </ion-card>
-    <button ion-button type="submit" style="margin-top: 20px" color=ink large full>บันทึก</button>
+    <button ion-button type="submit" *ngIf="form5detail.head!=''&&form5detail.place!=''&&form5detail.make!=''&&form5detail.feel!=''"
+    style="margin-top: 20px" color=ink large full>บันทึก</button>
   </form>
 
   <form *ngIf="select6" (ngSubmit)="Form6Confirm()">
@@ -246,7 +266,8 @@
       </ion-list>
     </ion-card-content>
     </ion-card>
-    <button ion-button type="submit" style="margin-top: 20px" color=ink large full>บันทึก</button>
+    <button ion-button type="submit" *ngIf="form6detail.head!=''&&form6detail.place!=''&&form6detail.date!=''&&form6detail.make!=''&&form6detail.feel!=''"
+    style="margin-top: 20px" color=ink large full>บันทึก</button>
   </form>
 
   <form *ngIf="select7" (ngSubmit)="Form7Confirm()">
@@ -281,7 +302,8 @@
       </ion-list>
     </ion-card-content>
     </ion-card>
-    <button ion-button type="submit" style="margin-top: 20px" color=ink large full>บันทึก</button>
+    <button ion-button type="submit" *ngIf="form7detail.head!=''&&form7detail.place!=''&&form7detail.date!=''&&form7detail.make!=''&&form7detail.feel!=''"
+    style="margin-top: 20px" color=ink large full>บันทึก</button>
   </form>
 
   <form *ngIf="select8" (ngSubmit)="Form8Confirm()">
@@ -312,7 +334,8 @@
       </ion-list>
     </ion-card-content>
     </ion-card>
-    <button ion-button type="submit" style="margin-top: 20px" color=ink large full>บันทึก</button>
+    <button ion-button type="submit" *ngIf="form8detail.head!=''&&form8detail.date!=''&&form8detail.make!=''&&form8detail.feel!=''"
+    style="margin-top: 20px" color=ink large full>บันทึก</button>
   </form>
 
   <form *ngIf="select9" (ngSubmit)="Form9Confirm()">
@@ -344,7 +367,8 @@
       </ion-list>
     </ion-card-content>
     </ion-card>
-    <button ion-button type="submit" style="margin-top: 20px" color=ink large full>บันทึก</button>
+    <button ion-button type="submit" *ngIf="form9detail.head!=''&&form9detail.date!=''&&form9detail.make!=''&&form9detail.feel!=''"
+    style="margin-top: 20px" color=ink large full>บันทึก</button>
   </form>
 
   <form *ngIf="select10" (ngSubmit)="Form10Confirm()">
@@ -376,10 +400,11 @@
       </ion-list>
     </ion-card-content>
     </ion-card>
-    <button ion-button type="submit" style="margin-top: 20px" color=ink large full>บันทึก</button>
+    <button ion-button type="submit" *ngIf="form10detail.head!=''&&form10detail.date!=''&&form10detail.make!=''&&form10detail.feel!=''"
+    style="margin-top: 20px" color=ink large full>บันทึก</button>
   </form>
 
-  <form *ngIf="select11" (ngSubmit)="Form11Confirm()">
+  <form *ngIf="select11 && p11 < 1" (ngSubmit)="Form11Confirm()">
     <ion-card class="cardbg">
       <ion-card-header class="cardhead">
         <ion-avatar item-start>
@@ -414,7 +439,7 @@
               <ion-option value="ชุมนุมวิชาการ" >ชุมนุมวิชาการ</ion-option>
               <ion-option value="ชุมนุมกีฬาและการออกกำลังกาย" >ชุมนุมกีฬาและการออกกำลังกาย</ion-option>
               <ion-option value="ชุมนุมสังคมศึกษา ภาษา ศาสนา ศิลปวัฒนธรรมและโบราณคดี" >ชุมนุมสังคมศึกษา ภาษา ศาสนา<br>ศิลปวัฒนธรรมและโบราณคดี</ion-option>
-              <ion-option value="ชุมนุมชุมนุมกิจกรรมอื่น ๆ" >ชุมนุมกิจกรรมอื่น ๆ</ion-option>
+              <ion-option value="ชุมนุมกิจกรรมอื่น ๆ" >ชุมนุมกิจกรรมอื่น ๆ</ion-option>
           </ion-select>
         </ion-item>
         <ion-item class="cardcontent1">
@@ -428,10 +453,16 @@
       </ion-list>
     </ion-card-content>
     </ion-card>
-    <button ion-button type="submit" style="margin-top: 20px" color=ink large full>บันทึก</button>
+    <button ion-button type="submit" *ngIf="form11detail.head!=''&&form11detail.hour!=''&&form11detail.date!=''&&form11detail.make!=''&&form11detail.feel!=''"
+    style="margin-top: 20px" color=ink large full>บันทึก</button>
   </form>
+  <div *ngIf="p11 >= 1 && select11 == true" style="text-align: center">
+    <img src="./assets/imgs/cry.png" width="35%" height="auto"><br>
+    <h1>Sorry</h1>
+    <p>คุณบันทึกกิจกรรมนี้ครบแล้ว</p>
+  </div>
 
-  <form *ngIf="select12" (ngSubmit)="Form12Confirm()">
+  <form *ngIf="select12 && p12 < 40" (ngSubmit)="Form12Confirm()">
     <ion-card class="cardbg">
       <ion-card-header class="cardhead">
         <ion-avatar item-start>
@@ -467,10 +498,16 @@
       </ion-list>
     </ion-card-content>
     </ion-card>
-    <button ion-button type="submit" style="margin-top: 20px" color=ink large full>บันทึก</button>
+    <button ion-button type="submit" *ngIf="form12detail.timeStarts!=''&&form12detail.timeEnds!=''&&form12detail.make!=''&&form12detail.date!=''"
+    style="margin-top: 20px" color=ink large full>บันทึก</button>
   </form>
+  <div *ngIf="p12 >= 40 && select12 == true" style="text-align: center">
+    <img src="./assets/imgs/cry.png" width="35%" height="auto"><br>
+    <h1>Sorry</h1>
+    <p>คุณบันทึกกิจกรรมนี้ครบแล้ว</p>
+  </div>
 
-  <form *ngIf="select13" (ngSubmit)="Form13Confirm()">
+  <form *ngIf="select13 && p13 < 90" (ngSubmit)="Form13Confirm()">
     <ion-card class="cardbg">
       <ion-card-header class="cardhead">
         <ion-avatar item-start>
@@ -490,6 +527,12 @@
       </ion-list>
     </ion-card-content>
     </ion-card>
-    <button ion-button type="submit" style="margin-top: 20px" color=ink large full>บันทึก</button>
+    <button ion-button type="submit" *ngIf="form13detail.head!=''&&form13detail.date!=''"
+    style="margin-top: 20px" color=ink large full>บันทึก</button>
   </form>
+  <div *ngIf="p13 >= 90 && select13 == true" style="text-align: center">
+    <img src="./assets/imgs/cry.png" width="35%" height="auto"><br>
+    <h1>Sorry</h1>
+    <p>คุณบันทึกกิจกรรมนี้ครบแล้ว</p>
+  </div>
 </ion-content>

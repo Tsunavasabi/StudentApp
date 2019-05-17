@@ -7,17 +7,19 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'request.html',
 })
 export class RequestPage {
-
+  detail: any;
+  name: any;
+  act: any;
+  clas: any;
+  dr: any;
+  select: any;
+  search: any;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
 
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad RequestPage');
-  }
-
-  ionViewDidEnter() {
-    console.log("Hey");
+  radioClicked(id) {
+    this.select = id;
   }
 
 }

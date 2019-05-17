@@ -26,19 +26,19 @@ export class SciencevisitPage {
     public alertCtrl: AlertController) {
       this.selectService.Selectscivisit()
       .then(data => {
-        console.log(data);
         this.outreach = data;
       });
 
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad OutreachPage');
+  ionViewWillEnter() {
+    this.selectService.Selectscivisit()
+    .then(data => {
+      this.outreach = data;
+    });
   }
 
-
   updatedata(act_id) {
-    console.log(act_id);
     this.updateService.updatescivisit(act_id)
     .then(data => {
       this.navCtrl.push(Form1updatePage, {outdata: data});

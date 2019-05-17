@@ -26,22 +26,22 @@ export class SchoolPage {
     public alertCtrl: AlertController) {
       this.selectService.Selectschool()
       .then(data => {
-        console.log(data);
         this.outreach = data;
       });
 
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad OutreachPage');
+  ionViewWillEnter() {
+    this.selectService.Selectschool()
+    .then(data => {
+      this.outreach = data;
+    });
   }
 
 
   updatedata(act_id) {
-    console.log(act_id);
     this.updateService.updateschool(act_id)
     .then(data => {
-      console.log(data);
       this.navCtrl.push(Form1updatePage, {outdata: data});
     });
   }

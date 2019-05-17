@@ -27,19 +27,20 @@ export class ExercisePage {
     public alertCtrl: AlertController) {
       this.selectService.Selectexercise()
       .then(data => {
-        console.log(data);
         this.outreach = data;
       });
 
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad OutreachPage');
+  ionViewWillEnter() {
+    this.selectService.Selectexercise()
+    .then(data => {
+      this.outreach = data;
+    });
   }
 
 
   updatedata(act_id) {
-    console.log(act_id);
     this.updateService.updateexercise(act_id)
     .then(data => {
       this.navCtrl.push(Form1updatePage, {outdata: data});
