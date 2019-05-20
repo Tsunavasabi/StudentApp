@@ -1,12 +1,11 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, MenuController, ActionSheetController } from 'ionic-angular';
 import { RecordPage } from '../record/record';
 import { SelectserviceProvider } from '../../providers/selectservice/selectservice';
 import { Chart } from 'chart.js';
 import { Http } from '@angular/http';
 import { Camera, CameraOptions } from '@ionic-native/camera';
-import { Observable } from 'rxjs/Observable';
-import { ActionSheetController } from 'ionic-angular';
+import { CropPage } from '../crop/crop';
 
 @IonicPage()
 @Component({
@@ -18,19 +17,21 @@ export class MemberPage {
   allChart: any;
   public Detail: any;
   allpoint: any;
+  ImgSrc = 'https://paetong.000webhostapp.com/'
   p1: any; p2: any; p3: any; p4: any;
   p5: any; p6: any; p7: any; p8: any;
   p9: any; p10: any; p11: any; p12: any;
   p13: any; p1per: any; p2per: any; p3per: any;
   p4per: any; p12per: any; p13per: any;
   fileToUpload: any
-  Image: any
+  Image: string;
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public menuCtrl: MenuController,
     public selectService: SelectserviceProvider,
     public http: Http, private camera: Camera,
-    public actionSheetCtrl: ActionSheetController) {
+    public actionSheetCtrl: ActionSheetController,
+    public alertCtrl: AlertController) {
       this.Detail = this.navParams.get('detailper');
       console.log(this.Detail)
       this.selectService.humandetail(this.Detail);
@@ -44,7 +45,7 @@ export class MemberPage {
           role: 'destructive',
           icon: 'image',
           handler: () => {
-            this.openGallery()
+            this.AlertNext()
           }
         },{
           text: 'Cancel',
@@ -59,13 +60,36 @@ export class MemberPage {
     actionSheet.present();
   }
 
+  AlertNext() {
+    const confirm = this.alertCtrl.create({
+      title: 'ข้อชี้แนะ',
+      message: 'คุณสามารถเลือกรูปได้เพียงหนึ่งครั้งและรูปนั้นควรเป็นรูปที่มีขนาดเป็นสี่เหลี่ยมจัตุรัสจะดีที่สุด',
+      buttons: [
+        {
+          text: 'ยกเลิก',
+          handler: () => {
+            console.log('Disagree clicked');
+          }
+        },
+        {
+          text: 'ต่อไป',
+          handler: () => {
+            this.openGallery()
+          }
+        }
+      ]
+    });
+    confirm.present();
+  }
+
   openGallery() {
     const options: CameraOptions = {
       quality: 100,
       destinationType: this.camera.DestinationType.DATA_URL,
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE,
-      sourceType: this.camera.PictureSourceType.PHOTOLIBRARY
+      sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+      allowEdit: true
     }
     
     this.camera.getPicture(options).then((imageData) => {
@@ -73,21 +97,10 @@ export class MemberPage {
      // If it's base64 (DATA_URL):
      this.Image = 'data:image/jpeg;base64,' + imageData;
      console.log(imageData)
+     this.navCtrl.push(CropPage, {image: this.Image, id: this.Detail.std_ID, flag: this.Detail.flag})
     }, (err) => {
      // Handle error 
     });
-  }
-
-  uploadPic() {
-    let url = 'https://paetong.000webhostapp.com/uppic.php';
-    let postdata = new FormData();
-    postdata.append('file', this.Image)
-    postdata.append('ID', this.Detail.std_ID)
-    let data:Observable<any> = this.http.post(url, postdata)
-    data.subscribe((result) => {
-      console.log(result)
-    });
-
   }
 
   openMenu() {
@@ -193,6 +206,8 @@ export class MemberPage {
     this.selectPoint11();
     this.selectPoint12();
     this.selectPoint13();
+    this.ImgSrc = this.ImgSrc+this.Detail.std_ID+'.jpg?'+Math.random()
+    console.log(this.ImgSrc)
   }
 
   selectallPoint() {

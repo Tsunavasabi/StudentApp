@@ -1,0 +1,29 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Crop Image</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding><br>
+  <angular-cropper #angularCropper cropperOptions="{{cropperOptions}}" [imageUrl]="Image" *ngIf="cropImg == null"></angular-cropper>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <button ion-button icon-start outline color="primary" (click)="reset()">
+            <ion-icon name="refresh"></ion-icon>Reset</button>
+      </ion-col>
+      <ion-col>
+        <button ion-button icon-start outline color="danger" (click)="clear()">
+            <ion-icon name="trash"></ion-icon>Clear</button>
+      </ion-col>
+      <ion-col>
+        <button ion-button icon-start outline color="secondary" (click)="AlertUpload()">
+            <ion-icon name="cloud-upload"></ion-icon>Upload</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid><br>
+  <img src="{{cropImg}}">
+</ion-content>

@@ -73,7 +73,8 @@
 <ion-content padding class="ion-content">
 <div [ngSwitch]="page">
   <ion-list *ngSwitchCase="'home'">
-    <p style="text-align: center"><img src="assets/imgs/member.png" class="pic"></p>
+    <p style="text-align: center" *ngIf="Detail.tch_img != ''" (click)="ChangeImage()"><img src="{{ImgSrc}}" class="pic"></p>
+    <p style="text-align: center" *ngIf="Detail.tch_img == ''" (click)="ChangeImage()"><img src="assets/imgs/member.png" class="pic"></p>
     <ion-item class="cardcon" no-lines>
       {{Detail.tch_firstname}} {{Detail.tch_lastname}}<br>
       <p style="font-size: 18px; color: #333333">PROFILE</p>

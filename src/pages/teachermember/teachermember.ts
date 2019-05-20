@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController, App, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, App, AlertController, ActionSheetController } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { SearchProvider } from '../../providers/search/search';
 import { RequestProvider } from '../../providers/request/request';
@@ -9,6 +9,8 @@ import { LoginProvider } from '../../providers/login/login';
 import { Http } from '@angular/http';
 import { PersonPage } from '../person/person';
 import { RequestPage } from '../request/request';
+import { Camera, CameraOptions } from '@ionic-native/camera';
+import { CropPage } from '../crop/crop';
 
 @IonicPage()
 @Component({
@@ -28,6 +30,9 @@ export class TeachermemberPage {
   clas: string = "";
   names: any;
   idsend: any = "";
+  fileToUpload: any
+  Image: string;
+  ImgSrc = 'https://paetong.000webhostapp.com/'
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public loadingCtrl: LoadingController,
@@ -37,8 +42,11 @@ export class TeachermemberPage {
     private storage: Storage,
     public loginservice: LoginProvider,
     public http: Http,
-    public alertCtrl: AlertController) {
+    public alertCtrl: AlertController,
+    public camera: Camera,
+    public actionSheetCtrl: ActionSheetController,) {
       this.Detail = this.navParams.get('detailper');
+      console.log(this.Detail)
       this.requestService.request(this.Detail.tch_idcard)
       .then(data => {
         this.request = data;
@@ -49,10 +57,77 @@ export class TeachermemberPage {
   }
 
   ionViewWillEnter() {
+    this.ImgSrc = this.ImgSrc+this.Detail.tch_username+'.jpg?'+Math.random()
     this.requestService.request(this.Detail.tch_idcard)
     .then(data => {
       this.request = data;
       this.badge = data['length'];
+    });
+  }
+
+  ChangeImage() {
+    const actionSheet = this.actionSheetCtrl.create({
+      buttons: [
+        {
+          text: 'Change profile image',
+          role: 'destructive',
+          icon: 'image',
+          handler: () => {
+            this.AlertNext()
+          }
+        },{
+          text: 'Cancel',
+          role: 'cancel',
+          icon: 'close',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        }
+      ]
+    });
+    actionSheet.present();
+  }
+
+  AlertNext() {
+    const confirm = this.alertCtrl.create({
+      title: 'ข้อชี้แนะ',
+      message: 'คุณสามารถเลือกรูปได้เพียงหนึ่งครั้งและรูปนั้นควรเป็นรูปที่มีขนาดเป็นสี่เหลี่ยมจัตุรัสจะดีที่สุด',
+      buttons: [
+        {
+          text: 'ยกเลิก',
+          handler: () => {
+            console.log('Disagree clicked');
+          }
+        },
+        {
+          text: 'ต่อไป',
+          handler: () => {
+            this.openGallery()
+          }
+        }
+      ]
+    });
+    confirm.present();
+  }
+
+  openGallery() {
+    const options: CameraOptions = {
+      quality: 100,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE,
+      sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+      allowEdit: true
+    }
+    
+    this.camera.getPicture(options).then((imageData) => {
+     // imageData is either a base64 encoded string or a file URI
+     // If it's base64 (DATA_URL):
+     this.Image = 'data:image/jpeg;base64,' + imageData;
+     console.log(imageData)
+     this.navCtrl.push(CropPage, {image: this.Image, id: this.Detail.tch_username, flag: this.Detail.flag})
+    }, (err) => {
+     // Handle error 
     });
   }
 
@@ -68,7 +143,6 @@ export class TeachermemberPage {
     this.loginservice.getacttype()
     .then(data => {
       this.acttype = data;
-      console.log(this.acttype)
     });
   }
 

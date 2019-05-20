@@ -10,8 +10,8 @@
 
 
   <ion-content padding class="ion-content">
-    <p class="para1" *ngIf="Detail.img_path != null" (click)="ChangeImage()"><img src="https://paetong.000webhostapp.com/{{Detail.img_path}}" class="pic"></p>
-    <p class="para1" *ngIf="Detail.img_path == null"><img src="assets/imgs/member.png" class="pic"></p>
+    <p class="para1" *ngIf="Detail.img_path != null" (click)="ChangeImage()"><img src="{{ImgSrc}}" class="pic"></p>
+    <p class="para1" *ngIf="Detail.img_path == null" (click)="ChangeImage()"><img src="assets/imgs/member.png" class="pic"></p>
     <ion-item class="cardcon" no-lines>
       {{Detail.std_firstname}} {{Detail.std_lastname}}<br>
       <p style="font-size: 20px; color: #333333">PROFILE</p>

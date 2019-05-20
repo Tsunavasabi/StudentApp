@@ -66,6 +66,7 @@ export class HomePage {
               password:this.pass};
     this.logService.Login(data)
     .then(data => {
+      console.log(data)
       if (data['_body']=="0"){
       this.showAlert();
     } else {

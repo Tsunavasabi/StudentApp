@@ -8,7 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { Device } from '@ionic-native/device';
 import { SMS } from '@ionic-native/sms';
 import { Camera } from '@ionic-native/camera';
-
+import { AngularCropperjsModule } from 'angular-cropperjs';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -57,6 +57,7 @@ import { AuthserviceProvider } from '../providers/authservice/authservice';
 import { RecordProvider } from '../providers/record/record';
 import { ResultPage } from '../pages/result/result';
 import { PersonPage } from '../pages/person/person';
+import { CropPage } from '../pages/crop/crop';
 
 @NgModule({
   declarations: [
@@ -89,7 +90,8 @@ import { PersonPage } from '../pages/person/person';
     TeacherlistPage,
     CheckPage,
     ResultPage,
-    PersonPage
+    PersonPage,
+    CropPage
   ],
   imports: [
     BrowserModule,
@@ -98,7 +100,8 @@ import { PersonPage } from '../pages/person/person';
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularCropperjsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -131,7 +134,8 @@ import { PersonPage } from '../pages/person/person';
     TeacherlistPage,
     CheckPage,
     ResultPage,
-    PersonPage
+    PersonPage,
+    CropPage
   ],
   providers: [
     StatusBar,
