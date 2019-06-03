@@ -15,11 +15,12 @@ export class RequestPage {
   select: any;
   search: any;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-
+    this.detail = this.navParams.get('person')
+    this.name = this.detail.name
+    this.clas = this.detail.class
+    console.log(this.clas)
   }
 
-  radioClicked(id) {
-    this.select = id;
-  }
+  
 
 }

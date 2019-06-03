@@ -1,3 +1,16 @@
 page-request {
+    .ion-title{
+        font-family: 'Prompt', sans-serif;
+    
+      }
+    
+      ion-content {
+        font-family: 'Prompt', sans-serif;
+        background: linear-gradient(#E9C77B, #C4D4E0);
+      }
 
+    h1 {
+        font-family: 'Prompt', sans-serif;
+        padding-top: 10px;
+    }
 }

@@ -211,6 +211,15 @@ export class TeachermemberPage {
     alert.present();
   }
 
+  showAlertperson() {
+    let alert = this.alertCtrl.create({
+      title: 'แจ้งเตือน',
+      subTitle: 'คุณต้องเลือกห้องเรียน',
+      buttons: ['ตกลง']
+    });
+    alert.present();
+  }
+
   callactperson() {
     if(this.activity != "" && this.clas != "") {
       this.selectname()
@@ -235,7 +244,7 @@ export class TeachermemberPage {
       this.navCtrl.push(RequestPage, {person: per});
       });
     } else {
-      this.showAlertper()
+      this.showAlertperson()
     }
   }
 
