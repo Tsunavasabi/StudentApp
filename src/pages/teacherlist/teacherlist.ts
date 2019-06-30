@@ -10,6 +10,7 @@ import { SendserviceProvider } from '../../providers/sendservice/sendservice';
 export class TeacherlistPage {
   teacher: any;
   act_id: any;
+  ImgSrc = 'https://paetong.000webhostapp.com/'
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public sendService: SendserviceProvider,
@@ -18,6 +19,7 @@ export class TeacherlistPage {
     this.sendService.getalltch()
     .then(data => {
       this.teacher = data;
+      this.ImgSrc = this.ImgSrc+this.teacher.tch_username+'.jpg?'+Math.random()
     });
   }
 
