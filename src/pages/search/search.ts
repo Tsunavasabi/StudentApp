@@ -11,11 +11,13 @@ import { ResultPage } from '../result/result';
 export class SearchPage {
   searchdata: any;
   datalength: number;
+  ImgSrc = 'https://paetong.000webhostapp.com/'
   constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
     this.searchdata = this.navParams.get('search');
     this.datalength = this.searchdata.length;
     console.log(this.searchdata);
     console.log(this.datalength);
+    this.ImgSrc = this.ImgSrc+this.searchdata.std_ID+'.jpg?'+Math.random()
   }
 
   ionViewDidLoad() {

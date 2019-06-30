@@ -19,7 +19,6 @@ export class TeacherlistPage {
     this.sendService.getalltch()
     .then(data => {
       this.teacher = data;
-      this.ImgSrc = this.ImgSrc+this.teacher.tch_username+'.jpg?'+Math.random()
     });
   }
 

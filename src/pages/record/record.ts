@@ -103,48 +103,6 @@ export class RecordPage {
       }
     this.getacttype();
     this.Person = this.navParams.get('person');
-    if (this.Person.select1 == true) {
-      this.select1 = this.Person["select1"];
-      this.isValid = false
-    } else if (this.Person.select2 == true) {
-      console.log(this.Person.select2)
-      this.select2 = this.Person["select2"];
-      this.isValid = false
-    } else if (this.Person.select3 == true) {
-      this.select3 = this.Person["select3"];
-      this.isValid = false
-    } else if (this.Person.select4 == true) {
-      this.select4 = this.Person["select4"];
-      this.isValid = false
-    } else if (this.Person.select5 == true) {
-      this.select5 = this.Person["select5"];
-      this.isValid = false
-    } else if (this.Person.select6 == true) {
-      this.select6 = this.Person["select6"];
-      this.isValid = false
-    } else if (this.Person.select7 == true) {
-      this.select7 = this.Person["select7"];
-      this.isValid = false
-    } else if (this.Person.select8 == true) {
-      this.select8 = this.Person["select8"];
-      this.isValid = false
-    } else if (this.Person.select9 == true) {
-      this.select9 = this.Person["select9"];
-      this.isValid = false
-    } else if (this.Person.select10 == true) {
-      this.select10 = this.Person["select10"];
-      this.isValid = false
-    } else if (this.Person.select11 == true) {
-      this.select11 = this.Person["select11"];
-      this.isValid = false
-    } else if (this.Person.select12 == true) {
-      this.select12 = this.Person["select12"];
-      this.isValid = false
-    } else if (this.Person.select13 == true) {
-      this.select13 = this.Person["select13"];
-      this.isValid = false
-    }
-
     this.selectPoint1();
     this.selectPoint2();
     this.selectPoint3();
@@ -781,7 +739,7 @@ export class RecordPage {
   }
 
   ontypeChange(selectedValue: any) {
-   this.isValid = true;
+   this.isValid = false;
    if (selectedValue == "การบำเพ็ญประโยชน์ต่อชุมชนและสังคม") {
      this.select1 = true;
      this.select2 = false;
