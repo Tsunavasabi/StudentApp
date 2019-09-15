@@ -64,7 +64,7 @@ export class CheckPage {
                   act_pin: pin}
     console.log(pin)
     console.log(this.pin)
-    this.http.post("http://119.46.21.249/www/pinup.php", JSON.stringify(actpin))
+    this.http.post("http://www.zp11489.tld.122.155.167.85.no-domain.name/www/pinup.php", JSON.stringify(actpin))
       .subscribe(data => {
         console.log(data['_body'])
         if(data['_body']==pin) {
@@ -169,7 +169,7 @@ export class CheckPage {
     this.pin = pin
     let actpin = {act_id: this.check.act_id,
                   act_pin: pin}
-    this.http.post("http://119.46.21.249/www/pinup.php", JSON.stringify(actpin))
+    this.http.post("http://www.zp11489.tld.122.155.167.85.no-domain.name/www/pinup.php", JSON.stringify(actpin))
       .subscribe(data => {
         console.log(data)
         if(data['_body']==pin) {

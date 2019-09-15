@@ -11,6 +11,7 @@ import { Device } from '@ionic-native/device';
 export class Form1updatePage {
   editdata: any;
   phoneid: string;
+  url = "http://www.zp11489.tld.122.155.167.85.no-domain.name/www/update/"
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public alertCtrl: AlertController,
@@ -22,6 +23,7 @@ export class Form1updatePage {
         this.phoneid = this.device.serial;
       }
     this.editdata = this.navParams.get('outdata');
+    console.log(this.editdata)
   }
 
   typeclub(club: any) {
@@ -47,7 +49,7 @@ export class Form1updatePage {
       feel: this.editdata[0].act_feels,
       pn_id: this.phoneid,
     };
-    this.http.post("http://119.46.21.249/www/update/outreachup.php", JSON.stringify(postParams))
+    this.http.post(this.url+"outreachup.php", JSON.stringify(postParams))
       .subscribe(data => {
         this.navCtrl.pop();
       }, error => {
@@ -75,7 +77,7 @@ export class Form1updatePage {
       pn_id: this.phoneid,
     };
     console.log(postParams);
-    this.http.post("http://119.46.21.249/www/update/schoolup.php", JSON.stringify(postParams))
+    this.http.post(this.url+"schoolup.php", JSON.stringify(postParams))
       .subscribe(data => {
         this.navCtrl.pop();
       }, error => {
@@ -104,7 +106,7 @@ export class Form1updatePage {
       pn_id: this.phoneid,
     };
     console.log(postParams);
-    this.http.post("http://119.46.21.249/www/update/bookup.php", JSON.stringify(postParams))
+    this.http.post(this.url+"bookup.php", JSON.stringify(postParams))
       .subscribe(data => {
         this.navCtrl.pop();
       }, error => {
@@ -130,7 +132,7 @@ export class Form1updatePage {
       pn_id: this.phoneid
     };
     console.log(postParams);
-    this.http.post("http://119.46.21.249/www/update/academicup.php", JSON.stringify(postParams))
+    this.http.post(this.url+"academicup.php", JSON.stringify(postParams))
       .subscribe(data => {
         this.navCtrl.pop();
       }, error => {
@@ -156,7 +158,7 @@ export class Form1updatePage {
       pn_id: this.phoneid,
     };
     console.log(postParams);
-    this.http.post("http://119.46.21.249/www/update/buddhaup.php", JSON.stringify(postParams))
+    this.http.post(this.url+"buddhaup.php", JSON.stringify(postParams))
       .subscribe(data => {
         this.navCtrl.pop();
       }, error => {
@@ -182,7 +184,7 @@ export class Form1updatePage {
       feel: this.editdata[0].act_feels,
       pn_id: this.phoneid,
     };
-    this.http.post("http://119.46.21.249/www/update/scivisitup.php", JSON.stringify(postParams))
+    this.http.post(this.url+"scivisitup.php", JSON.stringify(postParams))
       .subscribe(data => {
         this.navCtrl.pop();
       }, error => {
@@ -208,7 +210,7 @@ export class Form1updatePage {
       feel: this.editdata[0].act_feels,
       pn_id: this.phoneid,
     };
-    this.http.post("http://119.46.21.249/www/update/socialvisitup.php", JSON.stringify(postParams))
+    this.http.post(this.url+"socialvisitup.php", JSON.stringify(postParams))
       .subscribe(data => {
         this.navCtrl.pop();
       }, error => {
@@ -234,7 +236,7 @@ export class Form1updatePage {
       feel: this.editdata[0].act_feels,
       pn_id: this.phoneid,
     };
-    this.http.post("http://119.46.21.249/www/update/scilecturehup.php", JSON.stringify(postParams))
+    this.http.post(this.url+"scilecturehup.php", JSON.stringify(postParams))
       .subscribe(data => {
         this.navCtrl.pop();
       }, error => {
@@ -260,7 +262,7 @@ export class Form1updatePage {
       feel: this.editdata[0].act_feels,
       pn_id: this.phoneid,
     };
-    this.http.post("http://119.46.21.249/www/update/personlectureup.php", JSON.stringify(postParams))
+    this.http.post(this.url+"personlectureup.php", JSON.stringify(postParams))
       .subscribe(data => {
         this.navCtrl.pop();
       }, error => {
@@ -286,7 +288,7 @@ export class Form1updatePage {
       feel: this.editdata[0].act_feels,
       pn_id: this.phoneid,
     };
-    this.http.post("http://119.46.21.249/www/update/sociallectureup.php", JSON.stringify(postParams))
+    this.http.post(this.url+"sociallectureup.php", JSON.stringify(postParams))
       .subscribe(data => {
         this.navCtrl.pop();
       }, error => {
@@ -314,7 +316,7 @@ export class Form1updatePage {
       head: this.editdata[0].act_head,
       pn_id: this.phoneid,
     };
-    this.http.post("http://119.46.21.249/www/update/clubup.php", JSON.stringify(postParams))
+    this.http.post(this.url+"clubup.php", JSON.stringify(postParams))
       .subscribe(data => {
         this.navCtrl.pop();
       }, error => {
@@ -341,7 +343,7 @@ export class Form1updatePage {
       pn_id: this.phoneid,
     };
     console.log(postParams);
-    this.http.post("http://119.46.21.249/www/update/exerciseup.php", JSON.stringify(postParams))
+    this.http.post(this.url+"exerciseup.php", JSON.stringify(postParams))
       .subscribe(data => {
         this.navCtrl.pop();
       }, error => {
@@ -366,7 +368,7 @@ export class Form1updatePage {
       pn_id: this.phoneid,
     };
     console.log(postParams);
-    this.http.post("http://119.46.21.249/www/update/meetteacherup.php", JSON.stringify(postParams))
+    this.http.post(this.url+"meetteacherup.php", JSON.stringify(postParams))
       .subscribe(data => {
         this.navCtrl.pop();
       }, error => {

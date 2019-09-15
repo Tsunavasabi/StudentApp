@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class LoginProvider {
-  private url: string = "http://119.46.21.249/www/local.php";
+  private url: string = "http://www.zp11489.tld.122.155.167.85.no-domain.name/www/local.php";
   constructor(public http: HttpClient) {
 
   }

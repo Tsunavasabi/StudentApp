@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class UpdateserviceProvider {
-
+  url = "http://www.zp11489.tld.122.155.167.85.no-domain.name/www/update/"
   constructor(public http: HttpClient) {
     console.log('Hello UpdateserviceProvider Provider');
   }
@@ -12,7 +12,7 @@ export class UpdateserviceProvider {
     let out = {acttype: '01',
                act_id: act_id}
     return new Promise(resolve => {
-    this.http.post('http://119.46.21.249/www/update/outreach.php', JSON.stringify(out))
+    this.http.post(this.url+'outreach.php', JSON.stringify(out))
       .subscribe(data => {
         resolve(data);
       }, err => {
@@ -25,7 +25,7 @@ export class UpdateserviceProvider {
     let out = {acttype: '02',
                act_id: act_id}
     return new Promise(resolve => {
-    this.http.post('http://119.46.21.249/www/update/school.php', JSON.stringify(out))
+    this.http.post(this.url+'school.php', JSON.stringify(out))
       .subscribe(data => {
         resolve(data);
       }, err => {
@@ -38,7 +38,7 @@ export class UpdateserviceProvider {
     let out = {acttype: '03',
                act_id: act_id}
     return new Promise(resolve => {
-    this.http.post('http://119.46.21.249/www/update/book.php', JSON.stringify(out))
+    this.http.post(this.url+'book.php', JSON.stringify(out))
       .subscribe(data => {
         resolve(data);
       }, err => {
@@ -51,7 +51,7 @@ export class UpdateserviceProvider {
     let out = {acttype: '04',
                act_id: act_id}
     return new Promise(resolve => {
-    this.http.post('http://119.46.21.249/www/update/academic.php', JSON.stringify(out))
+    this.http.post(this.url+'academic.php', JSON.stringify(out))
       .subscribe(data => {
         resolve(data);
       }, err => {
@@ -64,7 +64,7 @@ export class UpdateserviceProvider {
     let out = {acttype: '05',
                act_id: act_id}
     return new Promise(resolve => {
-    this.http.post('http://119.46.21.249/www/update/buddha.php', JSON.stringify(out))
+    this.http.post(this.url+'buddha.php', JSON.stringify(out))
       .subscribe(data => {
         resolve(data);
       }, err => {
@@ -77,7 +77,7 @@ export class UpdateserviceProvider {
     let out = {acttype: '06',
                act_id: act_id}
     return new Promise(resolve => {
-    this.http.post('http://119.46.21.249/www/update/scivisit.php', JSON.stringify(out))
+    this.http.post(this.url+'scivisit.php', JSON.stringify(out))
       .subscribe(data => {
         resolve(data);
       }, err => {
@@ -90,7 +90,7 @@ export class UpdateserviceProvider {
     let out = {acttype: '07',
                act_id: act_id}
     return new Promise(resolve => {
-    this.http.post('http://119.46.21.249/www/update/socialvisit.php', JSON.stringify(out))
+    this.http.post(this.url+'socialvisit.php', JSON.stringify(out))
       .subscribe(data => {
         resolve(data);
       }, err => {
@@ -103,7 +103,7 @@ export class UpdateserviceProvider {
     let out = {acttype: '08',
                act_id: act_id}
     return new Promise(resolve => {
-    this.http.post('http://119.46.21.249/www/update/scilecture.php', JSON.stringify(out))
+    this.http.post(this.url+'scilecture.php', JSON.stringify(out))
       .subscribe(data => {
         resolve(data);
       }, err => {
@@ -116,7 +116,7 @@ export class UpdateserviceProvider {
     let out = {acttype: '09',
                act_id: act_id}
     return new Promise(resolve => {
-    this.http.post('http://119.46.21.249/www/update/personlecture.php', JSON.stringify(out))
+    this.http.post(this.url+'personlecture.php', JSON.stringify(out))
       .subscribe(data => {
         resolve(data);
       }, err => {
@@ -129,7 +129,7 @@ export class UpdateserviceProvider {
     let out = {acttype: '10',
                act_id: act_id}
     return new Promise(resolve => {
-    this.http.post('http://119.46.21.249/www/update/sociallecture.php', JSON.stringify(out))
+    this.http.post(this.url+'sociallecture.php', JSON.stringify(out))
       .subscribe(data => {
         resolve(data);
       }, err => {
@@ -142,7 +142,7 @@ export class UpdateserviceProvider {
     let out = {acttype: '11',
                act_id: act_id}
     return new Promise(resolve => {
-    this.http.post('http://119.46.21.249/www/update/club.php', JSON.stringify(out))
+    this.http.post(this.url+'club.php', JSON.stringify(out))
       .subscribe(data => {
         resolve(data);
       }, err => {
@@ -155,7 +155,7 @@ export class UpdateserviceProvider {
     let out = {acttype: '12',
                act_id: act_id}
     return new Promise(resolve => {
-    this.http.post('http://119.46.21.249/www/update/exercise.php', JSON.stringify(out))
+    this.http.post(this.url+'exercise.php', JSON.stringify(out))
       .subscribe(data => {
         resolve(data);
       }, err => {
@@ -168,7 +168,7 @@ export class UpdateserviceProvider {
     let out = {acttype: '13',
                act_id: act_id}
     return new Promise(resolve => {
-    this.http.post('http://119.46.21.249/www/update/meetteacher.php', JSON.stringify(out))
+    this.http.post(this.url+'meetteacher.php', JSON.stringify(out))
       .subscribe(data => {
         resolve(data);
       }, err => {

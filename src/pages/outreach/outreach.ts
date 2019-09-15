@@ -34,6 +34,7 @@ export class OutreachPage {
   ionViewWillEnter() {
     this.selectService.Selectoutreach()
     .then(data => {
+      console.log(data)
       this.outreach = data;
     });
   }
@@ -42,6 +43,7 @@ export class OutreachPage {
   updatedata(act_id) {
     this.updateService.selectupdateoutreach(act_id)
     .then(data => {
+      console.log(data)
       this.navCtrl.push(Form1updatePage, {outdata: data});
     });
   }

@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class LogserviceProvider {
-  private url: string = "https://paetong.000webhostapp.com/login1.php";
+  private url: string = "http://www.zp11489.tld.122.155.167.85.no-domain.name/www/login1.php";
   constructor(public http: Http) {
     console.log('Hello LogserviceProvider Provider');
   }

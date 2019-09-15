@@ -15,8 +15,8 @@
     <div *ngFor="let sea of searchdata">
     <button ion-item (click)="presentdetailModal(sea)" class="detailcard" text-wrap>
       <ion-avatar item-start>
-        <img src="{{ImgSrc}}" *ngIf="Detail.img_path != null">
-        <img src="assets/imgs/member.png" *ngIf="Detail.img_path == null">
+        <img src="{{ImgSrc}}" *ngIf="sea.img_path != null">
+        <img src="assets/imgs/member.png" *ngIf="sea.img_path == null">
       </ion-avatar>
       <b style="font-size: 18px">{{sea.std_firstname}} {{sea.std_lastname}} {{sea.std_classroom}} ({{sea.std_number}})</b>
       <div *ngIf="sea.flag == '0'" style="padding-top: 5px; font-size: 12px">

@@ -32,7 +32,7 @@ export class TeachermemberPage {
   idsend: any = "";
   fileToUpload: any
   Image: string;
-  ImgSrc = 'https://paetong.000webhostapp.com/'
+  ImgSrc = 'http://www.zp11489.tld.122.155.167.85.no-domain.name/www/profile'
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public loadingCtrl: LoadingController,
@@ -175,9 +175,10 @@ export class TeachermemberPage {
     let out = {activity: this.activity,
                clas: this.clas}
     return new Promise(resolve => {
-    this.http.post("http://119.46.21.249/www/selectname.php", JSON.stringify(out))
+    this.http.post("http://www.zp11489.tld.122.155.167.85.no-domain.name/www/selectname.php", JSON.stringify(out))
       .subscribe(data => {
         resolve(data);
+        console.log(data)
         this.names = JSON.parse(data['_body']);
       }, err => {
         console.log(err);// Error getting the data
@@ -188,7 +189,7 @@ export class TeachermemberPage {
   selectstd() {
     let out = {clas: this.clas}
     return new Promise(resolve => {
-    this.http.post("http://119.46.21.249/www/selectname.php", JSON.stringify(out))
+    this.http.post("http://www.zp11489.tld.122.155.167.85.no-domain.name/www/selectname.php", JSON.stringify(out))
       .subscribe(data => {
         resolve(data);
         this.names = JSON.parse(data['_body']);

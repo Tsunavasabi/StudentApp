@@ -17,7 +17,7 @@ export class MemberPage {
   allChart: any;
   public Detail: any;
   allpoint: any;
-  ImgSrc = 'https://paetong.000webhostapp.com/'
+  ImgSrc = 'http://www.zp11489.tld.122.155.167.85.no-domain.name/www/profile'
   p1: any; p2: any; p3: any; p4: any;
   p5: any; p6: any; p7: any; p8: any;
   p9: any; p10: any; p11: any; p12: any;
@@ -110,72 +110,6 @@ export class MemberPage {
   onGoToRecord() {
     this.navCtrl.push(RecordPage, {person: this.Detail});
   }
-
-  onGoToRecord1() {
-    this.Detail["select1"] = true;
-    this.navCtrl.push(RecordPage, {person: this.Detail});
-  }
-
-  onGoToRecord2() {
-    this.Detail["select2"] = true;
-    this.navCtrl.push(RecordPage, {person: this.Detail});
-  }
-
-  onGoToRecord3() {
-    this.Detail["select3"] = true;
-    this.navCtrl.push(RecordPage, {person: this.Detail});
-  }
-
-  onGoToRecord4() {
-    this.Detail["select4"] = true;
-    this.navCtrl.push(RecordPage, {person: this.Detail});
-  }
-
-  onGoToRecord5() {
-    this.Detail["select5"] = true;
-    this.navCtrl.push(RecordPage, {person: this.Detail});
-  }
-
-  onGoToRecord6() {
-    this.Detail["select6"] = true;
-    this.navCtrl.push(RecordPage, {person: this.Detail});
-  }
-
-  onGoToRecord7() {
-    this.Detail["select7"] = true;
-    this.navCtrl.push(RecordPage, {person: this.Detail});
-  }
-
-  onGoToRecord8() {
-    this.Detail["select8"] = true;
-    this.navCtrl.push(RecordPage, {person: this.Detail});
-  }
-
-  onGoToRecord9() {
-    this.Detail["select9"] = true;
-    this.navCtrl.push(RecordPage, {person: this.Detail});
-  }
-
-  onGoToRecord10() {
-    this.Detail["select10"] = true;
-    this.navCtrl.push(RecordPage, {person: this.Detail});
-  }
-
-  onGoToRecord11() {
-    this.Detail["select11"] = true;
-    this.navCtrl.push(RecordPage, {person: this.Detail});
-  }
-
-  onGoToRecord12() {
-    this.Detail["select12"] = true;
-    this.navCtrl.push(RecordPage, {person: this.Detail});
-  }
-
-  onGoToRecord13() {
-    this.Detail["select13"] = true;
-    this.navCtrl.push(RecordPage, {person: this.Detail});
-  }
-
 
 
   ionViewWillEnter() {

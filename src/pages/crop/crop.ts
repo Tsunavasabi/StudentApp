@@ -53,7 +53,7 @@ export class CropPage {
   }
 
   uploadPic() {
-    let url = 'https://paetong.000webhostapp.com/uppic.php';
+    let url = 'http://www.zp11489.tld.122.155.167.85.no-domain.name/www/profile/uppic.php';
     let postdata = new FormData();
     postdata.append('file', this.cropImg)
     postdata.append('ID', this.id)

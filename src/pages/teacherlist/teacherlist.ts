@@ -10,7 +10,7 @@ import { SendserviceProvider } from '../../providers/sendservice/sendservice';
 export class TeacherlistPage {
   teacher: any;
   act_id: any;
-  ImgSrc = 'https://paetong.000webhostapp.com/'
+  ImgSrc = 'http://www.zp11489.tld.122.155.167.85.no-domain.name/www/profile/'
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public sendService: SendserviceProvider,

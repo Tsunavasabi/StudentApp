@@ -11,7 +11,7 @@ export class SearchProvider {
   searchact(act) {
     let out = { act_type: act}
     return new Promise(resolve => {
-    this.http.post("http://119.46.21.249/www/search/searchact.php", JSON.stringify(out))
+    this.http.post("http://www.zp11489.tld.122.155.167.85.no-domain.name/www/search/searchact.php", JSON.stringify(out))
       .subscribe(data => {
         resolve(data);
       }, err => {
@@ -24,7 +24,7 @@ export class SearchProvider {
     let out = { act_type: act,
                 dorm: dorm}
     return new Promise(resolve => {
-    this.http.post("http://119.46.21.249/www/search/searchactdorm.php", JSON.stringify(out))
+    this.http.post("http://www.zp11489.tld.122.155.167.85.no-domain.name/www/search/searchactdorm.php", JSON.stringify(out))
       .subscribe(data => {
         resolve(data);
       }, err => {
@@ -37,7 +37,7 @@ export class SearchProvider {
     let out = { act_type: act,
                 class: clas}
     return new Promise(resolve => {
-    this.http.post("http://119.46.21.249/www/search/searchactclass.php", JSON.stringify(out))
+    this.http.post("http://www.zp11489.tld.122.155.167.85.no-domain.name/www/search/searchactclass.php", JSON.stringify(out))
       .subscribe(data => {
         resolve(data);
       }, err => {
@@ -51,7 +51,7 @@ export class SearchProvider {
                 class: clas,
                 dorm: dorm}
     return new Promise(resolve => {
-    this.http.post("http://119.46.21.249/www/search/searchall.php", JSON.stringify(out))
+    this.http.post("http://www.zp11489.tld.122.155.167.85.no-domain.name/www/search/searchall.php", JSON.stringify(out))
       .subscribe(data => {
         resolve(data);
       }, err => {

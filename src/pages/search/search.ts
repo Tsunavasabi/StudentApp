@@ -11,7 +11,7 @@ import { ResultPage } from '../result/result';
 export class SearchPage {
   searchdata: any;
   datalength: number;
-  ImgSrc = 'https://paetong.000webhostapp.com/'
+  ImgSrc = 'http://www.zp11489.tld.122.155.167.85.no-domain.name/www/profile/'
   constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
     this.searchdata = this.navParams.get('search');
     this.datalength = this.searchdata.length;
