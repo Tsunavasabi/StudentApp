@@ -58,7 +58,7 @@ export class CropPage {
     postdata.append('file', this.cropImg)
     postdata.append('ID', this.id)
     postdata.append('flag', this.flag)
-    console.log(postdata)
+    console.log(postdata['file'])
     let data:Observable<any> = this.http.post(url, postdata)
     data.subscribe((result) => {
       console.log(result)

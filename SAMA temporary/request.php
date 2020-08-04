@@ -36,8 +36,10 @@
           {
             $tbl = "std_activity";
             @$tch_flag = $request->flag;
-            @$tch_idcard = $request->tch_idcard;
-            $sql = "SELECT * FROM $tbl WHERE act_tch_id = '$tch_idcard' AND flag = '$tch_flag'";
+            @$tch_firstname = $request->tch_firstname;
+            @$tch_lastname = $request->tch_lastname;
+            $sql = "SELECT * FROM $tbl WHERE tch_firstname = '$tch_firstname' AND tch_lastname = '$tch_lastname' 
+            AND flag = '$tch_flag'";
             $result = mysqli_query($con,$sql);
             $num = mysqli_num_rows($result);
 

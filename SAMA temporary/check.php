@@ -23,7 +23,7 @@
 
       if(@$username !== "" && @$password !== "")
       {
-          $con = mysqli_connect("localhost","zp11489_tsunavasabi","VaSaBi8851","zp11489_sama");
+        $con = mysqli_connect("localhost","zp11489_tsunavasabi","VaSaBi8851","zp11489_sama");
           $con->set_charset("utf8");
 
 
@@ -36,10 +36,9 @@
           {
             $tbl = "std_activity";
             @$act_id = $request->act_id;
-            @$act_advice_date = $request->act_adivice_date;
             @$act_advices = $request->act_advices;
             @$flag = $request->flag;
-            $sql = "UPDATE $tbl SET act_advices_date = '$act_advice_date', act_advices = '$act_advices', flag = '$flag'
+            $sql = "UPDATE $tbl SET act_advices = '$act_advices', flag = '$flag'
             WHERE act_id = '$act_id'";
             $result = mysqli_query($con,$sql);
 

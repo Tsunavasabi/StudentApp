@@ -36,6 +36,7 @@
         @$form1detail_feel = $request->feel;
         @$form1detail_pnid = $request->pn_id;
         @$form1detail_act_name = $request->act_type_name;
+        $form1detail_date= $form1detail_date."-00-00";
 
         if(@$form1detail_hour !== "" && @$form1detail_place !== "" &&
          @$form1detail_make !== "" && @$form1detail_feel !== "" &&

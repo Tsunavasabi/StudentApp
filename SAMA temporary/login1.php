@@ -57,7 +57,7 @@
 
               } else {
                 echo $num;
-                echo mysql_error();
+
               }
 
           }

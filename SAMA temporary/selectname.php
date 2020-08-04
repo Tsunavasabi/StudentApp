@@ -38,7 +38,7 @@
             $tbl = "std_register";
             @$classr = $request->clas;
             $sql = "SELECT * FROM $tbl WHERE std_classroom = '$classr'
-            ORDER BY std_classroom, std_ID";
+            ORDER BY std_number";
             $result = mysqli_query($con,$sql);
             $num = mysqli_num_rows($result);
 
