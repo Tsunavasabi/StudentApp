@@ -3,29 +3,13 @@ import { Platform, Nav, LoadingController, App, ToastController, AlertController
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Storage } from '@ionic/storage';
-
-import { HomePage } from '../pages/home/home';
-import { WelcomePage } from '../pages/welcome/welcome';
-import { OutreachPage } from '../pages/outreach/outreach';
-import { SchoolPage } from '../pages/school/school';
-import { BookPage } from '../pages/book/book';
-import { AcademiccampPage } from '../pages/academiccamp/academiccamp';
-import { BuddhacampPage } from '../pages/buddhacamp/buddhacamp';
-import { SciencevisitPage } from '../pages/sciencevisit/sciencevisit';
-import { SocialvisitPage } from '../pages/socialvisit/socialvisit';
-import { ScilecturePage } from '../pages/scilecture/scilecture';
-import { PersonlecturePage } from '../pages/personlecture/personlecture';
-import { SociallecturePage } from '../pages/sociallecture/sociallecture';
-import { ClubPage } from '../pages/club/club';
-import { ExercisePage } from '../pages/exercise/exercise';
-import { MeetteacherPage } from '../pages/meetteacher/meetteacher';
 import { AuthserviceProvider } from '../providers/authservice/authservice';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage: any = WelcomePage;
+  rootPage: string = 'WelcomePage';
   @ViewChild(Nav) nav:Nav;
   public badge: number;
   public user: any;
@@ -39,7 +23,7 @@ export class MyApp {
     public alertCtrl: AlertController) {
       this.platform.ready().then(() => {
         statusBar.styleDefault();
-        splashScreen.hide();
+        setTimeout(function(){ splashScreen.hide() }, 3000);
 
         this.platform.registerBackButtonAction(() => {
        if (this.counter == 0) {
@@ -88,43 +72,43 @@ export class MyApp {
   }
 
   Outreach() {
-    this.nav.push(OutreachPage);
+    this.nav.push('OutreachPage');
   }
   School() {
-    this.nav.push(SchoolPage);
+    this.nav.push('SchoolPage');
   }
   Book() {
-    this.nav.push(BookPage);
+    this.nav.push('BookPage');
   }
   Academic() {
-    this.nav.push(AcademiccampPage);
+    this.nav.push('AcademiccampPage');
   }
   Buddha() {
-    this.nav.push(BuddhacampPage);
+    this.nav.push('BuddhacampPage');
   }
   Sciencevisit() {
-    this.nav.push(SciencevisitPage);
+    this.nav.push('SciencevisitPage');
   }
   Socialvisit() {
-    this.nav.push(SocialvisitPage);
+    this.nav.push('SocialvisitPage');
   }
   Scilecture() {
-    this.nav.push(ScilecturePage);
+    this.nav.push('ScilecturePage');
   }
   Sociallecture() {
-    this.nav.push(SociallecturePage);
+    this.nav.push('SociallecturePage');
   }
   Personlecture() {
-    this.nav.push(PersonlecturePage);
+    this.nav.push('PersonlecturePage');
   }
   Club() {
-    this.nav.push(ClubPage);
+    this.nav.push('ClubPage');
   }
   Exercise() {
-    this.nav.push(ExercisePage);
+    this.nav.push('ExercisePage');
   }
   Meetteacher() {
-    this.nav.push(MeetteacherPage);
+    this.nav.push('MeetteacherPage');
   }
 
   Logout() {
@@ -139,9 +123,9 @@ export class MyApp {
         loading.dismiss();
       }, 500);
     this.storage.remove('user');
-    this.nav.setRoot(HomePage);
+    this.nav.setRoot('HomePage');
     let nav1 = this.app.getRootNav();
-    nav1.setRoot(HomePage);
+    nav1.setRoot('HomePage');
   }
 
 }

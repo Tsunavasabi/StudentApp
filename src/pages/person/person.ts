@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { SearchPage } from '../search/search';
 import { Http } from '@angular/http';
 
 @IonicPage()
@@ -38,7 +37,7 @@ export class PersonPage {
           .subscribe(data => {
             resolve(data);
             this.search = JSON.parse(data['_body']);
-            this.navCtrl.push(SearchPage, {search: this.search});
+            this.navCtrl.push('SearchPage', {search: this.search});
           }, err => {
             console.log(err);// Error getting the data
           });
@@ -52,7 +51,7 @@ export class PersonPage {
             .subscribe(data => {
               resolve(data);
               this.search = JSON.parse(data['_body']);
-              this.navCtrl.push(SearchPage, {search: this.search});
+              this.navCtrl.push('SearchPage', {search: this.search});
             }, err => {
               console.log(err);// Error getting the data
           });
@@ -68,7 +67,7 @@ export class PersonPage {
             .subscribe(data => {
                 resolve(data);
                 this.search = JSON.parse(data['_body']);
-                this.navCtrl.push(SearchPage, {search: this.search});
+                this.navCtrl.push('SearchPage', {search: this.search});
             }, err => {
                 console.log(err);// Error getting the data
           });

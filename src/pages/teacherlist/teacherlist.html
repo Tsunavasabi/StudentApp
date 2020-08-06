@@ -11,8 +11,8 @@
   <ion-list>
     <ion-item *ngFor="let tea of teacher" style="background: transparent">
       <ion-avatar item-start>
-        <img src="https://119.46.21.249/www/profile/{{tea.tch_username}}.jpg" *ngIf="tea.tch_img != null">
-        <img src="assets/imgs/member.png" *ngIf="tea.tch_img == null">
+        <img *ngIf="tea.tch_img != null" src="http://paetong.000webhostapp.com/{{tea.tch_img}}.jpg">
+        <img *ngIf="tea.tch_img == null" src="assets/imgs/member.png">
       </ion-avatar>
       <h4><b>{{tea.tch_firstname}} {{tea.tch_lastname}}</b></h4>
       <p>teacher</p>

@@ -2,9 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { SelectserviceProvider } from '../../providers/selectservice/selectservice';
 import { UpdateserviceProvider } from '../../providers/updateservice/updateservice';
-import { Form1updatePage } from '../form1update/form1update';
 import { DeleteserviceProvider } from '../../providers/deleteservice/deleteservice';
-import { TeacherlistPage } from '../teacherlist/teacherlist';
 import { SendserviceProvider } from '../../providers/sendservice/sendservice';
 
 @IonicPage()
@@ -41,7 +39,7 @@ export class SciencevisitPage {
   updatedata(act_id) {
     this.updateService.updatescivisit(act_id)
     .then(data => {
-      this.navCtrl.push(Form1updatePage, {outdata: data});
+      this.navCtrl.push('Form1updatePage', {outdata: data});
     });
   }
 
@@ -69,7 +67,7 @@ export class SciencevisitPage {
   senddata(act_id) {
     let send = {act_id: act_id,
                 flag: '1'}
-    this.navCtrl.push(TeacherlistPage, {senddata: send});
+    this.navCtrl.push('TeacherlistPage', {senddata: send});
   }
 
   doRefresh(refresher) {

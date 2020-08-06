@@ -1,0 +1,72 @@
+<ion-header>
+
+  <ion-navbar color=ink>
+    <ion-title>Statistic Information</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <h1 style="text-align: center">
+      <img *ngIf="Detail.img_path != null" class="pic" src="http://paetong.000webhostapp.com/{{Detail.std_ID}}.jpg">
+      <img *ngIf="Detail.img_path == null" class="pic" src="assets/imgs/member.png">
+      <h2>{{Detail.std_firstname}} {{Detail.std_lastname}}</h2>
+      <h5>ชั้น ม.{{Detail.std_classroom}} เลขที่ {{Detail.std_number}}</h5>
+  </h1><br>
+  <ion-list>
+    <ion-item style="background: transparent">
+      <p item-start style="color: #000">การบำเพ็ญประโยชน์ต่อสังคม</p>
+      <p item-end style="color: #000">{{p1}}/15 ชั่วโมง</p><br>
+    </ion-item>
+    <ion-item style="background: transparent">
+        <p item-start style="color: #000">การบำเพ็ญประโยชน์ต่อโรงเรียน</p>
+        <p item-end style="color: #000">{{p2}}/10 ชั่วโมง</p><br>
+    </ion-item>
+    <ion-item style="background: transparent">
+        <p item-start style="color: #000">การอ่านหนังสือ</p>
+        <p item-end style="color: #000">{{p3}}/5 เล่ม</p>
+    </ion-item>
+    <ion-item style="background: transparent">
+        <p item-start style="color: #000">การออกกำลังกาย</p>
+        <p item-end style="color: #000">{{p4}}/40 ครั้ง</p>
+      </ion-item>
+      <ion-item style="background: transparent">
+          <p item-start style="color: #000">การเข้าร่วมกิจกรรมชุมนุม</p>
+          <p item-end style="color: #000">{{p12}}/1 ครั้ง</p>
+      </ion-item>
+      <ion-item style="background: transparent">
+          <p item-start style="color: #000">การเข้าร่วมกิจกรรมพบพ่อครู/แม่ครู</p>
+          <p item-end style="color: #000">{{p13}}/90 ครั้ง</p>
+      </ion-item>
+      <ion-item style="background: transparent">
+          <p item-start style="color: #000">การเข้าค่ายวิชาการ</p>
+          <p item-end style="color: #000">{{p5}} ครั้ง</p>
+      </ion-item>
+      <ion-item style="background: transparent">
+          <p item-start style="color: #000">การเข้าค่ายปฏิบัติธรรม</p>
+          <p item-end style="color: #000">{{p6}} ครั้ง</p>
+      </ion-item>
+      <ion-item style="background: transparent">
+          <p item-start style="color: #000">การศึกษาดูงานด้านคณิตศาสตร์<br>วิทยาศาสตร์และเทคโนโลยี</p>
+          <p item-end style="color: #000">{{p7}} ครั้ง</p>
+      </ion-item>
+      <ion-item style="background: transparent">
+          <p item-start style="color: #000">การศึกษาดูงานด้านสังคมศึกษา</p>
+          <p item-end style="color: #000">{{p8}} ครั้ง</p>
+      </ion-item>
+      <ion-item style="background: transparent">
+          <p item-start style="color: #000">การฟังบรรยายด้านวิทยาศาสตร์<br>และเทคโนโลยี</p>
+          <p item-end style="color: #000">{{p9}} ครั้ง</p>
+      </ion-item>
+      <ion-item style="background: transparent">
+          <p item-start style="color: #000">การฟังบรรยายด้านพัฒนาบุคลิกภาพ</p>
+          <p item-end style="color: #000">{{p10}} ครั้ง</p>
+      </ion-item>
+      <ion-item style="background: transparent">
+          <p item-start style="color: #000">การฟังบรรยายด้านสังคมศึกษา</p>
+          <p item-end style="color: #000">{{p11}} ครั้ง</p>
+      </ion-item>
+  </ion-list>
+
+</ion-content>

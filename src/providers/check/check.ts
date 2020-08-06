@@ -14,6 +14,7 @@ export class CheckProvider {
                 act_adivice_date: data.act_adivice_date,
                act_advices: data.act_advices,
                flag: '3'}
+    console.log(send)
     return new Promise(resolve => {
     this.http.post(this.link, JSON.stringify(send))
       .subscribe(data => {

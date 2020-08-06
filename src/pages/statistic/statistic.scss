@@ -1,0 +1,27 @@
+page-statistic {
+    .pic { 
+        border-radius: 50%;
+        width: 150px;
+        height: 150px;
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    }
+
+    .ion-title{
+        font-family: 'Prompt', sans-serif;
+    
+      }
+    
+      ion-content {
+        font-family: 'Prompt', sans-serif;
+        background: linear-gradient(#E9C77B, #C4D4E0);
+        color: #000;
+      }
+    
+    p {
+        color: #000;
+    }
+
+    h1, h2, h5 {
+        font-family: 'Prompt', sans-serif;
+    }
+}

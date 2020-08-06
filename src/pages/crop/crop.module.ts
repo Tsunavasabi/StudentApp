@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { CropPage } from './crop';
+import { AngularCropperjsModule } from 'angular-cropperjs';
 
 @NgModule({
   declarations: [
@@ -8,6 +9,7 @@ import { CropPage } from './crop';
   ],
   imports: [
     IonicPageModule.forChild(CropPage),
+    AngularCropperjsModule
   ],
 })
 export class CropPageModule {}

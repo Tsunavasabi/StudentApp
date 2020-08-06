@@ -1,11 +1,8 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, MenuController, ActionSheetController } from 'ionic-angular';
-import { RecordPage } from '../record/record';
 import { SelectserviceProvider } from '../../providers/selectservice/selectservice';
-import { Chart } from 'chart.js';
 import { Http } from '@angular/http';
 import { Camera, CameraOptions } from '@ionic-native/camera';
-import { CropPage } from '../crop/crop';
 
 @IonicPage()
 @Component({
@@ -13,11 +10,9 @@ import { CropPage } from '../crop/crop';
   templateUrl: 'member.html',
 })
 export class MemberPage {
-  @ViewChild('allCanvas') allCanvas;
-  allChart: any;
   public Detail: any;
   allpoint: any;
-  ImgSrc = 'http://www.zp11489.tld.122.155.167.85.no-domain.name/www/profile'
+  ImgSrc = 'http://www.zp11489.tld.122.155.167.85.no-domain.name/www/profile/'
   p1: any; p2: any; p3: any; p4: any;
   p5: any; p6: any; p7: any; p8: any;
   p9: any; p10: any; p11: any; p12: any;
@@ -97,7 +92,7 @@ export class MemberPage {
      // If it's base64 (DATA_URL):
      this.Image = 'data:image/jpeg;base64,' + imageData;
      console.log(imageData)
-     this.navCtrl.push(CropPage, {image: this.Image, id: this.Detail.std_ID, flag: this.Detail.flag})
+     this.navCtrl.push('CropPage', {image: this.Image, id: this.Detail.std_ID, flag: this.Detail.flag})
     }, (err) => {
      // Handle error 
     });
@@ -108,7 +103,7 @@ export class MemberPage {
   }
 
   onGoToRecord() {
-    this.navCtrl.push(RecordPage, {person: this.Detail});
+    this.navCtrl.push('RecordPage', {person: this.Detail});
   }
 
 
@@ -126,7 +121,6 @@ export class MemberPage {
     delete this.Detail["select11"]
     delete this.Detail["select12"]
     delete this.Detail["select13"]
-    this.selectallPoint();
     this.selectPoint1();
     this.selectPoint2();
     this.selectPoint3();
@@ -141,34 +135,6 @@ export class MemberPage {
     this.selectPoint12();
     this.selectPoint13();
     this.ImgSrc = this.ImgSrc+this.Detail.std_ID+'.jpg?'+Math.random()
-    console.log(this.ImgSrc)
-  }
-
-  selectallPoint() {
-    this.selectService.selectallPoint(this.Detail.std_ID)
-    .then(point => {
-      this.allpoint = point;
-      this.allChart = new Chart(this.allCanvas.nativeElement, {
-
-            type: 'doughnut',
-            data: {
-                labels: ["กิจกรรมที่ทำแล้ว", "กิจกรรมที่เหลือ"],
-                datasets: [{
-                    label: '# of Votes',
-                    data: [this.allpoint, 55-this.allpoint],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.5)',
-                        'rgba(41, 41, 41, 0.5)'
-                    ],
-                    hoverBackgroundColor: [
-                        "#FF6384",
-                        "#36A2EB"
-                    ], borderWidth: 1
-                }]
-            }
-
-        });
-    });
   }
 
   selectPoint1() {

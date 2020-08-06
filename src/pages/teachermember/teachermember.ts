@@ -1,16 +1,11 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController, App, AlertController, ActionSheetController } from 'ionic-angular';
-import { HomePage } from '../home/home';
 import { SearchProvider } from '../../providers/search/search';
 import { RequestProvider } from '../../providers/request/request';
-import { CheckPage } from '../check/check';
 import { Storage } from '@ionic/storage';
 import { LoginProvider } from '../../providers/login/login';
 import { Http } from '@angular/http';
-import { PersonPage } from '../person/person';
-import { RequestPage } from '../request/request';
 import { Camera, CameraOptions } from '@ionic-native/camera';
-import { CropPage } from '../crop/crop';
 
 @IonicPage()
 @Component({
@@ -32,7 +27,9 @@ export class TeachermemberPage {
   idsend: any = "";
   fileToUpload: any
   Image: string;
-  ImgSrc = 'http://www.zp11489.tld.122.155.167.85.no-domain.name/www/profile'
+  ImgSrc = 'http://www.zp11489.tld.122.155.167.85.no-domain.name/www/profile/'
+  tch_img: string
+  tch_get
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public loadingCtrl: LoadingController,
@@ -46,8 +43,8 @@ export class TeachermemberPage {
     public camera: Camera,
     public actionSheetCtrl: ActionSheetController,) {
       this.Detail = this.navParams.get('detailper');
-      console.log(this.Detail)
-      this.requestService.request(this.Detail.tch_idcard)
+      let requestdata = {tch_firstname: this.Detail.tch_firstname, tch_lastname: this.Detail.tch_lastname}
+      this.requestService.request(requestdata)
       .then(data => {
         this.request = data;
         this.badge = data['length'];
@@ -57,12 +54,14 @@ export class TeachermemberPage {
   }
 
   ionViewWillEnter() {
+    console.log(this.Detail)
     this.ImgSrc = this.ImgSrc+this.Detail.tch_username+'.jpg?'+Math.random()
-    this.requestService.request(this.Detail.tch_idcard)
-    .then(data => {
-      this.request = data;
-      this.badge = data['length'];
-    });
+    let requestdata = {tch_firstname: this.Detail.tch_firstname, tch_lastname: this.Detail.tch_lastname}
+      this.requestService.request(requestdata)
+      .then(data => {
+        this.request = data;
+        this.badge = data['length'];
+      });
   }
 
   ChangeImage() {
@@ -125,7 +124,7 @@ export class TeachermemberPage {
      // If it's base64 (DATA_URL):
      this.Image = 'data:image/jpeg;base64,' + imageData;
      console.log(imageData)
-     this.navCtrl.push(CropPage, {image: this.Image, id: this.Detail.tch_username, flag: this.Detail.flag})
+     this.navCtrl.push('CropPage', {image: this.Image, id: this.Detail.tch_username, flag: this.Detail.flag})
     }, (err) => {
      // Handle error 
     });
@@ -158,13 +157,13 @@ export class TeachermemberPage {
         loading.dismiss();
       }, 500);
     this.storage.remove('user');
-    this.navCtrl.setRoot(HomePage);
+    this.navCtrl.setRoot('HomePage');
     let nav = this.app.getRootNav();
-    nav.setRoot(HomePage);
+    nav.setRoot('HomePage');
   }
 
   check(data) {
-    this.navCtrl.push(CheckPage, {data: data, tch_data: this.Detail})
+    this.navCtrl.push('CheckPage', {data: data, tch_data: this.Detail})
   }
 
   onactivityChange(act: any){
@@ -228,7 +227,7 @@ export class TeachermemberPage {
         let per = {act_type: this.activity,
                    class: this.clas,
                    name: this.names}
-      this.navCtrl.push(PersonPage, {person: per});
+      this.navCtrl.push('PersonPage', {person: per});
       });
     } else {
       this.showAlertper()
@@ -242,7 +241,7 @@ export class TeachermemberPage {
         let per = {class: this.clas,
                    name: this.names}
       console.log(per.name)
-      this.navCtrl.push(RequestPage, {person: per});
+      this.navCtrl.push('RequestPage', {person: per});
       });
     } else {
       this.showAlertperson()

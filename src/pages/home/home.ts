@@ -1,14 +1,13 @@
 import { Component } from '@angular/core';
-import { NavController, LoadingController, AlertController } from 'ionic-angular';
-import { MemberPage } from '../member/member';
+import { NavController, LoadingController, AlertController, IonicPage } from 'ionic-angular';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Storage } from '@ionic/storage';
 import { Injectable } from '@angular/core';
-import { TeachermemberPage } from '../teachermember/teachermember';
 import { LogserviceProvider } from '../../providers/logservice/logservice';
 import { Device } from '@ionic-native/device';
 
+@IonicPage()
 @Injectable()
 @Component({
   selector: 'page-home',
@@ -43,9 +42,9 @@ export class HomePage {
         let usage = JSON.parse(data);
         console.log(usage);
         if (usage.flag == '0') {
-            this.navCtrl.setRoot(MemberPage, {detailper: usage});
+            this.navCtrl.setRoot('MemberPage', {detailper: usage});
         } else if (usage.flag == '2'){
-            this.navCtrl.setRoot(TeachermemberPage, {detailper: usage});
+            this.navCtrl.setRoot('TeachermemberPage', {detailper: usage});
         }
       }
     });
@@ -78,9 +77,17 @@ export class HomePage {
         this.storage.set('user', this.respone);
       }
       if (this.detall.flag == "0") {
-        this.navCtrl.setRoot(MemberPage, {detailper: this.detall});
+        this.navCtrl.setRoot('MemberPage', {detailper: this.detall});
       } else {
-        this.navCtrl.setRoot(TeachermemberPage, {detailper: this.detall});
+        if (this.detall.tch_first == 'false') {
+          let phone = {tch_id: this.detall.user_id, phoneid: this.device.uuid}
+          this.http.post("http://www.zp11489.tld.122.155.167.85.no-domain.name/www/addphoneid.php", JSON.stringify(phone))
+          .subscribe((data) => {
+            this.navCtrl.setRoot('TeachermemberPage', {detailper: this.detall});
+          })
+        } else {
+          this.navCtrl.setRoot('TeachermemberPage', {detailper: this.detall});
+        }
       }
 
       }

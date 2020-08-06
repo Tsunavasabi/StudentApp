@@ -8,10 +8,11 @@ export class RequestProvider {
     console.log('Hello RequestProvider Provider');
   }
 
-  request(tch_idcard) {
-    console.log(tch_idcard);
+  request(tch_name) {
+    console.log(tch_name);
     let send = {flag: "1",
-               tch_idcard: tch_idcard}
+               tch_firstname: tch_name.tch_firstname,
+               tch_lastname: tch_name.tch_lastname}
     return new Promise(resolve => {
     this.http.post(this.link, JSON.stringify(send))
       .subscribe(data => {

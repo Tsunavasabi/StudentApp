@@ -20,7 +20,7 @@
           <ion-avatar item-start>
             <ion-icon name="contacts"></ion-icon>
           </ion-avatar>
-          <b>แบบตรวจการบำเพ็ญประโยชน์<br>ต่อชุมชนและสังคม</b>
+          <b>แบบบันทึกการบำเพ็ญประโยชน์<br>ต่อชุมชนและสังคม</b>
         </ion-card-header>
         <hr>
         <ion-card-content>
@@ -56,6 +56,7 @@
         </ion-list>
       </ion-card-content>
       </ion-card>
+      <button ion-button (click)="downloadPDF1()" full color=ink round>ดาวน์โหลดไฟล์ PDF</button>
     </form>
 
     <form *ngIf="result.act_type == '02'">
@@ -100,6 +101,7 @@
         </ion-list>
       </ion-card-content>
       </ion-card>
+      <button ion-button (click)="downloadPDF2()" full color=ink round>ดาวน์โหลดไฟล์ PDF</button>
     </form>
 
     <form *ngIf="result.act_type == '03'">
@@ -158,6 +160,7 @@
         </ion-list>
       </ion-card-content>
       </ion-card>
+      <button ion-button (click)="downloadPDF3()" full color=ink round>ดาวน์โหลดไฟล์ PDF</button>
     </form>
 
     <form *ngIf="result.act_type == '04'">
@@ -198,6 +201,7 @@
         </ion-list>
       </ion-card-content>
       </ion-card>
+      <button ion-button (click)="downloadPDF5()" full color=ink round>ดาวน์โหลดไฟล์ PDF</button>
     </form>
 
     <form *ngIf="result.act_type == '05'">
@@ -238,6 +242,7 @@
         </ion-list>
       </ion-card-content>
       </ion-card>
+      <button ion-button (click)="downloadPDF6()" full color=ink round>ดาวน์โหลดไฟล์ PDF</button>
     </form>
 
     <form *ngIf="result.act_type == '06'">
@@ -282,6 +287,7 @@
         </ion-list>
       </ion-card-content>
       </ion-card>
+      <button ion-button (click)="downloadPDF7()" full color=ink round>ดาวน์โหลดไฟล์ PDF</button>
     </form>
 
     <form *ngIf="result.act_type == '07'">
@@ -326,6 +332,7 @@
         </ion-list>
       </ion-card-content>
       </ion-card>
+      <button ion-button (click)="downloadPDF8()" full color=ink round>ดาวน์โหลดไฟล์ PDF</button>
     </form>
 
     <form *ngIf="result.act_type == '08'">
@@ -366,6 +373,7 @@
         </ion-list>
       </ion-card-content>
       </ion-card>
+      <button ion-button (click)="downloadPDF9()" full color=ink round>ดาวน์โหลดไฟล์ PDF</button>
     </form>
 
     <form *ngIf="result.act_type == '09'">
@@ -407,6 +415,7 @@
         </ion-list>
       </ion-card-content>
       </ion-card>
+      <button ion-button (click)="downloadPDF10()" full color=ink round>ดาวน์โหลดไฟล์ PDF</button>
     </form>
 
     <form *ngIf="result.act_type == '10'">
@@ -448,6 +457,7 @@
         </ion-list>
       </ion-card-content>
       </ion-card>
+      <button ion-button (click)="downloadPDF11()" full color=ink round>ดาวน์โหลดไฟล์ PDF</button>
     </form>
 
     <form *ngIf="result.act_type == '11'">
@@ -482,6 +492,10 @@
             <p>{{result.act_places}}</p>
           </ion-item>
           <ion-item class="cardcontent1" text-wrap>
+            ชื่อชุมนุม
+            <p>{{result.act_head}}</p>
+          </ion-item>
+          <ion-item class="cardcontent1" text-wrap>
             ความรู้ที่ได้รับโดยสังเขป
             <p>{{result.act_details}}</p>
           </ion-item>
@@ -500,6 +514,7 @@
         </ion-list>
       </ion-card-content>
       </ion-card>
+      <button ion-button (click)="downloadPDF12()" full color=ink round>ดาวน์โหลดไฟล์ PDF</button>
     </form>
 
     <form *ngIf="result.act_type == '12'">
@@ -539,6 +554,7 @@
         </ion-list>
       </ion-card-content>
       </ion-card>
+      <button ion-button (click)="downloadPDF4()" full color=ink round>ดาวน์โหลดไฟล์ PDF</button>
     </form>
 
     <form *ngIf="result.act_type == '13'">
@@ -571,6 +587,7 @@
         </ion-list>
       </ion-card-content>
       </ion-card>
+      <button ion-button (click)="downloadPDF13()" full color=ink round>ดาวน์โหลดไฟล์ PDF</button>
     </form>
   </div>
 </ion-content>

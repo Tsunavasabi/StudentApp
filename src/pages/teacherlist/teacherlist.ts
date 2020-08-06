@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { SendserviceProvider } from '../../providers/sendservice/sendservice';
+import { Http } from '@angular/http';
 
 @IonicPage()
 @Component({
@@ -10,15 +11,15 @@ import { SendserviceProvider } from '../../providers/sendservice/sendservice';
 export class TeacherlistPage {
   teacher: any;
   act_id: any;
-  ImgSrc = 'http://www.zp11489.tld.122.155.167.85.no-domain.name/www/profile/'
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public sendService: SendserviceProvider,
-    public alertCtrl: AlertController) {
+    public alertCtrl: AlertController, public http: Http) {
     this.act_id = this.navParams.get('senddata');
     this.sendService.getalltch()
     .then(data => {
       this.teacher = data;
+      console.log(this.teacher)
     });
   }
 

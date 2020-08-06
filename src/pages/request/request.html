@@ -8,16 +8,21 @@
 
 
 <ion-content padding>
-  <ion-card>
-    <ion-card-header style="background-color: #193446;">
-        <h1 style="color: #FFF">นักเรียนชั้น ม.{{clas}}</h1>
-    </ion-card-header>
-    <ion-card-content style="background: #C4D4E0">
-        <ion-list style="background: transparent">
-            <button ion-item *ngFor="let names of name" style="background: transparent">
-              ({{names.std_number}}) {{names.std_firstname}} {{names.std_lastname}}
-          </button>
-    </ion-list>
-    </ion-card-content>
-  </ion-card>
+  <ion-list>
+  <ion-list-header style="background: transparent">
+    <h1>ห้อง ม.{{clas}}</h1>เลือกนักเรียน
+  </ion-list-header>
+
+  <ion-item *ngFor="let names of name; let i = index" style="background: transparent">
+    <ion-avatar item-start>
+      <img *ngIf="names.img_path != null" src="http://paetong.000webhostapp.com/{{names.std_ID}}.jpg">
+      <img *ngIf="names.img_path == null" src="assets/imgs/member.png">
+    </ion-avatar>
+    <ion-label>{{names.std_firstname}} {{names.std_lastname}} ({{names.std_number}})</ion-label>
+    <ion-radio value="{{names.std_ID}}" checked="i == 0" color=ink
+        (click)="radioClicked(names)"></ion-radio>
+    </ion-item>
+  </ion-list>
+  <button ion-button (click)="loadCSV()" full color=ink round>ดาวน์โหลดไฟล์ข้อมูล</button>
+  <button ion-button (click)="searchpoint()" full color=ink round>เรียกดูแบบสถิติ</button>
 </ion-content>

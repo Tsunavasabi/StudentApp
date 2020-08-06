@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, ToastController } from 'ionic-angular';
 import { CheckProvider } from '../../providers/check/check';
-import { SMS } from '@ionic-native/sms';
 import { Http } from '@angular/http';
 
 @IonicPage()
@@ -18,7 +17,7 @@ export class CheckPage {
     public navParams: NavParams,
     public checkService: CheckProvider,
     public alertCtrl: AlertController,
-    private sms: SMS, public http: Http,
+     public http: Http,
     public toastCtrl: ToastController) {
     this.check = this.navParams.get('data');
     this.Detail = this.navParams.get('tch_data');
@@ -27,10 +26,12 @@ export class CheckPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CheckPage');
+    console.log(this.date)
   }
 
-  message(pin) {
-    this.sms.send(this.Detail.tch_phone, 'รหัสสำหรับตรวจสอบกิจกรรมนี้ของคุณคือ '+pin);
+  message() {
+    console.log(this.Detail.tch_phone)
+    
   }
 
   UnCheckTo() {
@@ -68,7 +69,6 @@ export class CheckPage {
       .subscribe(data => {
         console.log(data['_body'])
         if(data['_body']==pin) {
-          this.message(pin)
           this.Checkinput()
         }
       }, err => {
@@ -77,35 +77,25 @@ export class CheckPage {
   }
 
   Uncheckinput() {
-    let confirm = this.alertCtrl.create({
-      title: 'ยืนยันตัวตน',
-      message: 'กรุณาใส่รหัสที่ได้รับทาง SMS',
-      inputs: [
-        {
-          name: 'PIN',
-          placeholder: 'Your PIN',
-          type: 'password'
-        },
-      ],
-      buttons: [{ text: 'ยกเลิก'},
-                { text: 'ตกลง',handler: data => {this.Uncheckpin(data)}}]});
-    confirm.present();
+    let phoneid = {phoneid: this.Detail.tch_phone_id}
+    this.http.post("http://www.zp11489.tld.122.155.167.85.no-domain.name/www/phoneid.php", JSON.stringify(phoneid))
+      .subscribe(data => {
+        console.log(data['_body'])
+        this.Uncheckcomplete()
+      }, err => {
+        console.log(err);// Error getting the data
+      });
   }
 
   Checkinput() {
-    let confirm = this.alertCtrl.create({
-      title: 'ยืนยันตัวตน',
-      message: 'กรุณาใส่รหัสที่ได้รับทาง SMS',
-      inputs: [
-        {
-          name: 'PIN',
-          placeholder: 'Your PIN',
-          type: 'password'
-        },
-      ],
-      buttons: [{ text: 'ยกเลิก'},
-                { text: 'ตกลง',handler: data => {this.Checkpin(data)}}]});
-    confirm.present();
+    let phoneid = {phoneid: this.Detail.tch_phone_id}
+    this.http.post("http://www.zp11489.tld.122.155.167.85.no-domain.name/www/phoneid.php", JSON.stringify(phoneid))
+      .subscribe(data => {
+        console.log(data['_body'])
+        this.Checkcomplete()
+      }, err => {
+        console.log(err);// Error getting the data
+      });
   }
 
   Checkpin(pin) {
@@ -138,6 +128,7 @@ export class CheckPage {
     let check = {act_id: this.check.act_id,
                  act_adivice_date: this.date,
                  act_advices: this.check.act_advices}
+    console.log(check)
     this.checkService.Check(check)
     .then(data => {
       let alert = this.alertCtrl.create({
@@ -173,7 +164,6 @@ export class CheckPage {
       .subscribe(data => {
         console.log(data)
         if(data['_body']==pin) {
-          this.message(pin)
           this.Uncheckinput()
         }
       }, err => {

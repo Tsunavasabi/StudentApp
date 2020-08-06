@@ -4,20 +4,6 @@ import { LoginProvider } from '../../providers/login/login';
 import { ActivityProvider } from '../../providers/activity/activity';
 import { Http } from '@angular/http';
 import { Device } from '@ionic-native/device';
-
-import { OutreachPage } from '../outreach/outreach';
-import { SchoolPage } from '../school/school';
-import { BookPage } from '../book/book';
-import { AcademiccampPage } from '../academiccamp/academiccamp';
-import { BuddhacampPage } from '../buddhacamp/buddhacamp';
-import { SciencevisitPage } from '../sciencevisit/sciencevisit';
-import { SocialvisitPage } from '../socialvisit/socialvisit';
-import { ScilecturePage } from '../scilecture/scilecture';
-import { PersonlecturePage } from '../personlecture/personlecture';
-import { SociallecturePage } from '../sociallecture/sociallecture';
-import { ClubPage } from '../club/club';
-import { ExercisePage } from '../exercise/exercise';
-import { MeetteacherPage } from '../meetteacher/meetteacher';
 import { SelectserviceProvider } from '../../providers/selectservice/selectservice';
 
 @IonicPage()
@@ -45,42 +31,42 @@ export class RecordPage {
   public select12: boolean = false;
   public select13: boolean = false;
   form1detail : any = {
-    date: '2018-01-01'
+    date: '2020-01-01'
   };
   form2detail: any = {
-    date: '2018-01-01'
+    date: '2020-01-01'
   };
   form3detail: any = {
-    date: '2018'
+    date: '2020'
   };
   form4detail:any = {};
   form5detail:any = {};
   form6detail:any = {
-    date: '2018-01-01'
+    date: '2020-01-01'
   };
   form7detail: any = {
-    date: '2018-01-01'
+    date: '2020-01-01'
   };
   form8detail: any = {
-    date: '2018-01-01'
+    date: '2020-01-01'
   };
   form9detail: any = {
-    date: '2018-01-01'
+    date: '2020-01-01'
   };
   form10detail: any = {
-    date: '2018-01-01'
+    date: '2020-01-01'
   };
   form11detail:any = {
-    date: '2018-01-01',
+    date: '2020-01-01',
     place: ''
   };
   form12detail:any = {
-    date: '2018-01-01',
+    date: '2020-01-01',
     timeStarts: '00:00',
     timeEnds: '00:00'
   };
   form13detail:any = {
-    date: '2018-01-01'
+    date: '2020-01-01'
   };
   isValid: boolean = true;
   p1: any;
@@ -115,67 +101,67 @@ export class RecordPage {
 
   goto1() {
     this.navCtrl.pop()
-    this.navCtrl.push(OutreachPage)
+    this.navCtrl.push('OutreachPage')
   }
 
   goto2() {
     this.navCtrl.pop()
-    this.navCtrl.push(SchoolPage)
+    this.navCtrl.push('SchoolPage')
   }
 
   goto3() {
     this.navCtrl.pop()
-    this.navCtrl.push(BookPage)
+    this.navCtrl.push('BookPage')
   }
 
   goto4() {
     this.navCtrl.pop()
-    this.navCtrl.push(AcademiccampPage)
+    this.navCtrl.push('AcademiccampPage')
   }
 
   goto5() {
     this.navCtrl.pop()
-    this.navCtrl.push(BuddhacampPage)
+    this.navCtrl.push('BuddhacampPage')
   }
 
   goto6() {
     this.navCtrl.pop()
-    this.navCtrl.push(SciencevisitPage)
+    this.navCtrl.push('SciencevisitPage')
   }
 
   goto7() {
     this.navCtrl.pop()
-    this.navCtrl.push(SocialvisitPage)
+    this.navCtrl.push('SocialvisitPage')
   }
 
   goto8() {
     this.navCtrl.pop()
-    this.navCtrl.push(ScilecturePage)
+    this.navCtrl.push('ScilecturePage')
   }
 
   goto9() {
     this.navCtrl.pop()
-    this.navCtrl.push(PersonlecturePage)
+    this.navCtrl.push('PersonlecturePage')
   }
 
   goto10() {
     this.navCtrl.pop()
-    this.navCtrl.push(SociallecturePage)
+    this.navCtrl.push('SociallecturePage')
   }
 
   goto11() {
     this.navCtrl.pop()
-    this.navCtrl.push(ClubPage)
+    this.navCtrl.push('ClubPage')
   }
 
   goto12() {
     this.navCtrl.pop()
-    this.navCtrl.push(ExercisePage)
+    this.navCtrl.push('ExercisePage')
   }
 
   goto13() {
     this.navCtrl.pop()
-    this.navCtrl.push(MeetteacherPage)
+    this.navCtrl.push('MeetteacherPage')
   }
 
   selectPoint1() {
@@ -330,8 +316,10 @@ export class RecordPage {
       print: this.form3detail.print,
       pn_id: this.phoneid
     };
+    console.log(postParams)
     this.http.post(this.url+"form3insert.php", JSON.stringify(postParams))
       .subscribe(data => {
+        console.log(data)
         let confirm = this.alertCtrl.create({
           title: 'แจ้งเตือน',
           message: 'คุณต้องการส่งเลยหรือไม่ ?',
